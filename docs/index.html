@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tanzeel Hussain — Software Engineer</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #030712;
+    --surface: #0b0f19;
+    --surface2: #111827;
+    --border: rgba(99, 179, 237, 0.1);
+
+    --h1-gradient: linear-gradient(135deg, #ffffff 0%, #93c5fd 40%, #c4b5fd 75%, #f9a8d4 100%);
+    --label-gradient: linear-gradient(90deg, #fbbf24 0%, #a78bfa 100%);
+    --accent: #38bdf8;
+    --accent2: #2dd4bf;
+    --accent3: #fb923c;
+    --accent4: #f87171;
+    --accent5: #a78bfa;
+
+    --text: #f3f4f6;
+    --muted: #9ca3af;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Inter', sans-serif;
+    font-size: 15px;
+    line-height: 1.65;
+    overflow-x: hidden;
+    min-height: 100vh;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background-image:
+      linear-gradient(rgba(56,189,248,0.012) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(56,189,248,0.012) 1px, transparent 1px);
+    background-size: 52px 52px;
+    pointer-events: none;
+  }
+
+  body::after {
+    content: '';
+    position: fixed; top: -180px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 560px; z-index: 0;
+    background: radial-gradient(ellipse at center,
+      rgba(99,179,237,0.055) 0%,
+      rgba(167,139,250,0.025) 50%,
+      transparent 70%);
+    pointer-events: none;
+  }
+
+  .wrapper { position: relative; z-index: 1; max-width: 960px; margin: 0 auto; padding: 0 24px 80px; }
+
+  /* ── HEADER ── */
+  header {
+    padding: 80px 0 52px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 32px;
+    align-items: start;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 68px;
+  }
+  .header-left { max-width: 580px; }
+
+  .tag {
+    display: inline-block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    font-weight: 500;
+    color: var(--accent2);
+    border: 1px solid rgba(45,212,191,0.22);
+    background: rgba(45,212,191,0.04);
+    padding: 5px 14px;
+    border-radius: 6px;
+    margin-bottom: 22px;
+    letter-spacing: 0.07em;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  /* ── H1: spectacular multi-color gradient ── */
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(44px, 6.5vw, 72px);
+    font-weight: 700;
+    line-height: 1.04;
+    letter-spacing: -0.035em;
+    color: #fff;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+  h1 .name-plain { color: #ffffff; }
+  h1 .name-grad {
+    background: var(--h1-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    margin-top: 22px;
+    font-size: 15.5px;
+    color: var(--muted);
+    font-weight: 400;
+    max-width: 510px;
+    line-height: 1.7;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .socials {
+    display: flex; gap: 10px; flex-wrap: wrap; margin-top: 26px;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+  .social-btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 9px 16px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px;
+    color: var(--muted);
+    text-decoration: none;
+    transition: all 0.22s cubic-bezier(0.4,0,0.2,1);
+    background: rgba(255,255,255,0.01);
+    letter-spacing: 0.02em;
+  }
+  .social-btn:hover {
+    border-color: var(--accent);
+    color: #fff;
+    background: rgba(56,189,248,0.07);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 18px rgba(56,189,248,0.1);
+  }
+  .social-btn svg { width: 13px; height: 13px; fill: currentColor; }
+
+  /* ── AVATAR ── */
+  .avatar-block {
+    animation: fadeUp 0.6s 0.15s ease both;
+    display: flex; flex-direction: column; align-items: center; gap: 14px;
+  }
+  .avatar {
+    width: 118px; height: 118px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 55%, #f9a8d4 100%);
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 36px;
+    color: #0a0014;
+    position: relative;
+    box-shadow: 0 0 44px rgba(167,139,250,0.18);
+  }
+  .avatar::after {
+    content: '';
+    position: absolute; inset: -6px;
+    border-radius: 50%;
+    border: 1px dashed rgba(167,139,250,0.25);
+    animation: spin 26s linear infinite;
+  }
+  .status-dot {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    background: rgba(45,212,191,0.05);
+    border: 1px solid rgba(45,212,191,0.16);
+    border-radius: 30px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px; color: var(--accent2); font-weight: 500;
+    letter-spacing: 0.04em;
+  }
+  .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent2); animation: pulse 2s infinite; }
+
+  /* ── SECTION LABELS — gradient text ── */
+  .section { margin-bottom: 72px; }
+
+  .section-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 28px;
+    display: flex; align-items: center; gap: 16px;
+
+    background: var(--label-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .section-label::after {
+    content: '';
+    flex: 1; height: 1px;
+    background: linear-gradient(90deg, rgba(251,191,36,0.2), transparent);
+    -webkit-text-fill-color: unset;
+  }
+
+  /* ── ABOUT CARDS ── */
+  .about-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    gap: 18px;
+  }
+  .about-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 22px 24px;
+    transition: all 0.25s cubic-bezier(0.4,0,0.2,1);
+    animation: fadeUp 0.5s ease both;
+  }
+  .about-card:hover {
+    border-color: rgba(167,139,250,0.3);
+    transform: translateY(-4px);
+    box-shadow: 0 14px 34px rgba(0,0,0,0.3);
+  }
+  .about-card .icon { font-size: 22px; margin-bottom: 12px; }
+  .about-card .card-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 600; font-size: 13px;
+    color: #e2e8f0;
+    text-transform: uppercase; letter-spacing: 0.06em;
+    margin-bottom: 7px;
+  }
+  .about-card .card-body { font-size: 13.5px; color: var(--muted); line-height: 1.65; font-weight: 400; }
+  .about-card:hover .card-body { color: #cbd5e1; }
+
+  /* ── SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(168px, 1fr));
+    gap: 12px;
+  }
+  .skill-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 13px 16px;
+    display: flex; align-items: center; gap: 11px;
+    transition: all 0.2s ease;
+    animation: fadeUp 0.4s ease both;
+    cursor: default;
+  }
+  .skill-chip:hover {
+    border-color: var(--chip-color, var(--accent));
+    background: rgba(255,255,255,0.025);
+    transform: translateY(-3px) scale(1.02);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.28);
+  }
+  .skill-chip .chip-icon { font-size: 17px; flex-shrink: 0; }
+  .skill-chip .chip-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11.5px; color: var(--text); letter-spacing: 0.02em;
+  }
+
+  /* ── PROJECTS ── */
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px;
+  }
+  .project-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 26px;
+    display: flex; flex-direction: column; gap: 13px;
+    transition: all 0.28s cubic-bezier(0.4,0,0.2,1);
+    position: relative; overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+  }
+  .project-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    background: var(--card-accent, var(--accent));
+    transform: scaleX(0); transform-origin: left;
+    transition: transform 0.3s cubic-bezier(0.4,0,0.2,1);
+  }
+  .project-card:hover { border-color: rgba(255,255,255,0.1); transform: translateY(-6px); box-shadow: 0 22px 44px rgba(0,0,0,0.5); }
+  .project-card:hover::before { transform: scaleX(1); }
+  .proj-header { display: flex; justify-content: space-between; align-items: flex-start; }
+  .proj-icon { font-size: 28px; }
+  .proj-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 4px 10px;
+    border-radius: 4px; background: rgba(56,189,248,0.06); color: var(--accent);
+    border: 1px solid rgba(56,189,248,0.15); font-weight: 500;
+  }
+
+  /* ── Project card headings ── */
+  .project-card h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 20px;
+    background: linear-gradient(120deg, #fff 0%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-top: 4px;
+  }
+  .project-card p { font-size: 13.5px; color: var(--muted); flex: 1; line-height: 1.65; font-weight: 400; }
+  .tech-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+  .tech-tag {
+    font-family: 'JetBrains Mono', monospace; font-size: 10px; padding: 3px 8px;
+    border-radius: 4px; background: rgba(255,255,255,0.03); color: var(--muted);
+    border: 1px solid rgba(255,255,255,0.06);
+  }
+  .project-link {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 11px;
+    color: var(--card-accent, var(--accent));
+    text-decoration: none; margin-top: 10px;
+    transition: gap 0.2s; font-weight: 700;
+  }
+  .project-link:hover { gap: 10px; }
+
+  /* ── STATS ── */
+  .stats-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(175px, 1fr)); gap: 18px; }
+  .stat-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px; padding: 26px;
+    text-align: center;
+    transition: all 0.2s;
+    animation: fadeUp 0.4s ease both;
+  }
+  .stat-card:hover { border-color: var(--accent5); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(167,139,250,0.1); }
+  .stat-num {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 40px;
+    background: linear-gradient(135deg, #93c5fd 0%, #c4b5fd 60%, #f9a8d4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    line-height: 1;
+  }
+  .stat-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10.5px; color: var(--muted);
+    margin-top: 8px; text-transform: uppercase; letter-spacing: 0.06em;
+  }
+
+  /* ── CONTACT ── */
+  .contact-bar {
+    background: linear-gradient(135deg, var(--surface), rgba(167,139,250,0.03));
+    border: 1px solid rgba(167,139,250,0.18);
+    border-radius: 14px; padding: 40px;
+    display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 24px;
+    position: relative; overflow: hidden;
+    box-shadow: 0 10px 32px rgba(0,0,0,0.3);
+  }
+  .contact-bar::before {
+    content: '';
+    position: absolute; right: -40px; top: -40px;
+    width: 200px; height: 200px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(167,139,250,0.08), transparent 70%);
+  }
+  .contact-bar h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700; font-size: 26px;
+    background: linear-gradient(90deg, #fff 0%, #c4b5fd 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  .contact-bar p { color: var(--muted); font-size: 14px; margin-top: 6px; }
+  .contact-email {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: 'JetBrains Mono', monospace; font-size: 12.5px;
+    color: #fff; text-decoration: none;
+    padding: 13px 26px;
+    border: 1px solid var(--accent5); border-radius: 8px;
+    background: rgba(167,139,250,0.06);
+    transition: all 0.25s;
+    box-shadow: 0 4px 15px rgba(167,139,250,0.1);
+    font-weight: 600;
+  }
+  .contact-email:hover {
+    background: var(--accent5); color: #0a0014;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 22px rgba(167,139,250,0.3);
+  }
+
+  /* ── GITHUB STATS ── */
+  .github-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 16px;
+  }
+  .github-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px; overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .github-card:hover { border-color: var(--accent); }
+  .github-card img { width: 100%; display: block; }
+
+  /* ── FOOTER ── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding-top: 32px; margin-top: 80px;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+  }
+  footer p { font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--muted); }
+  footer span { color: var(--accent4); }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  @keyframes pulse {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(45,212,191,0.4); }
+    50%       { box-shadow: 0 0 0 6px rgba(45,212,191,0); }
+  }
+
+  .about-card:nth-child(1) { animation-delay: 0.05s; }
+  .about-card:nth-child(2) { animation-delay: 0.10s; }
+  .about-card:nth-child(3) { animation-delay: 0.15s; }
+  .about-card:nth-child(4) { animation-delay: 0.20s; }
+  .about-card:nth-child(5) { animation-delay: 0.25s; }
+  .project-card:nth-child(1) { animation-delay: 0.05s; }
+  .project-card:nth-child(2) { animation-delay: 0.12s; }
+  .project-card:nth-child(3) { animation-delay: 0.19s; }
+  .project-card:nth-child(4) { animation-delay: 0.26s; }
+
+  @media (max-width: 640px) {
+    header { grid-template-columns: 1fr; padding-top: 48px; }
+    .avatar-block { flex-direction: row; justify-content: flex-start; }
+    h1 { font-size: 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+  <header>
+    <div class="header-left">
+      <div class="tag">// ENGINEERING DIGITAL EXPERIENCES</div>
+      <h1>
+        <span class="name-plain">Tanzeel<br></span>
+        <span class="name-grad">Hussain.</span>
+      </h1>
+      <p class="subtitle">Software Engineering Student · Flutter Developer · C++ Systems Programmer — based in Faisalabad, Pakistan.</p>
+      <div class="socials">
+        <a class="social-btn" href="https://github.com/f243077-cell" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2 0-.4-.5-1.6.2-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.7 18 5 18 5c.7 1.6.2 2.8.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.5.4.9 1.2.9 2.3v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3z"/></svg>
+          GitHub
+        </a>
+        <a class="social-btn" href="https://linkedin.com/in/tanzeel-hussain-176a93327/" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a class="social-btn" href="mailto:tanzeelhussain346@gmail.com">
+          <svg viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+          Email
+        </a>
+        <a class="social-btn" href="https://instagram.com/tanzeel.hussaiin" target="_blank">
+          <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+          Instagram
+        </a>
+      </div>
+    </div>
+    <div class="avatar-block">
+      <div class="avatar">TH</div>
+      <div class="status-dot"><div class="dot"></div> Open to work</div>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="section-label">About Me</div>
+    <div class="about-grid">
+      <div class="about-card">
+        <div class="icon">🌱</div>
+        <div class="card-title">Currently Learning</div>
+        <div class="card-body">Advanced Flutter development &amp; System Design Architecture — going deep on scalable, production-grade patterns</div>
+      </div>
+      <div class="about-card">
+        <div class="icon">🔮</div>
+        <div class="card-title">Future Interest</div>
+        <div class="card-body">Keen to explore DevOps — CI/CD pipelines, containerisation, and cloud infrastructure</div>
+      </div>
+      <div class="about-card">
+        <div class="icon">👯</div>
+        <div class="card-title">Looking to Collaborate</div>
+        <div class="card-body">Flutter mobile apps, C++ systems projects, and open-source SE tools</div>
+      </div>
+      <div class="about-card">
+        <div class="icon">⚡</div>
+        <div class="card-title">Fun Fact</div>
+        <div class="card-body">Built a chess engine in C++ &amp; modeled a full university system using discrete math logic</div>
+      </div>
+      <div class="about-card">
+        <div class="icon">🎓</div>
+        <div class="card-title">Education</div>
+        <div class="card-body">FAST-NUCES Faisalabad · Batch 2024–2028 · SE Student #24F-3077</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Tech Stack</div>
+    <div class="skills-grid">
+      <div class="skill-chip" style="--chip-color:#00599C"><span class="chip-icon">⚙️</span><span class="chip-name">C++</span></div>
+      <div class="skill-chip" style="--chip-color:#0175C2"><span class="chip-icon">🎯</span><span class="chip-name">Dart</span></div>
+      <div class="skill-chip" style="--chip-color:#02569B"><span class="chip-icon">📱</span><span class="chip-name">Flutter</span></div>
+      <div class="skill-chip" style="--chip-color:#ED8B00"><span class="chip-icon">☕</span><span class="chip-name">Java</span></div>
+      <div class="skill-chip" style="--chip-color:#F7DF1E"><span class="chip-icon">🌐</span><span class="chip-name">JavaScript</span></div>
+      <div class="skill-chip" style="--chip-color:#039BE5"><span class="chip-icon">🔥</span><span class="chip-name">Firebase</span></div>
+      <div class="skill-chip" style="--chip-color:#2dd4bf"><span class="chip-icon">🌿</span><span class="chip-name">Riverpod 2.x</span></div>
+      <div class="skill-chip" style="--chip-color:#fb923c"><span class="chip-icon">🏗️</span><span class="chip-name">Sys. Design Arch.</span></div>
+      <div class="skill-chip" style="--chip-color:#f87171"><span class="chip-icon">🧩</span><span class="chip-name">GRASP Patterns</span></div>
+      <div class="skill-chip" style="--chip-color:#a78bfa"><span class="chip-icon">🔗</span><span class="chip-name">REST APIs</span></div>
+      <div class="skill-chip" style="--chip-color:#F05033"><span class="chip-icon">🔧</span><span class="chip-name">Git / GitHub</span></div>
+      <div class="skill-chip" style="--chip-color:#38bdf8"><span class="chip-icon">🗃️</span><span class="chip-name">Data Structures</span></div>
+      <div class="skill-chip" style="--chip-color:#E34F26"><span class="chip-icon">🌍</span><span class="chip-name">HTML5 / CSS3</span></div>
+      <div class="skill-chip" style="--chip-color:#41CD52"><span class="chip-icon">🖥️</span><span class="chip-name">Qt6 / C++</span></div>
+      <div class="skill-chip" style="--chip-color:#2dd4bf"><span class="chip-icon">🏛️</span><span class="chip-name">Clean Architecture</span></div>
+      <div class="skill-chip" style="--chip-color:#fb923c"><span class="chip-icon">🧮</span><span class="chip-name">OOP / SOLID</span></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Featured Projects</div>
+    <div class="projects-grid">
+      <div class="project-card" style="--card-accent:#38bdf8">
+        <div class="proj-header"><div class="proj-icon">🤖</div><div class="proj-tag">Flutter · AI</div></div>
+        <h3>AcadAI Buddy</h3>
+        <p>AI-powered study companion for Pakistani university students — Clean Architecture, Riverpod 2.x, Firebase &amp; OpenRouter.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Flutter</span><span class="tech-tag">Riverpod</span>
+          <span class="tech-tag">Firebase</span><span class="tech-tag">OpenRouter</span><span class="tech-tag">GoRouter</span>
+        </div>
+        <a class="project-link" href="https://github.com/f243077-cell/AcadAi_Buddy" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card" style="--card-accent:#2dd4bf">
+        <div class="proj-header"><div class="proj-icon">🚀</div><div class="proj-tag">Node.js · AI</div></div>
+        <h3>FounderAI</h3>
+        <p>24-hour GDG hackathon — AI founder assistant built with Gemini, Firebase, and Node.js. Deployed to Railway.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Node.js</span><span class="tech-tag">Express</span>
+          <span class="tech-tag">Gemini API</span><span class="tech-tag">Firebase</span><span class="tech-tag">Railway</span>
+        </div>
+        <a class="project-link" href="https://github.com/f243077-cell/Founder_AI" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card" style="--card-accent:#fb923c">
+        <div class="proj-header"><div class="proj-icon">🌐</div><div class="proj-tag">C++ · Qt6</div></div>
+        <h3>Qt6 Social Media App</h3>
+        <p>Console-based social media platform featuring 7 custom data structures (Hash Table, Graph, AVL Tree, Stack, Queue, DLL, CLL) with a Qt6 GUI layer.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">C++</span><span class="tech-tag">Qt6</span>
+          <span class="tech-tag">DSA</span><span class="tech-tag">CMake</span>
+        </div>
+        <a class="project-link" href="https://github.com/f243077-cell" target="_blank">View on GitHub →</a>
+      </div>
+      <div class="project-card" style="--card-accent:#f87171">
+        <div class="proj-header"><div class="proj-icon">🌤️</div><div class="proj-tag">Flutter · API</div></div>
+        <h3>Flutter Weather App</h3>
+        <p>Full-featured weather app with multi-city support, REST API integration, separated concerns via clean service/screen architecture, and APK release build.</p>
+        <div class="tech-tags">
+          <span class="tech-tag">Flutter</span><span class="tech-tag">Dart</span>
+          <span class="tech-tag">REST API</span><span class="tech-tag">Clean Arch</span>
+        </div>
+        <a class="project-link" href="https://github.com/f243077-cell" target="_blank">View on GitHub →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">By the Numbers</div>
+    <div class="stats-row">
+      <div class="stat-card"><div class="stat-num">6+</div><div class="stat-label">Projects Shipped</div></div>
+      <div class="stat-card"><div class="stat-num">7</div><div class="stat-label">Custom DSA</div></div>
+      <div class="stat-card"><div class="stat-num">9</div><div class="stat-label">GRASP Mastered</div></div>
+      <div class="stat-card"><div class="stat-num">4+</div><div class="stat-label">Languages</div></div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">GitHub Stats</div>
+    <div class="github-grid">
+      <div class="github-card">
+        <img src="https://github-readme-stats.shion.dev/api?username=f243077-cell&theme=dark&hide_border=true&include_all_commits=true&count_private=false&bg_color=0d1117&title_color=c4b5fd&text_color=e2e8f0&icon_color=93c5fd" alt="GitHub Stats" />
+      </div>
+      <!-- <div class="github-card">
+        <img src="https://streak-stats.demolab.com/?user=f243077-cell&theme=dark&hide_border=true&background=0d1117&ring=c4b5fd&fire=f9a8d4&currStreakLabel=93c5fd" alt="Streak Stats" />
+      </div> -->
+      <div class="github-card">
+        <img src="https://github-readme-stats.shion.dev/api/top-langs/?username=f243077-cell&theme=dark&hide_border=true&bg_color=0d1117&title_color=c4b5fd&text_color=e2e8f0&layout=compact" alt="Top Languages" />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-label">Get In Touch</div>
+    <div class="contact-bar">
+      <div>
+        <h3>Let's build something great.</h3>
+        <p>Open for opportunities, collaborations, and open-source projects.</p>
+      </div>
+      <a class="contact-email" href="mailto:tanzeelhussain346@gmail.com">
+        <svg width="14" height="14" fill="currentColor" viewBox="0 0 24 24"><path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L5.455 4.64 12 9.548l6.545-4.91 1.528-1.145C21.69 2.28 24 3.434 24 5.457z"/></svg>
+        tanzeelhussain346@gmail.com
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p>Tanzeel Hussain · FAST-NUCES Faisalabad · Batch 2024–2028</p>
+    <p>Built with <span>♥</span> and way too much <span>☕</span></p>
+  </footer>
+
+</div>
+</body>
+</html>
