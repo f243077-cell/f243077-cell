@@ -1,4 +1,4 @@
-# [![Typing Animation](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=FF6B35&center=true&width=500&lines=Hi,+Tanzeel+Here!;Flutter+Developer;C%2B%2B+Systems+Programmer;SE+Student+%40+FAST-NUCES)](https://github.com/f243077-cell)
+# [![Typing Animation](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=FFD700&center=true&width=500&lines=Hi,+Tanzeel+Here!;Flutter+Developer;C%2B%2B+Systems+Programmer;SE+Student+%40+FAST-NUCES)](https://github.com/f243077-cell)
 
 <div align="center">
 </div>
