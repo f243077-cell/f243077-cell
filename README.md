@@ -1,4 +1,5 @@
-# [![Typing Animation](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=FFD700&center=true&width=500&lines=Hi,+Tanzeel+Here!;Flutter+Developer;C%2B%2B+Systems+Programmer;SE+Student+%40+FAST-NUCES)](https://github.com/f243077-cell)
+# [![Typing Animation](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=FF6B35&center=true&width=500&lines=Hi,+Tanzeel+Here!;Flutter+Developer;C%2B%2B+Systems+Programmer;SE+Student+%40+FAST-NUCES)](https://github.com/f243077-cell)
+
 <div align="center">
 </div>
 
@@ -36,21 +37,21 @@
 ![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
 
 # 📊 GitHub Stats:
-![Tanzeel's Streak](https://github-readme-streak-stats.herokuapp.com/?user=f243077-cell&theme=vision-friendly-dark&hide_border=true)
+![Tanzeel's Streak](https://github-readme-streak-stats.herokuapp.com/?user=f243077-cell&theme=dark&hide_border=true&ring=FF6B35&fire=FF6B35&currStreakLabel=FF6B35)
 
-![Tanzeel's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&theme=vision-friendly-dark&show_icons=true&hide_border=true&layout=compact)
+![Tanzeel's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&theme=dark&show_icons=true&hide_border=true&layout=compact&title_color=FF6B35&icon_color=FF6B35)
 
-![Tanzeel's Stats](https://github-readme-stats.vercel.app/api?username=f243077-cell&theme=vision-friendly-dark&show_icons=true&hide_border=true&count_private=true)
+![Tanzeel's Stats](https://github-readme-stats.vercel.app/api?username=f243077-cell&theme=dark&show_icons=true&hide_border=true&count_private=true&title_color=FF6B35&icon_color=FF6B35)
 
 <div align="center">
   <br>
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&radius=16&theme=react&area=true&order=5&custom_title=Contribution%20Graph" height="300" alt="activity-graph" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&radius=16&theme=react&area=true&order=5&custom_title=Contribution%20Graph&color=FF6B35&line=FF6B35&point=FF6B35" height="300" alt="activity-graph" />
 </div>
 
 ---
 
 [![](https://visitcount.itsvg.in/api?id=f243077-cell&icon=0&color=0)](https://visitcount.itsvg.in)
-![](https://komarev.com/ghpvc/?username=f243077-cell&color=brightgreen&style=flat)
+![](https://komarev.com/ghpvc/?username=f243077-cell&color=FF6B35&style=flat)
 
 ## 🏆 GitHub Trophies
 ![](https://github-profile-trophy.vercel.app/?username=f243077-cell&theme=radical&no-frame=false&no-bg=false&margin-w=4)
