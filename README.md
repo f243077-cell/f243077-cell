@@ -1,60 +1,231 @@
-# [![Typing Animation](https://readme-typing-svg.herokuapp.com?font=Fira+Code&size=24&duration=2000&pause=1000&color=FFD700&center=true&width=500&lines=Hi,+Tanzeel+Here!;Flutter+Developer;C%2B%2B+Systems+Programmer;SE+Student+%40+FAST-NUCES)](https://github.com/f243077-cell)
-
 <div align="center">
-</div>
 
-## <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/283929614-7d083e4b-8c04-4c94-b996-085e97c9a6a0.gif" width=41px>&nbsp;&nbsp; About Me
+# Hi 👋 I'm Tanzeel Hussain
 
-<img align="right" src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/283930112-76687f51-ac99-48ef-a44b-dd11c1d78e7f.gif" width=250px></img>
+### Software Engineering Student • Flutter Developer • Aspiring GenAI & MLOps Engineer
 
-🎓 SE Student @ FAST-NUCES Faisalabad · Batch 2024–2028 <br>
-📱 Flutter Developer — Clean Architecture, Riverpod 2.x, Firebase <br>
-💻 C++ Systems Programmer — DSA, Qt6, Chess Engine <br>
-🚀 Building production-grade apps & exploring DevOps <br>
-⚡ Built a chess engine in C++ & modeled a university system with discrete math <br>
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&duration=2500&pause=900&color=10B981&center=true&vCenter=true&width=900&lines=Software+Engineering+Student;Flutter+Developer;C%2B%2B+Systems+Programmer;GenAI+%26+MLOps+Enthusiast;Building+Production-Grade+Apps" />
 
-## 🌐 Socials:
+<br>
 
-[![GitHub](https://img.shields.io/badge/GitHub-%23181717.svg?logo=github&logoColor=white)](https://github.com/f243077-cell)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://linkedin.com/in/tanzeel-hussain-176a93327/)
-[![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/tanzeel.hussaiin)
-[![Email](https://img.shields.io/badge/Gmail-D14836?logo=gmail&logoColor=white)](mailto:tanzeelhussain346@gmail.com)
+<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=10B981" />
 
-## <img src="https://github-production-user-asset-6210df.s3.amazonaws.com/73993775/285126925-0b3a8bfe-ddfb-4c7f-93db-3517b0b6fe69.gif" width=36px>&nbsp;&nbsp; Skills
-
-![Flutter](https://img.shields.io/badge/Flutter-%2302569B.svg?style=for-the-badge&logo=Flutter&logoColor=white)
-![Dart](https://img.shields.io/badge/Dart-%230175C2.svg?style=for-the-badge&logo=Dart&logoColor=white)
-![Firebase](https://img.shields.io/badge/Firebase-%23039BE5.svg?style=for-the-badge&logo=firebase&logoColor=white)
-![C++](https://img.shields.io/badge/C++-%2300599C.svg?style=for-the-badge&logo=cplusplus&logoColor=white)
-![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
-![Node.js](https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white)
-![Qt](https://img.shields.io/badge/Qt6-%2341CD52.svg?style=for-the-badge&logo=qt&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white)
-![Git](https://img.shields.io/badge/Git-%23F05033.svg?style=for-the-badge&logo=git&logoColor=white)
-![Postman](https://img.shields.io/badge/Postman-%23FF6C37.svg?style=for-the-badge&logo=postman&logoColor=white)
-![Render](https://img.shields.io/badge/Render-%2346E3B7.svg?style=for-the-badge&logo=render&logoColor=white)
-![Figma](https://img.shields.io/badge/Figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)
-
-# 📊 GitHub Stats:
-
-![Tanzeel's Streak](https://github-readme-streak-stats.herokuapp.com/?user=f243077-cell&theme=vision-friendly-dark&hide_border=true)
-
-![Tanzeel's Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&theme=vision-friendly-dark&show_icons=true&hide_border=true&layout=compact)
-
-![Tanzeel's Stats](https://github-readme-stats.vercel.app/api?username=f243077-cell&theme=vision-friendly-dark&show_icons=true&hide_border=true&count_private=true)
-
-<div align="center">
-  <br>
-  <img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&radius=16&theme=react&area=true&order=5&custom_title=Contribution%20Graph" height="300" alt="activity-graph" />
 </div>
 
 ---
 
-[![](https://visitcount.itsvg.in/api?id=f243077-cell&icon=0&color=0)](https://visitcount.itsvg.in)
-![](https://komarev.com/ghpvc/?username=f243077-cell&color=brightgreen&style=flat)
+# 🚀 About Me
 
-## 🏆 GitHub Trophies
+```yaml
+Name: Tanzeel Hussain
 
-![](https://github-profile-trophy.vercel.app/?username=f243077-cell&theme=radical&no-frame=false&no-bg=false&margin-w=4)
+Location: Faisalabad, Pakistan 🇵🇰
+
+Education:
+  BS Software Engineering
+  FAST-NUCES Faisalabad (Batch 2024–2028)
+
+Email:
+  tanzeelhussain346@gmail.com
+
+Current Role:
+  Flutter Developer Intern @ FlutterCraft.app (UK-based, remote)
+  Freelance Flutter Developer @ Fiverr
+
+Current Focus:
+  - Flutter Development (Clean Architecture, Riverpod)
+  - AI-powered mobile apps
+  - Transitioning toward GenAI Engineering & MLOps
+```
+
+---
+
+# ⚡ Current Goals
+
+- Ship production-grade AI-powered Flutter apps
+- Transition into a job-ready **GenAI Engineer** role (targeting 2026–2027)
+- Build a strong foundation in **MLOps**
+- Master Clean Architecture, Riverpod 2.x/3.0, and scalable backend design
+- Explore LLM orchestration, RAG, and vector databases
+
+---
+
+# 💻 Tech Stack
+
+## 📱 Mobile Development
+
+<p>
+<img src="https://skillicons.dev/icons?i=flutter,dart,firebase"/>
+</p>
+
+<img src="https://img.shields.io/badge/Riverpod-0175C2?style=for-the-badge&logo=flutter&logoColor=white"/>
+<img src="https://img.shields.io/badge/BLoC-02569B?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
+
+---
+
+## 💻 Programming Languages
+
+<p>
+<img src="https://skillicons.dev/icons?i=cpp,java,js,html,css"/>
+</p>
+
+---
+
+## 🗄 Backend & Cloud
+
+<img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=firebase&logoColor=white"/>
+<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
+<img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge"/>
+
+---
+
+## 🤖 AI & GenAI
+
+<img src="https://img.shields.io/badge/OpenRouter-000000?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/LLM_Integration-412991?style=for-the-badge&logo=openai&logoColor=white"/>
+<img src="https://img.shields.io/badge/Learning-MLOps-FF6D00?style=for-the-badge"/>
+
+---
+
+## ⚙ Tools
+
+<p>
+<img src="https://skillicons.dev/icons?i=git,github,vscode,figma"/>
+</p>
+
+---
+
+# 🚀 Featured Projects
+
+### 🤖 CreateResume AI — AI-Powered Resume Builder
+> Flutter • Supabase • Riverpod • OpenRouter API (Llama 3.3 70B)
+> Generates ATS-optimized resumes from plain-language input, exportable across 5 templates, with job-targeted optimization and a credit-based usage system.
+
+---
+
+### 🧠 AcadAI Buddy — AI Study Companion
+> Flutter • Firebase • Riverpod • Clean Architecture
+> AI chat, auto-generated MCQ quizzes, and note summarization for Pakistani university students. Supports 40+ FAST-NUCES core subjects.
+
+---
+
+### ♟ Console Chess Engine (oop-chess-game)
+> C++ • OOP
+> Full rule enforcement — check, checkmate, stalemate, legal move validation — with ANSI-colored terminal rendering.
+
+---
+
+### 📱 Console-Based Social Media Platform (Mini_Instagram_App)
+> C++ • DSA
+> Linked lists, stacks, queues, trees, and graphs combined into one console platform for connections, feed, notifications, and search.
+
+---
+
+### 🎓 Discrete University Management System (UniDisc)
+> C++ • Java • OOP • Discrete Math
+> Course scheduling, prerequisite validation, and faculty assignment using propositional/predicate logic, set theory, and induction-based validation.
+
+---
+
+### 🏫 FlexPortal — Student Attendance & Result Management System
+> HTML • CSS • Vanilla JS
+> Role-based login for Admin, Teacher, and Student with attendance tracking and result management.
+
+---
+
+### 🚀 FounderAI
+> Node.js • Express
+> AI startup assistant built during the GDG "Build with AI" hackathon, deployed on Render.com.
+
+---
+
+### 🌦 Flutter Weather App
+> Flutter • Dart • REST API
+> Real-time weather with location-based lookup and multi-day forecasts.
+
+---
+
+### 💱 Flutter Multi-Currency Converter
+> Flutter • Dart
+> Converts PKR to 20+ currencies live via exchange rate API.
+
+---
+
+# 🔥 GitHub Streak
+
+<div align="center">
+
+<img src="https://streak-stats.demolab.com?user=f243077-cell&theme=vision-friendly-dark&hide_border=true"/>
+
+</div>
+
+---
+
+# 📈 Contribution Graph
+
+<div align="center">
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&theme=react&hide_border=true&radius=12&area=true"/>
+
+</div>
+
+---
+
+# 🏅 Achievements
+
+🏆 GDG "Build with AI" Hackathon Participant — built FounderAI
+
+📱 2+ years of hands-on Flutter development
+
+🤖 Building full-stack AI-powered Flutter apps
+
+🎓 BS Software Engineering @ FAST-NUCES
+
+💼 Flutter Developer Intern @ FlutterCraft.app (UK)
+
+---
+
+# 📚 Currently Exploring
+
+- 🤖 Generative AI Engineering
+- ⚙️ MLOps
+- 🧠 LLM Orchestration & RAG
+- ☁️ Cloud Computing
+- 📦 Vector Databases
+- 🔥 Agentic AI Systems
+
+---
+
+# 🌍 Connect With Me
+
+<div align="center">
+
+<a href="https://github.com/f243077-cell">
+<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
+</a>
+
+<a href="https://linkedin.com/in/tanzeel-hussain-176a93327/">
+<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
+</a>
+
+<a href="https://instagram.com/tanzeel.hussaiin">
+<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white"/>
+</a>
+
+<a href="mailto:tanzeelhussain346@gmail.com">
+<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
+</a>
+
+</div>
+
+---
+
+<div align="center">
+
+### ⭐ If you like my projects, consider giving them a star!
+
+<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=10B981"/>
+<img src="https://img.shields.io/github/followers/f243077-cell?style=for-the-badge&logo=github"/>
+
+</div>
