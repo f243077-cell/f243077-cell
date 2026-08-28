@@ -27,7 +27,7 @@ Education:
   FAST-NUCES Faisalabad (Batch 2024–2028)
 
 Current Role:
-  Flutter Developer Intern @ FlutterCraft.app (UK-based, remote)
+  Flutter Developer Intern @ FlutterCraft.app (remote)
   Freelance Flutter Developer @ Fiverr
 
 Focus:
