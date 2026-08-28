@@ -1,20 +1,22 @@
 <div align="center">
 
-# Hi 👋 I'm Tanzeel Hussain
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:10B981,50:06B6D4,100:7C3AED&height=220&section=header&text=Tanzeel%20Hussain&fontSize=60&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38" />
 
-### Flutter Developer • Software Engineering Student • Transitioning into GenAI & MLOps
+### Hi 👋, welcome to my profile
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=26&duration=2500&pause=900&color=10B981&center=true&vCenter=true&width=900&lines=Flutter+Developer;AI-Powered+Mobile+Apps;C%2B%2B+Systems+Programmer;GenAI+%26+MLOps+Enthusiast;Building+Production-Grade+Apps" />
+<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2500&pause=900&color=06B6D4&center=true&vCenter=true&width=900&lines=Flutter+Developer;AI-Powered+Mobile+Apps;C%2B%2B+Systems+Programmer;GenAI+%26+MLOps+Enthusiast;Building+Production-Grade+Apps" />
 
-<br>
-
-<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=10B981" />
+<img src="https://img.shields.io/badge/📍-Faisalabad,_Pakistan-10B981?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/🟢-Open_to_Flutter_&_Freelance_Work-06B6D4?style=for-the-badge"/>
+<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=7C3AED" />
 
 </div>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
 # 🚀 About Me
+
+I'm a Software Engineering student and Flutter developer from Faisalabad, Pakistan who likes turning ideas into apps people can actually use — from AI-powered resume builders to console-based data structure playgrounds. Right now I'm deep in Clean Architecture and Riverpod for my day-to-day work, while steadily building toward a GenAI Engineering focus.
 
 ```yaml
 Name: Tanzeel Hussain
@@ -33,7 +35,15 @@ Focus:
   now transitioning toward GenAI Engineering & MLOps.
 ```
 
----
+### 🧭 Career Snapshot
+
+| Role | Organization | Type |
+|:--|:--|:--|
+| 💼 Flutter Developer Intern | FlutterCraft.app (UK) | Remote |
+| 🧩 Freelance Flutter Developer | Fiverr | Ongoing |
+| 🎓 BS Software Engineering | FAST-NUCES Faisalabad | 2024 – 2028 |
+
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
 # 🎯 Featured Projects
 
@@ -65,11 +75,11 @@ Focus:
 > C++ • DSA
 > Linked lists, stacks, queues, trees, and graphs combined into one console platform for connections, feed, notifications, and search.
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
 # 💻 Tech Stack
 
-## 📱 Mobile Development
+**📱 Mobile Development**
 <p>
 <img src="https://skillicons.dev/icons?i=flutter,dart,firebase"/>
 </p>
@@ -77,38 +87,41 @@ Focus:
 <img src="https://img.shields.io/badge/BLoC-02569B?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
 
-## 💻 Programming Languages
+**💻 Programming Languages**
 <p>
 <img src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css"/>
 </p>
 
-## 🏗 Core CS & Software Engineering
-<img src="https://img.shields.io/badge/Data_Structures_%26_Algorithms-000000?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/OOP-000000?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Software_Design_%26_Architecture-000000?style=for-the-badge"/>
+**🏗 Core CS & Software Engineering**
+<img src="https://img.shields.io/badge/Data_Structures_%26_Algorithms-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/OOP-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Software_Design_%26_Architecture-7C3AED?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Software_Construction_%26_Development-7C3AED?style=for-the-badge"/>
 
-## 🗄 Backend & Cloud
+**🗄 Backend & Cloud**
 <img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=firebase&logoColor=white"/>
 <img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
 <img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge"/>
 
-## 🤖 AI & GenAI
+**🤖 AI & GenAI**
 <img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
 <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
 <img src="https://img.shields.io/badge/OpenRouter-000000?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/LLM_Integration-412991?style=for-the-badge&logo=openai&logoColor=white"/>
-<img src="https://img.shields.io/badge/MCP-10B981?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Prompt_Engineering-FF6D00?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/MCP-06B6D4?style=for-the-badge"/>
+<img src="https://img.shields.io/badge/Prompt_Engineering-06B6D4?style=for-the-badge"/>
 <img src="https://img.shields.io/badge/Learning-MLOps-FF6D00?style=for-the-badge"/>
 
-## ⚙ Tools & DevOps
+**⚙ Tools & DevOps**
 <p>
 <img src="https://skillicons.dev/icons?i=git,github,vscode,figma,docker"/>
 </p>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
-# 📦 More Projects
+<details>
+<summary><b>📦 More Projects (click to expand)</b></summary>
+<br>
 
 - 🎓 [Discrete University Management System](https://github.com/f243077-cell/Discrete-University-Management-System) — course scheduling & prerequisite validation using discrete math
 - 🏫 [FlexPortal](https://github.com/f243077-cell/FlexPortal-Student-Attendance-Result-Management-System) — attendance & result management, role-based login
@@ -122,23 +135,26 @@ Focus:
 - 🔗 [URL Health Checker](https://github.com/f243077-cell/URL-Health-Checker)
 - 💬 [whispr](https://github.com/f243077-cell/whispr)
 
----
+</details>
 
-# 🔥 GitHub Streak
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+
+# 📊 GitHub Analytics
 
 <div align="center">
+
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&count_private=false&title_color=06B6D4&icon_color=7C3AED&text_color=E5E7EB&bg_color=00000000&border_color=10B981"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&title_color=06B6D4&text_color=E5E7EB&bg_color=00000000&border_color=10B981"/>
+
 <img src="https://streak-stats.demolab.com?user=f243077-cell&theme=vision-friendly-dark&hide_border=true"/>
-</div>
 
----
-
-# 📈 Contribution Graph
-
-<div align="center">
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&theme=react&hide_border=true&radius=12&area=true"/>
+
+<img src="https://github-profile-trophy.vercel.app/?username=f243077-cell&theme=algolia&no-bg=true&row=1&column=7&margin-w=15&margin-h=15"/>
+
 </div>
 
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
 # 🏅 Achievements
 
@@ -152,17 +168,19 @@ Focus:
 
 💼 Flutter Developer Intern @ FlutterCraft.app (UK)
 
----
+# 📚 Learning Roadmap
 
-# 📚 Currently Exploring
+- [x] Python, NumPy, Pandas
+- [x] Docker
+- [x] MCP (Model Context Protocol) & Prompt Engineering
+- [x] Software Design & Architecture (SDA)
+- [ ] Software Construction & Development (SCD)
+- [ ] LLM Orchestration & RAG
+- [ ] MLOps
+- [ ] Vector Databases
+- [ ] Agentic AI Systems
 
-- 🧠 LLM Orchestration & RAG
-- ⚙️ MLOps
-- 📦 Vector Databases
-- 🔥 Agentic AI Systems
-- 📘 Software Construction & Development (SCD)
-
----
+<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
 
 # 🌍 Connect With Me
 
@@ -190,13 +208,12 @@ Focus:
 
 </div>
 
----
-
 <div align="center">
 
 ### ⭐ If you like my projects, consider giving them a star!
 
-<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=10B981"/>
-<img src="https://img.shields.io/github/followers/f243077-cell?style=for-the-badge&logo=github"/>
+<img src="https://img.shields.io/github/followers/f243077-cell?style=for-the-badge&logo=github&color=7C3AED"/>
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7C3AED,50:06B6D4,100:10B981&height=150&section=footer&animation=fadeIn" />
