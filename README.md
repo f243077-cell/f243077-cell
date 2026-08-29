@@ -39,7 +39,7 @@ Focus:
 
 | Role | Organization | Type |
 |:--|:--|:--|
-| 💼 Flutter Developer Intern | FlutterCraft.app (UK) | Remote |
+| 💼 Flutter Developer Intern | FlutterCraft.app | Remote |
 | 🧩 Freelance Flutter Developer | Fiverr | Ongoing |
 | 🎓 BS Software Engineering | FAST-NUCES Faisalabad | 2024 – 2028 |
 
