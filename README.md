@@ -166,7 +166,7 @@ Focus:
 
 🎓 BS Software Engineering @ FAST-NUCES
 
-💼 Flutter Developer Intern @ FlutterCraft.app (UK)
+💼 Flutter Developer Intern @ FlutterCraft.app 
 
 # 📚 Learning Roadmap
 
