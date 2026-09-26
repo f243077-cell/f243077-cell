@@ -8,7 +8,7 @@
 <a href="mailto:tanzeelhussain346@gmail.com"><img alt="Status: open to Flutter and AI roles" src="https://img.shields.io/badge/status-open_to_Flutter_%26_AI_roles-4aa6f5?style=flat-square&labelColor=1b1a17"></a>
 </p>
 
-[LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com) · [Instagram](https://instagram.com/tanzeel.hussaiin)
+[LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com)
 
 ## About me
 
