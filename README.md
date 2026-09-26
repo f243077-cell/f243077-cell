@@ -1,8 +1,14 @@
-# Tanzeel Hussain
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/banner-dark.svg">
+  <img alt="Tanzeel Hussain — Flutter developer building clean, AI-ready mobile apps. Shown: the BioGuard, AcadAI Buddy and CreateResume AI apps, and a track from Flutter apps to real-time backends to GenAI engineering." src="assets/readme/banner-light.svg" width="100%">
+</picture>
 
-**Flutter developer building AI-ready mobile apps, now moving into GenAI engineering.**
+<p>
+<a href="https://f243077-cell.github.io/f243077-cell/"><img alt="Portfolio: live" src="https://img.shields.io/badge/portfolio-live-4aa6f5?style=flat-square&labelColor=1b1a17"></a>
+<a href="mailto:tanzeelhussain346@gmail.com"><img alt="Status: open to Flutter and AI roles" src="https://img.shields.io/badge/status-open_to_Flutter_%26_AI_roles-4aa6f5?style=flat-square&labelColor=1b1a17"></a>
+</p>
 
-[Portfolio](https://f243077-cell.github.io/f243077-cell/) · [LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com) · [Instagram](https://instagram.com/tanzeel.hussaiin)
+[LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com) · [Instagram](https://instagram.com/tanzeel.hussaiin)
 
 ## About me
 
@@ -96,7 +102,11 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 
 ## GitHub stats
 
-<p>
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&count_private=false&hide_border=true&bg_color=00000000&title_color=4aa6f5&icon_color=4aa6f5&text_color=7d8590" alt="GitHub stats for f243077-cell"/>
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=00000000&title_color=4aa6f5&text_color=7d8590" alt="Most used languages for f243077-cell"/>
-</p>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&hide_border=true&bg_color=12110f&title_color=4aa6f5&icon_color=4aa6f5&text_color=b8b2a8">
+  <img height="165" alt="GitHub stats for f243077-cell" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&hide_border=true&bg_color=f5f1ea&title_color=1f78c8&icon_color=1f78c8&text_color=3d3830">
+</picture>
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=12110f&title_color=4aa6f5&text_color=b8b2a8">
+  <img height="165" alt="Most used languages for f243077-cell" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=f5f1ea&title_color=1f78c8&text_color=3d3830">
+</picture>
