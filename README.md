@@ -103,10 +103,8 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 ## GitHub stats
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&hide_border=true&bg_color=12110f&title_color=4aa6f5&icon_color=4aa6f5&text_color=b8b2a8">
-  <img height="165" alt="GitHub stats for f243077-cell" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&hide_border=true&bg_color=f5f1ea&title_color=1f78c8&icon_color=1f78c8&text_color=3d3830">
+  <source media="(prefers-color-scheme: dark)" srcset="assets/readme/stats-dark.svg">
+  <img alt="GitHub stats for f243077-cell: public repositories, public commits, and top languages by code written" src="assets/readme/stats-light.svg" width="100%">
 </picture>
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=12110f&title_color=4aa6f5&text_color=b8b2a8">
-  <img height="165" alt="Most used languages for f243077-cell" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=f5f1ea&title_color=1f78c8&text_color=3d3830">
-</picture>
+
+<sub>Drawn daily by a GitHub Action in this repo. Language shares exclude build files and the platform-runner code Flutter generates.</sub>
