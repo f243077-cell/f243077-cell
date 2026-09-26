@@ -172,6 +172,14 @@
         height: 18px;
         flex-shrink: 0;
       }
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+      }
       .skip-link {
         position: fixed;
         left: 16px;
@@ -1979,6 +1987,28 @@
           d="M7 17 17 7M8 7h9v9"
         />
       </symbol>
+      <symbol id="i-file" viewBox="0 0 24 24">
+        <g
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
+          <path d="M14 3v5h5M9 13h6M9 17h6" />
+        </g>
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24">
+        <path
+          fill="none"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"
+        />
+      </symbol>
       <symbol id="i-copy" viewBox="0 0 24 24">
         <g
           fill="none"
@@ -2166,6 +2196,14 @@
             >
             <a class="btn btn-outline" href="mailto:tanzeelhussain346@gmail.com"
               ><svg class="icon"><use href="#i-mail" /></svg> Email me</a
+            >
+            <a
+              class="btn btn-outline"
+              href="assets/Tanzeel_Hussain_Resume.pdf"
+              target="_blank"
+              rel="noopener"
+              ><svg class="icon"><use href="#i-file" /></svg> Résumé
+              <span class="visually-hidden">(PDF, opens in a new tab)</span></a
             >
           </div>
           <div class="stat-row">
@@ -2964,6 +3002,13 @@
                 <svg class="icon"><use href="#i-copy" /></svg>
                 <span data-copy-label>Copy email</span>
               </button>
+              <a
+                class="btn btn-outline"
+                href="assets/Tanzeel_Hussain_Resume.pdf"
+                download="Tanzeel_Hussain_Resume.pdf"
+                ><svg class="icon"><use href="#i-download" /></svg> Download
+                résumé <span class="visually-hidden">(PDF)</span></a
+              >
             </div>
             <p class="contact-loc">
               <svg class="icon"><use href="#i-pin" /></svg> Faisalabad, Pakistan
