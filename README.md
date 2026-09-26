@@ -1,219 +1,102 @@
-<div align="center">
+# Tanzeel Hussain
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:10B981,50:06B6D4,100:7C3AED&height=220&section=header&text=Tanzeel%20Hussain&fontSize=60&fontColor=FFFFFF&animation=fadeIn&fontAlignY=38" />
+**Flutter developer building AI-ready mobile apps, now moving into GenAI engineering.**
 
-### Hi 👋, welcome to my profile
+[Portfolio](https://f243077-cell.github.io/f243077-cell/) · [LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com) · [Instagram](https://instagram.com/tanzeel.hussaiin)
 
-<img src="https://readme-typing-svg.demolab.com?font=JetBrains+Mono&weight=700&size=24&duration=2500&pause=900&color=06B6D4&center=true&vCenter=true&width=900&lines=Flutter+Developer;AI-Powered+Mobile+Apps;C%2B%2B+Systems+Programmer;GenAI+%26+MLOps+Enthusiast;Building+Production-Grade+Apps" />
+## About me
 
-<img src="https://img.shields.io/badge/📍-Faisalabad,_Pakistan-10B981?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/🟢-Open_to_Flutter_&_Freelance_Work-06B6D4?style=for-the-badge"/>
-<img src="https://komarev.com/ghpvc/?username=f243077-cell&style=for-the-badge&color=7C3AED" />
+I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter apps end to end: Riverpod state, Clean Architecture layers, and a real backend behind the UI, whether that's Firebase, Supabase, or a FastAPI service I wrote myself. In August 2026 I finished an eight-week remote Flutter internship at FlutterCraft.app, and I take freelance Flutter work on Fiverr alongside my degree. My last three builds each put something smarter than a CRUD API behind the screen: an LLM study companion, an LLM resume generator whose API key never leaves a Supabase Edge Function, and an MQTT-fed cold-chain monitor. That's the direction I'm heading, GenAI engineering (RAG, LangChain, agent orchestration) on top of a solid mobile foundation. I'm open to Flutter and AI-engineering roles, remote or on-site, in Pakistan, Dubai, and Germany.
 
-</div>
+### Career snapshot
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+| Role                        | Organization               | When                      |
+| :-------------------------- | :------------------------- | :------------------------ |
+| Flutter Developer Intern    | FlutterCraft.app (remote)  | Jul – Aug 2026, completed |
+| Freelance Flutter Developer | Fiverr                     | Ongoing                   |
+| BS Software Engineering     | FAST-NUCES Faisalabad      | 2024 – 2028               |
 
-# 🚀 About Me
+## Featured projects
 
-I'm a Software Engineering student and Flutter developer from Faisalabad, Pakistan who likes turning ideas into apps people can actually use — from AI-powered resume builders to console-based data structure playgrounds. Right now I'm deep in Clean Architecture and Riverpod for my day-to-day work, while steadily building toward a GenAI Engineering focus.
+### [BioGuard](https://github.com/f243077-cell/BioGuard): cold-chain compliance for vaccines, insulin and biologics
 
-```yaml
-Name: Tanzeel Hussain
-Location: Faisalabad, Pakistan 🇵🇰
+Simulated fridge sensors publish temperature and lock readings over MQTT (QoS 1, persistent broker) to a FastAPI backend, which re-checks every reading against *that device's own* thresholds, ignoring the sensor's self-reported anomaly flag and any device ID in the payload, before opening, escalating or resolving an alert. A drift more than 5 °C past the safe range escalates the same alert from warning to critical, which is what sounds the Flutter app's alarm; alerts are pushed live over WebSocket and Firebase Cloud Messaging, while the device dashboard deliberately polls every 5 s, because a slightly stale temperature is fine but a late alarm isn't. The Flutter app (Riverpod, JWT login/register/logout) covers a live multi-device dashboard, a history screen with trend charts, persistent alert history, and PDF compliance reports, and the backend runs SQLite in WAL mode so API reads never hit "database is locked" while the MQTT thread is writing.
 
-Education:
-  BS Software Engineering
-  FAST-NUCES Faisalabad (Batch 2024–2028)
+<sub>FastAPI · Flutter · Riverpod · MQTT (Mosquitto) · WebSocket · Firebase Cloud Messaging · SQLite · Docker Compose</sub>
 
-Current Role:
-  Flutter Developer Intern @ FlutterCraft.app (remote)
-  Freelance Flutter Developer @ Fiverr
+### [AcadAI Buddy](https://github.com/f243077-cell/AcadAi_Buddy): AI study companion for university students
 
-Focus:
-  Building production-grade, AI-powered Flutter apps —
-  now transitioning toward GenAI Engineering & MLOps.
-```
+Subject-aware AI chat, MCQ quizzes that are generated and scored on the spot, and bullet-point summaries from pasted text or a photo of your notes, across 40+ subjects including every FAST-NUCES core course, plus custom subjects. The app is split into four Clean Architecture layers (presentation, Riverpod application, domain, infrastructure), with Firebase and OpenRouter confined to the infrastructure layer behind abstract repositories and failures returned as `dartz` `Either` values instead of thrown exceptions, so the UI never knows which model provider it's talking to. Chat history persists per user in Firestore.
 
-### 🧭 Career Snapshot
+<sub>Flutter · Riverpod · Firebase Auth · Cloud Firestore · OpenRouter · go_router · Clean Architecture</sub>
 
-| Role | Organization | Type |
-|:--|:--|:--|
-| 💼 Flutter Developer Intern | FlutterCraft.app | Remote |
-| 🧩 Freelance Flutter Developer | Fiverr | Ongoing |
-| 🎓 BS Software Engineering | FAST-NUCES Faisalabad | 2024 – 2028 |
+### [CreateResume AI](https://github.com/f243077-cell/CreateResume-AI-App): plain-language input to ATS-ready resume
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+Describe your background in plain language and it drafts a full ATS-optimized resume (summary, experience, education, skills, projects), optionally tailored to a pasted job description, then renders it through a custom template engine on the `pdf` package into five layouts: Classic, Modern, Minimal, Executive and Executive 2. Generation runs server-side in a Supabase Edge Function that calls OpenRouter (Llama 3.3 70B), so the API key never ships inside the app, and each generation draws on a per-user credit balance stored in Postgres behind free and premium plans. Supabase stays behind domain interfaces (`IResumeRepository`, `IAuthRepository`), with a Riverpod notifier per feature module and a go_router shell route for persistent bottom navigation.
 
-# 🎯 Featured Projects
+<sub>Flutter · Riverpod · Supabase (Auth, Postgres, Storage, Edge Functions) · OpenRouter · go_router</sub>
 
-### 🤖 [CreateResume AI](https://github.com/f243077-cell/CreateResume-AI-App) — AI-Powered Resume Builder
-> Flutter • Supabase • Riverpod • OpenRouter API (Llama 3.3 70B)
-> Generates ATS-optimized resumes from plain-language input, exportable across 5 templates, with job-targeted optimization and a credit-based usage system.
+### [Console Chess Engine](https://github.com/f243077-cell/oop-chess-game): two-player chess in the terminal
 
----
+Built around an abstract `Piece` base class: each of the six piece types overrides its own movement rules and is created through factory functions onto an 8×8 board of piece pointers. Move validation is layered (geometry, then path blocking, then a check test that rejects any move leaving your own king exposed), and that same check test is what drives checkmate and stalemate detection. Castling, en passant and promotion are the documented next step.
 
-### 🧠 [AcadAI Buddy](https://github.com/f243077-cell/AcadAi_Buddy) — AI Study Companion
-> Flutter • Firebase • Riverpod • Clean Architecture
-> AI chat, auto-generated MCQ quizzes, and note summarization for university students — covers 40+ FAST-NUCES core subjects.
+<sub>C++ · OOP · polymorphism · factory pattern</sub>
 
----
+### [Console-Based Social Media Platform](https://github.com/f243077-cell/Mini_Instagram_App): a social network with no STL
 
-### 🩺 [BioGuard](https://github.com/f243077-cell/BioGuard) — Cold-Chain Medicine Safety Monitoring
-> Python • IoT Sensors • MQTT • FastAPI • Flutter
-> End-to-end concept for monitoring temperature-sensitive medicine in transit — sensor layer, MQTT messaging, FastAPI backend, and a Flutter dashboard.
+A DSA course project with one hard rule: no STL containers, so every structure is hand-built with pointers. Each feature sits on the structure that fits its access pattern: a chained hash table for the user directory, an adjacency-list graph for friendships (BFS/DFS), doubly linked lists for feeds, a circular list for stories, a FIFO queue for notifications, stacks for message threads, and an AVL tree for top-K and range-query analytics. Deleting an account cascades through every module (friendships, posts, messages, rankings), so no structure is left pointing at a removed user. Built with Muhammad Hassan.
 
----
-
-### ♟ [Console Chess Engine](https://github.com/f243077-cell/oop-chess-game) — oop-chess-game
-> C++ • OOP
-> Full rule enforcement — check, checkmate, stalemate, legal move validation — with ANSI-colored terminal rendering.
-
----
-
-### 📱 [Console-Based Social Media Platform](https://github.com/f243077-cell/Mini_Instagram_App) — Mini_Instagram_App
-> C++ • DSA
-> Linked lists, stacks, queues, trees, and graphs combined into one console platform for connections, feed, notifications, and search.
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
-
-# 💻 Tech Stack
-
-**📱 Mobile Development**
-<p>
-<img src="https://skillicons.dev/icons?i=flutter,dart,firebase"/>
-</p>
-<img src="https://img.shields.io/badge/Riverpod-0175C2?style=for-the-badge&logo=flutter&logoColor=white"/>
-<img src="https://img.shields.io/badge/BLoC-02569B?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
-
-**💻 Programming Languages**
-<p>
-<img src="https://skillicons.dev/icons?i=cpp,java,py,js,html,css"/>
-</p>
-
-**🏗 Core CS & Software Engineering**
-<img src="https://img.shields.io/badge/Data_Structures_%26_Algorithms-7C3AED?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/OOP-7C3AED?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Software_Design_%26_Architecture-7C3AED?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Software_Construction_%26_Development-7C3AED?style=for-the-badge"/>
-
-**🗄 Backend & Cloud**
-<img src="https://img.shields.io/badge/Firebase-039BE5?style=for-the-badge&logo=firebase&logoColor=white"/>
-<img src="https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white"/>
-<img src="https://img.shields.io/badge/REST_APIs-005571?style=for-the-badge"/>
-
-**🤖 AI & GenAI**
-<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white"/>
-<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white"/>
-<img src="https://img.shields.io/badge/OpenRouter-000000?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/LLM_Integration-412991?style=for-the-badge&logo=openai&logoColor=white"/>
-<img src="https://img.shields.io/badge/MCP-06B6D4?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Prompt_Engineering-06B6D4?style=for-the-badge"/>
-<img src="https://img.shields.io/badge/Learning-MLOps-FF6D00?style=for-the-badge"/>
-
-**⚙ Tools & DevOps**
-<p>
-<img src="https://skillicons.dev/icons?i=git,github,vscode,figma,docker"/>
-</p>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+<sub>C++ · data structures · manual memory management</sub>
 
 <details>
-<summary><b>📦 More Projects (click to expand)</b></summary>
+<summary><b>More projects</b></summary>
 <br>
 
-- 🎓 [Discrete University Management System](https://github.com/f243077-cell/Discrete-University-Management-System) — course scheduling & prerequisite validation using discrete math
-- 🏫 [FlexPortal](https://github.com/f243077-cell/FlexPortal-Student-Attendance-Result-Management-System) — attendance & result management, role-based login
-- 🚀 [FounderAI](https://github.com/f243077-cell/Founder_AI) — AI startup assistant, built at GDG "Build with AI" hackathon
-- 🌦 [Weather App](https://github.com/f243077-cell/Weather_App) — real-time weather with location-based lookup
-- 💱 [Multi-Currency Converter](https://github.com/f243077-cell/flutter-multi-currency-converter) — live PKR to 20+ currencies
-- 🎓 [University Management System](https://github.com/f243077-cell/fast-university-management-system)
-- 📅 [Slot Booking System](https://github.com/f243077-cell/Slot-booking-system)
-- ✅ [CSV Validator](https://github.com/f243077-cell/CSV-Validator)
-- 📄 [Resume to JSON Extractor](https://github.com/f243077-cell/Resume-to-JSON-Extractor-)
-- 🔗 [URL Health Checker](https://github.com/f243077-cell/URL-Health-Checker)
-- 💬 [whispr](https://github.com/f243077-cell/whispr)
+- [Discrete University Management System](https://github.com/f243077-cell/Discrete-University-Management-System): course scheduling and prerequisite validation using discrete math
+- [FlexPortal](https://github.com/f243077-cell/FlexPortal-Student-Attendance-Result-Management-System): attendance and result management with role-based login
+- [FounderAI](https://github.com/f243077-cell/Founder_AI): AI startup assistant, built at the GDG "Build with AI" hackathon
+- [Weather App](https://github.com/f243077-cell/Weather_App): real-time weather with location-based lookup
+- [Multi-Currency Converter](https://github.com/f243077-cell/flutter-multi-currency-converter): live PKR to 20+ currencies
+- [University Management System](https://github.com/f243077-cell/fast-university-management-system)
+- [Slot Booking System](https://github.com/f243077-cell/Slot-booking-system)
+- [CSV Validator](https://github.com/f243077-cell/CSV-Validator)
+- [Resume to JSON Extractor](https://github.com/f243077-cell/Resume-to-JSON-Extractor-)
+- [URL Health Checker](https://github.com/f243077-cell/URL-Health-Checker)
+- [whispr](https://github.com/f243077-cell/whispr)
 
 </details>
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+## Tech stack
 
-# 📊 GitHub Analytics
+<p>
+<img src="https://skillicons.dev/icons?i=flutter,dart,firebase,supabase,fastapi,py,cpp,java,js,html,css,git,github,vscode,figma,docker" alt="Flutter, Dart, Firebase, Supabase, FastAPI, Python, C++, Java, JavaScript, HTML, CSS, Git, GitHub, VS Code, Figma, Docker"/>
+</p>
 
-<div align="center">
+- **Mobile:** Flutter, Dart, Riverpod, BLoC, go_router, Clean Architecture, MVVM, MVC
+- **Backend & real-time:** Firebase (Auth, Firestore, Cloud Messaging), Supabase (Auth, Postgres, Storage, Edge Functions), FastAPI, REST APIs, MQTT, WebSocket
+- **AI & data:** LLM integration via OpenRouter, LangChain, RAG, prompt engineering, MCP, NumPy, Pandas
+- **CS foundations:** data structures & algorithms, OOP, software design & architecture, system design, software construction & development
+- **Tools:** Git, GitHub, VS Code, Figma, Docker
 
-<img height="165" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&count_private=false&title_color=06B6D4&icon_color=7C3AED&text_color=E5E7EB&bg_color=00000000&border_color=10B981"/>
-<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&title_color=06B6D4&text_color=E5E7EB&bg_color=00000000&border_color=10B981"/>
-
-<img src="https://streak-stats.demolab.com?user=f243077-cell&theme=vision-friendly-dark&hide_border=true"/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=f243077-cell&theme=react&hide_border=true&radius=12&area=true"/>
-
-<img src="https://github-profile-trophy.vercel.app/?username=f243077-cell&theme=algolia&no-bg=true&row=1&column=7&margin-w=15&margin-h=15"/>
-
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
-
-# 🏅 Achievements
-
-🏆 GDG "Build with AI" Hackathon Participant — built FounderAI
-
-📱 2+ years of hands-on Flutter development
-
-🤖 Building full-stack AI-powered Flutter apps
-
-🎓 BS Software Engineering @ FAST-NUCES
-
-💼 Flutter Developer Intern @ FlutterCraft.app 
-
-# 📚 Learning Roadmap
+## Learning roadmap
 
 - [x] Python, NumPy, Pandas
 - [x] Docker
-- [x] MCP (Model Context Protocol) & Prompt Engineering
+- [x] MCP (Model Context Protocol) & prompt engineering
 - [x] Software Design & Architecture (SDA)
+- [x] LLM orchestration & RAG (LangChain)
 - [ ] Software Construction & Development (SCD)
-- [ ] LLM Orchestration & RAG
+- [ ] Vector databases
 - [ ] MLOps
-- [ ] Vector Databases
-- [ ] Agentic AI Systems
+- [ ] Agentic AI systems
 
-<img src="https://capsule-render.vercel.app/api?type=rect&color=0:10B981,50:06B6D4,100:7C3AED&height=4" width="100%"/>
+## Achievements
 
-# 🌍 Connect With Me
+- GDG "Build with AI" hackathon participant: built [FounderAI](https://github.com/f243077-cell/Founder_AI), an AI startup assistant
 
-<div align="center">
+## GitHub stats
 
-<a href="https://github.com/f243077-cell">
-<img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white"/>
-</a>
-
-<a href="https://linkedin.com/in/tanzeel-hussain-176a93327/">
-<img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white"/>
-</a>
-
-<a href="https://f243077-cell.github.io/f243077-cell/">
-<img src="https://img.shields.io/badge/Portfolio-10B981?style=for-the-badge&logo=googlechrome&logoColor=white"/>
-</a>
-
-<a href="https://instagram.com/tanzeel.hussaiin">
-<img src="https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=Instagram&logoColor=white"/>
-</a>
-
-<a href="mailto:tanzeelhussain346@gmail.com">
-<img src="https://img.shields.io/badge/Email-D14836?style=for-the-badge&logo=gmail&logoColor=white"/>
-</a>
-
-</div>
-
-<div align="center">
-
-### ⭐ If you like my projects, consider giving them a star!
-
-<img src="https://img.shields.io/github/followers/f243077-cell?style=for-the-badge&logo=github&color=7C3AED"/>
-
-</div>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:7C3AED,50:06B6D4,100:10B981&height=150&section=footer&animation=fadeIn" />
+<p>
+<img height="165" src="https://github-readme-stats.vercel.app/api?username=f243077-cell&show_icons=true&count_private=false&hide_border=true&bg_color=00000000&title_color=4aa6f5&icon_color=4aa6f5&text_color=7d8590" alt="GitHub stats for f243077-cell"/>
+<img height="165" src="https://github-readme-stats.vercel.app/api/top-langs/?username=f243077-cell&layout=compact&hide_border=true&bg_color=00000000&title_color=4aa6f5&text_color=7d8590" alt="Most used languages for f243077-cell"/>
+</p>
