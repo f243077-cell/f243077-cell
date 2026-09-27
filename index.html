@@ -606,6 +606,25 @@
         opacity: 1;
         transform: none;
       }
+      /* The hero's one video slide (BioGuard) fades in/out exactly like its
+         image siblings; only the tag differs. */
+      .stage .phone-screen video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        opacity: 0;
+        transform: scale(1.06);
+        transition:
+          opacity 0.9s var(--ease-out),
+          transform 1.4s var(--ease-out);
+      }
+      .stage .phone-screen video.is-active {
+        opacity: 1;
+        transform: none;
+      }
       .floor {
         position: absolute;
         left: -300px;
@@ -1193,6 +1212,27 @@
             transparent 70%
           ),
           var(--panel);
+      }
+      /* Flagship accent: a faint circuit-grid "window" layered over the
+         same glow recipe as the other feature panels, using the accent-line
+         token already used for the systems cards' dependency graph — so
+         BioGuard reads as the standout without a new color or new layout. */
+      .feature-flagship {
+        background:
+          radial-gradient(
+            460px 460px at 52% 62%,
+            transparent 32%,
+            var(--panel) 76%
+          ),
+          linear-gradient(var(--accent-line) 1px, transparent 1px),
+          linear-gradient(90deg, var(--accent-line) 1px, transparent 1px),
+          radial-gradient(
+            440px 460px at 52% 66%,
+            color-mix(in srgb, var(--deep) 75%, transparent),
+            transparent 70%
+          ),
+          var(--panel);
+        background-size: auto, 32px 32px, 32px 32px, auto;
       }
       .feature-head {
         grid-area: head;
@@ -2283,18 +2323,23 @@
                 <div class="phone-body" data-depth="14"></div>
                 <div class="phone-face">
                   <div class="phone-screen">
-                    <img
+                    <video
                       class="is-active"
+                      src="Apps-Demo-Videos/web/bioguard.mp4"
+                      poster="assets/projects/bioguard.webp"
+                      data-name="BioGuard"
+                      aria-label="BioGuard live dashboard demo showing temperature alerts and device status"
+                      muted
+                      loop
+                      playsinline
+                      preload="auto"
+                      width="314"
+                      height="698"
+                    ></video>
+                    <img
                       src="assets/projects/acadai-buddy.webp"
                       data-name="AcadAI Buddy"
                       alt="AcadAI Buddy home screen with AI tutor, quiz and notes tools"
-                      width="314"
-                      height="698"
-                    />
-                    <img
-                      src="assets/projects/weather-app.webp"
-                      data-name="Weather App"
-                      alt="Flutter Weather App showing live conditions for London"
                       width="314"
                       height="698"
                       decoding="async"
@@ -2305,6 +2350,14 @@
                       alt="CreateResume AI home screen for building resumes"
                       width="314"
                       height="681"
+                      decoding="async"
+                    />
+                    <img
+                      src="assets/projects/weather-app.webp"
+                      data-name="Weather App"
+                      alt="Flutter Weather App showing live conditions for London"
+                      width="314"
+                      height="698"
                       decoding="async"
                     />
                     <img
@@ -2413,7 +2466,7 @@
           <div class="card intern">
             <div class="card-label">Internship</div>
             <h3 class="intern-role">
-              Flutter Developer Intern —
+              Flutter Developer Intern at
               <span class="intern-org">FlutterCraft.app</span>
             </h3>
             <dl class="intern-meta">
@@ -2529,12 +2582,12 @@
 
         <div class="sub-head">Flagship project</div>
 
-        <article class="card feature feature-split">
+        <article class="card feature feature-split feature-flagship">
           <div class="feature-head">
             <div class="feature-label">Flagship IoT system</div>
             <h3 class="project-title">BioGuard</h3>
             <div class="project-sub">
-              IoT Cold-Chain Compliance System · FastAPI + Flutter + MQTT
+              Real-time cold-chain monitoring, from sensor to alert
             </div>
           </div>
           <div class="feature-body">
@@ -2605,7 +2658,7 @@
           <div>
             <div class="feature-label">Featured AI study app</div>
             <h3 class="project-title">AcadAI Buddy</h3>
-            <div class="project-sub">AI Study Companion · Flutter + Firebase</div>
+            <div class="project-sub">An AI tutor that actually knows the FAST-NUCES syllabus</div>
             <p class="project-desc">
               Full-stack AI study app for Pakistani university students with
               real-time AI chat, auto-generated MCQ quizzes, and note
@@ -2659,7 +2712,7 @@
           <div class="feature-head">
             <div class="feature-label">Featured AI resume builder</div>
             <h3 class="project-title">CreateResume AI</h3>
-            <div class="project-sub">AI Resume Builder · Flutter + Supabase</div>
+            <div class="project-sub">Turns a few sentences into an ATS-ready resume</div>
           </div>
           <div class="feature-body">
             <p class="project-desc">
@@ -2885,10 +2938,8 @@
                 >
               </div>
             </div>
-            <h3 class="project-title">
-              UniDisc — University Management System
-            </h3>
-            <div class="project-sub">Discrete Math Framework · C++ / Java</div>
+            <h3 class="project-title">UniDisc (University Management System)</h3>
+            <div class="project-sub">Where discrete math meets course scheduling</div>
             <p class="project-desc">
               Models course scheduling, prerequisite validation, faculty
               assignment, and enrollment using propositional/predicate logic,
@@ -3089,7 +3140,6 @@
       <section class="section" id="contact">
         <div class="contact-panel">
           <div>
-            <div class="eyebrow">Contact</div>
             <h2 class="section-heading">Let's build something meaningful</h2>
             <p class="contact-text">
               Open to Flutter roles and freelance work. Have an app idea, an MVP,
@@ -3334,7 +3384,7 @@
         /* HERO SCREEN CAROUSEL */
         safely(() => {
           const stage = document.getElementById("stage");
-          const shots = [...stage.querySelectorAll(".phone-screen img")];
+          const shots = [...stage.querySelectorAll(".phone-screen img, .phone-screen video")];
           const dotsWrap = stage.querySelector(".screen-dots");
           const nameEl = stage.querySelector("[data-screen-name]");
           const toggle = stage.querySelector(".carousel-toggle");
@@ -3356,12 +3406,19 @@
             return b;
           });
           const show = (i) => {
-            shots[idx].classList.remove("is-active");
+            const prev = shots[idx];
+            prev.classList.remove("is-active");
+            if (prev.tagName === "VIDEO") {
+              prev.pause();
+              prev.currentTime = 0;
+            }
             dots[idx].removeAttribute("aria-current");
             idx = i;
-            shots[idx].classList.add("is-active");
+            const next = shots[idx];
+            next.classList.add("is-active");
+            if (next.tagName === "VIDEO") next.play().catch(() => {});
             dots[idx].setAttribute("aria-current", "true");
-            nameEl.textContent = shots[idx].dataset.name;
+            nameEl.textContent = next.dataset.name;
           };
           const restart = () => {
             clearInterval(timer);
