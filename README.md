@@ -75,14 +75,15 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 ## Tech stack
 
 <p>
-<img src="https://skillicons.dev/icons?i=flutter,dart,firebase,supabase,fastapi,py,cpp,java,js,html,css,git,github,vscode,figma,docker" alt="Flutter, Dart, Firebase, Supabase, FastAPI, Python, C++, Java, JavaScript, HTML, CSS, Git, GitHub, VS Code, Figma, Docker"/>
+<img src="https://skillicons.dev/icons?i=flutter,dart,firebase,fastapi,postgres,sqlite,cloudflare,gcp,py,cpp,java,git,github,vscode,androidstudio,docker,postman" alt="Flutter, Dart, Firebase, FastAPI, PostgreSQL, SQLite, Cloudflare, Google Cloud, Python, C++, Java, Git, GitHub, VS Code, Android Studio, Docker, Postman"/>
 </p>
 
-- **Mobile:** Flutter, Dart, Riverpod, BLoC, go_router, Clean Architecture, MVVM, MVC
-- **Backend & real-time:** Firebase (Auth, Firestore, Cloud Messaging), Supabase (Auth, Postgres, Storage, Edge Functions), FastAPI, REST APIs, MQTT, WebSocket
-- **AI & data:** LLM integration via OpenRouter, LangChain, RAG, prompt engineering, MCP, NumPy, Pandas
-- **CS foundations:** data structures & algorithms, OOP, software design & architecture, system design, software construction & development
-- **Tools:** Git, GitHub, VS Code, Figma, Docker
+- **Mobile:** Flutter, Dart, Riverpod, Provider, Hive, Drift (SQLite), Platform Channels, iOS Live Activities, Android Foreground Services, flutter_local_notifications, Material Design, Animations
+- **Architecture & design:** Clean Architecture, Layered Architecture, MVC, MVP, Repository Pattern, Feature-First Architecture, SOLID, GoF Design Patterns, OOP, UML
+- **Backend & cloud:** Firebase Auth, Firestore, Firebase Realtime Database, Firestore Security Rules, REST APIs, Cloudflare Workers, Google Cloud Run, PostgreSQL, FastAPI
+- **AI:** Antigravity, Cursor, Claude Code, Google Stitch, OpenRouter, Postman, LLMs, prompt engineering
+- **Languages:** SQL, Dart, C++, Java, Python
+- **Tools:** Git, GitHub, VS Code, Android Studio, Docker
 
 ## Learning roadmap
 
@@ -90,7 +91,7 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 - [x] Docker
 - [x] MCP (Model Context Protocol) & prompt engineering
 - [x] Software Design & Architecture (SDA)
-- [x] LLM orchestration & RAG (LangChain)
+- [ ] LLM orchestration & RAG (LangChain)
 - [ ] Software Construction & Development (SCD)
 - [ ] Vector databases
 - [ ] MLOps

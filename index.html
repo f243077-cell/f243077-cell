@@ -492,6 +492,32 @@
         object-fit: cover;
         object-position: top center;
       }
+      /* Project demo videos: sit exactly on top of the screenshot (same box,
+         same fit) and fade in only while playing, so the image stays the
+         resting state. */
+      .phone-screen .demo-video {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+        opacity: 0;
+        transition: opacity 0.35s var(--ease-out);
+      }
+      .phone-screen.is-playing .demo-video {
+        opacity: 1;
+      }
+      .demo-toggle {
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+        border-radius: inherit;
+        cursor: pointer;
+      }
+      .demo-toggle:focus-visible {
+        outline-offset: -3px;
+      }
       .phone-glare {
         position: absolute;
         inset: 0;
@@ -1486,7 +1512,10 @@
         color: var(--c);
         will-change: transform, opacity;
       }
-      /* Categories are tonal steps of the one accent + the neutrals */
+      /* Categories are tonal steps of the one accent + the neutrals:
+         three blues (tint / accent / deep) and three neutrals
+         (bone / stone / dim stone). The deep and dim steps are mixed at
+         82% so they still clear 4.5:1 on the card. */
       .sphere-tag[data-g="mobile"],
       .legend .mobile {
         --c: var(--accent);
@@ -1495,13 +1524,21 @@
       .legend .backend {
         --c: var(--accent-tint);
       }
-      .sphere-tag[data-g="systems"],
-      .legend .systems {
-        --c: var(--bone);
-      }
       .sphere-tag[data-g="ai"],
       .legend .ai {
+        --c: color-mix(in srgb, var(--flutter) 82%, var(--ink));
+      }
+      .sphere-tag[data-g="architecture"],
+      .legend .architecture {
+        --c: var(--bone);
+      }
+      .sphere-tag[data-g="languages"],
+      .legend .languages {
         --c: var(--stone);
+      }
+      .sphere-tag[data-g="tools"],
+      .legend .tools {
+        --c: color-mix(in srgb, var(--stone) 82%, var(--ink));
       }
       .legend {
         display: flex;
@@ -2534,7 +2571,7 @@
             <div class="phone">
               <div class="phone-body" data-depth="12"></div>
               <div class="phone-face">
-                <div class="phone-screen">
+                <div class="phone-screen" data-demo>
                   <img
                     src="assets/projects/bioguard.webp"
                     alt="BioGuard dashboard listing three monitored fridges — vaccine, insulin and biologics — with live temperatures, lock status, and an anomaly flagged on the insulin fridge at 9.3 °C"
@@ -2543,7 +2580,18 @@
                     loading="lazy"
                     decoding="async"
                   />
+                  <video
+                    class="demo-video"
+                    src="Apps-Demo-Videos/web/bioguard.mp4"
+                    poster="assets/projects/bioguard.webp"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    aria-hidden="true"
+                  ></video>
                   <div class="phone-glare"></div>
+                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play BioGuard demo video"></button>
                 </div>
                 <div class="phone-cam"></div>
               </div>
@@ -2579,7 +2627,7 @@
             <div class="phone">
               <div class="phone-body" data-depth="12"></div>
               <div class="phone-face">
-                <div class="phone-screen">
+                <div class="phone-screen" data-demo>
                   <img
                     src="assets/projects/acadai-buddy.webp"
                     alt="AcadAI Buddy dashboard"
@@ -2588,7 +2636,18 @@
                     loading="lazy"
                     decoding="async"
                   />
+                  <video
+                    class="demo-video"
+                    src="Apps-Demo-Videos/web/acadai.mp4"
+                    poster="assets/projects/acadai-buddy.webp"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    aria-hidden="true"
+                  ></video>
                   <div class="phone-glare"></div>
+                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play AcadAI Buddy demo video"></button>
                 </div>
                 <div class="phone-cam"></div>
               </div>
@@ -2625,7 +2684,7 @@
             <div class="phone">
               <div class="phone-body" data-depth="12"></div>
               <div class="phone-face">
-                <div class="phone-screen">
+                <div class="phone-screen" data-demo>
                   <img
                     src="assets/projects/createresume-ai.webp"
                     alt="CreateResume AI resume screen"
@@ -2634,7 +2693,18 @@
                     loading="lazy"
                     decoding="async"
                   />
+                  <video
+                    class="demo-video"
+                    src="Apps-Demo-Videos/web/createresume.mp4"
+                    poster="assets/projects/createresume-ai.webp"
+                    muted
+                    loop
+                    playsinline
+                    preload="metadata"
+                    aria-hidden="true"
+                  ></video>
                   <div class="phone-glare"></div>
+                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play CreateResume AI demo video"></button>
                 </div>
                 <div class="phone-cam"></div>
               </div>
@@ -2851,43 +2921,61 @@
             <div class="card-label">Skill globe</div>
             <div class="sphere" data-sphere aria-hidden="true">
               <span class="sphere-tag" data-g="mobile">Flutter</span>
-              <span class="sphere-tag" data-g="backend">Firebase</span>
-              <span class="sphere-tag" data-g="systems">Clean Architecture</span>
-              <span class="sphere-tag" data-g="ai">LangChain</span>
+              <span class="sphere-tag" data-g="architecture">Clean Architecture</span>
+              <span class="sphere-tag" data-g="backend">Firebase Auth</span>
+              <span class="sphere-tag" data-g="ai">Antigravity</span>
+              <span class="sphere-tag" data-g="languages">SQL</span>
+              <span class="sphere-tag" data-g="tools">Git</span>
               <span class="sphere-tag" data-g="mobile">Dart</span>
-              <span class="sphere-tag" data-g="backend">Supabase</span>
-              <span class="sphere-tag" data-g="systems">MVVM</span>
-              <span class="sphere-tag" data-g="backend">FastAPI</span>
-              <span class="sphere-tag" data-g="systems">Python</span>
-              <span class="sphere-tag" data-g="ai">RAG</span>
-              <span class="sphere-tag" data-g="mobile">Riverpod</span>
-              <span class="sphere-tag" data-g="backend">REST APIs</span>
-              <span class="sphere-tag" data-g="systems">System Design</span>
-              <span class="sphere-tag" data-g="ai">NumPy</span>
-              <span class="sphere-tag" data-g="systems">C++</span>
-              <span class="sphere-tag" data-g="backend">MQTT</span>
-              <span class="sphere-tag" data-g="mobile">BLoC</span>
+              <span class="sphere-tag" data-g="architecture">Layered Architecture</span>
               <span class="sphere-tag" data-g="backend">Firestore</span>
-              <span class="sphere-tag" data-g="systems">MVC</span>
-              <span class="sphere-tag" data-g="ai">Pandas</span>
-              <span class="sphere-tag" data-g="systems">Java</span>
-              <span class="sphere-tag" data-g="backend">IoT</span>
-              <span class="sphere-tag" data-g="mobile">go_router</span>
-              <span class="sphere-tag" data-g="backend">Edge Functions</span>
-              <span class="sphere-tag" data-g="systems">Design Patterns</span>
+              <span class="sphere-tag" data-g="ai">Cursor</span>
+              <span class="sphere-tag" data-g="languages">C++</span>
+              <span class="sphere-tag" data-g="tools">GitHub</span>
+              <span class="sphere-tag" data-g="mobile">Riverpod</span>
+              <span class="sphere-tag" data-g="architecture">MVC</span>
+              <span class="sphere-tag" data-g="backend">Firebase Realtime Database</span>
+              <span class="sphere-tag" data-g="ai">Claude Code</span>
+              <span class="sphere-tag" data-g="languages">Java</span>
+              <span class="sphere-tag" data-g="tools">VS Code</span>
+              <span class="sphere-tag" data-g="mobile">Provider</span>
+              <span class="sphere-tag" data-g="architecture">MVP</span>
+              <span class="sphere-tag" data-g="backend">Firestore Security Rules</span>
+              <span class="sphere-tag" data-g="ai">Google Stitch</span>
+              <span class="sphere-tag" data-g="languages">Python</span>
+              <span class="sphere-tag" data-g="tools">Android Studio</span>
+              <span class="sphere-tag" data-g="mobile">Hive</span>
+              <span class="sphere-tag" data-g="architecture">Repository Pattern</span>
+              <span class="sphere-tag" data-g="backend">REST APIs</span>
+              <span class="sphere-tag" data-g="ai">OpenRouter</span>
+              <span class="sphere-tag" data-g="tools">Docker</span>
+              <span class="sphere-tag" data-g="mobile">Drift (SQLite)</span>
+              <span class="sphere-tag" data-g="architecture">Feature-First Architecture</span>
+              <span class="sphere-tag" data-g="backend">Cloudflare Workers</span>
+              <span class="sphere-tag" data-g="ai">Postman</span>
+              <span class="sphere-tag" data-g="mobile">Platform Channels</span>
+              <span class="sphere-tag" data-g="architecture">SOLID</span>
+              <span class="sphere-tag" data-g="backend">Google Cloud Run</span>
+              <span class="sphere-tag" data-g="ai">LLMs</span>
+              <span class="sphere-tag" data-g="mobile">iOS Live Activities</span>
+              <span class="sphere-tag" data-g="architecture">GoF Design Patterns</span>
+              <span class="sphere-tag" data-g="backend">PostgreSQL</span>
               <span class="sphere-tag" data-g="ai">Prompt Engineering</span>
-              <span class="sphere-tag" data-g="systems">OOP</span>
-              <span class="sphere-tag" data-g="backend">WebSocket</span>
-              <span class="sphere-tag" data-g="mobile">Material UI</span>
-              <span class="sphere-tag" data-g="backend">OpenRouter</span>
-              <span class="sphere-tag" data-g="systems">Data Structures</span>
-              <span class="sphere-tag" data-g="systems">Git</span>
+              <span class="sphere-tag" data-g="mobile">Android Foreground Services</span>
+              <span class="sphere-tag" data-g="architecture">OOP</span>
+              <span class="sphere-tag" data-g="backend">FastAPI</span>
+              <span class="sphere-tag" data-g="mobile">flutter_local_notifications</span>
+              <span class="sphere-tag" data-g="architecture">UML</span>
+              <span class="sphere-tag" data-g="mobile">Material Design</span>
+              <span class="sphere-tag" data-g="mobile">Animations</span>
             </div>
             <div class="legend">
               <span class="mobile">Mobile</span>
-              <span class="backend">Backend, APIs &amp; IoT</span>
-              <span class="systems">Architecture &amp; languages</span>
-              <span class="ai">AI &amp; data</span>
+              <span class="architecture">Architecture &amp; design</span>
+              <span class="backend">Backend &amp; cloud</span>
+              <span class="ai">AI</span>
+              <span class="languages">Languages</span>
+              <span class="tools">Tools</span>
             </div>
             <p class="sphere-hint">Drag the globe to spin it</p>
           </div>
@@ -2896,65 +2984,82 @@
             <div class="card">
               <div class="card-label">Toolkit</div>
               <div class="stack-group">
-                <div class="stack-title">Mobile development</div>
+                <div class="stack-title">Mobile</div>
                 <div class="mini-pill-wrap">
                   <span class="mini-pill">Flutter</span>
+                  <span class="mini-pill">Dart</span>
                   <span class="mini-pill">Riverpod</span>
-                  <span class="mini-pill">BLoC</span>
-                  <span class="mini-pill">go_router</span>
-                  <span class="mini-pill">Material UI</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Backend &amp; APIs</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">FastAPI</span>
-                  <span class="mini-pill">Firebase</span>
-                  <span class="mini-pill">Supabase</span>
-                  <span class="mini-pill">REST APIs</span>
-                  <span class="mini-pill">OpenRouter API</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">IoT &amp; real-time</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">IoT</span>
-                  <span class="mini-pill">MQTT</span>
-                  <span class="mini-pill">WebSocket</span>
-                  <span class="mini-pill">Firebase Cloud Messaging</span>
+                  <span class="mini-pill">Provider</span>
+                  <span class="mini-pill">Hive</span>
+                  <span class="mini-pill">Drift (SQLite)</span>
+                  <span class="mini-pill">Platform Channels</span>
+                  <span class="mini-pill">iOS Live Activities</span>
+                  <span class="mini-pill">Android Foreground Services</span>
+                  <span class="mini-pill">flutter_local_notifications</span>
+                  <span class="mini-pill">Material Design</span>
+                  <span class="mini-pill">Animations</span>
                 </div>
               </div>
               <div class="stack-group">
                 <div class="stack-title">Architecture &amp; design</div>
                 <div class="mini-pill-wrap">
                   <span class="mini-pill">Clean Architecture</span>
-                  <span class="mini-pill">MVVM</span>
+                  <span class="mini-pill">Layered Architecture</span>
                   <span class="mini-pill">MVC</span>
-                  <span class="mini-pill">System Design</span>
-                  <span class="mini-pill">Design Patterns</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">AI &amp; data</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">LangChain</span>
-                  <span class="mini-pill">RAG</span>
-                  <span class="mini-pill">Prompt Engineering</span>
-                  <span class="mini-pill">NumPy</span>
-                  <span class="mini-pill">Pandas</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Languages &amp; tools</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Dart</span>
-                  <span class="mini-pill">Python</span>
-                  <span class="mini-pill">Java</span>
-                  <span class="mini-pill">C++</span>
+                  <span class="mini-pill">MVP</span>
+                  <span class="mini-pill">Repository Pattern</span>
+                  <span class="mini-pill">Feature-First Architecture</span>
+                  <span class="mini-pill">SOLID</span>
+                  <span class="mini-pill">GoF Design Patterns</span>
                   <span class="mini-pill">OOP</span>
+                  <span class="mini-pill">UML</span>
+                </div>
+              </div>
+              <div class="stack-group">
+                <div class="stack-title">Backend &amp; cloud</div>
+                <div class="mini-pill-wrap">
+                  <span class="mini-pill">Firebase Auth</span>
+                  <span class="mini-pill">Firestore</span>
+                  <span class="mini-pill">Firebase Realtime Database</span>
+                  <span class="mini-pill">Firestore Security Rules</span>
+                  <span class="mini-pill">REST APIs</span>
+                  <span class="mini-pill">Cloudflare Workers</span>
+                  <span class="mini-pill">Google Cloud Run</span>
+                  <span class="mini-pill">PostgreSQL</span>
+                  <span class="mini-pill">FastAPI</span>
+                </div>
+              </div>
+              <div class="stack-group">
+                <div class="stack-title">AI</div>
+                <div class="mini-pill-wrap">
+                  <span class="mini-pill">Antigravity</span>
+                  <span class="mini-pill">Cursor</span>
+                  <span class="mini-pill">Claude Code</span>
+                  <span class="mini-pill">Google Stitch</span>
+                  <span class="mini-pill">OpenRouter</span>
+                  <span class="mini-pill">Postman</span>
+                  <span class="mini-pill">LLMs</span>
+                  <span class="mini-pill">Prompt Engineering</span>
+                </div>
+              </div>
+              <div class="stack-group">
+                <div class="stack-title">Languages</div>
+                <div class="mini-pill-wrap">
+                  <span class="mini-pill">SQL</span>
+                  <span class="mini-pill">Dart</span>
+                  <span class="mini-pill">C++</span>
+                  <span class="mini-pill">Java</span>
+                  <span class="mini-pill">Python</span>
+                </div>
+              </div>
+              <div class="stack-group">
+                <div class="stack-title">Tools</div>
+                <div class="mini-pill-wrap">
                   <span class="mini-pill">Git</span>
                   <span class="mini-pill">GitHub</span>
-                  <span class="mini-pill">MS Office</span>
+                  <span class="mini-pill">VS Code</span>
+                  <span class="mini-pill">Android Studio</span>
+                  <span class="mini-pill">Docker</span>
                 </div>
               </div>
             </div>
@@ -2963,15 +3068,15 @@
               <div class="card-label">Learning roadmap</div>
               <h3 class="learn-title">Growing into GenAI Engineering</h3>
               <ol class="roadmap">
-                <li>SQL foundations for AI engineering</li>
+                <li class="done">
+                  SQL foundations for AI engineering
+                  <span class="step-done">Done</span>
+                </li>
                 <li class="done">
                   LLM fundamentals &amp; prompt / context engineering
                   <span class="step-done">Done</span>
                 </li>
-                <li class="done">
-                  RAG pipelines &amp; vector databases
-                  <span class="step-done">Done</span>
-                </li>
+                <li>RAG pipelines &amp; vector databases</li>
                 <li>Agent orchestration (LangGraph, MCP)</li>
                 <li>AI deployment &amp; observability</li>
               </ol>
@@ -3296,6 +3401,52 @@
           });
         });
 
+        /* PROJECT DEMO VIDEOS: play on hover (mouse) or on tap/click/Enter;
+           pause and fade back to the screenshot otherwise. */
+        safely(() => {
+          const screens = [...document.querySelectorAll(".phone-screen[data-demo]")];
+          const parts = (s) => [s.querySelector(".demo-video"), s.querySelector(".demo-toggle")];
+          const stop = (s) => {
+            const [video, btn] = parts(s);
+            s.classList.remove("is-playing");
+            s.dataset.pinned = "";
+            btn.setAttribute("aria-pressed", "false");
+            // Rewind after the fade so the screenshot is back when it's revealed.
+            setTimeout(() => {
+              if (s.classList.contains("is-playing")) return;
+              video.pause();
+              video.currentTime = 0;
+            }, 350);
+          };
+          const play = (s, pinned) => {
+            const [video, btn] = parts(s);
+            screens.forEach((o) => o !== s && stop(o));
+            s.classList.add("is-playing");
+            s.dataset.pinned = pinned ? "1" : "";
+            btn.setAttribute("aria-pressed", "true");
+            video.play().catch(() => stop(s));
+          };
+          screens.forEach((s) => {
+            const [, btn] = parts(s);
+            btn.addEventListener("click", () =>
+              s.dataset.pinned ? stop(s) : play(s, true),
+            );
+            if (!reduceMotion) {
+              btn.addEventListener("pointerenter", (e) => {
+                if (e.pointerType === "mouse") play(s, false);
+              });
+            }
+            btn.addEventListener("pointerleave", (e) => {
+              if (e.pointerType === "mouse" && !s.dataset.pinned) stop(s);
+            });
+          });
+          // Never keep playing (or downloading) off-screen.
+          const io = new IntersectionObserver((entries) =>
+            entries.forEach((en) => !en.isIntersecting && stop(en.target)),
+          );
+          screens.forEach((s) => io.observe(s));
+        });
+
         /* 3D TILT CARDS (mouse only) */
         safely(() => {
           if (!finePointer || reduceMotion) return;
@@ -3372,7 +3523,9 @@
           let last = 0;
 
           const measure = () => {
-            radius = Math.min(sphere.clientWidth * 0.4, sphere.clientHeight * 0.44);
+            // On narrow cards pull the ring in so long edge labels stay inside the card.
+            const k = sphere.clientWidth < 480 ? 0.3 : 0.4;
+            radius = Math.min(sphere.clientWidth * k, sphere.clientHeight * 0.44);
             sphere.style.setProperty("--sd", `${radius * 2.3}px`);
           };
           const render = () => {
