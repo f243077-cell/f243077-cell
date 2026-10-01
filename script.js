@@ -33,7 +33,7 @@
 
   /* ---------- active section in the sidebar and tab bar ---------- */
   safely(() => {
-    const links = $$(".side-nav a, .tabbar a");
+    const links = $$(".topnav a, .tabbar a");
     const ids = ["overview", "about", "experience", "projects", "skills", "contact"];
     // the tab bar has no Experience tab, so it lights About while Experience is on screen
     const tabFor = { experience: "about" };
