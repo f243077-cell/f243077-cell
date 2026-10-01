@@ -9,7 +9,6 @@
   const $ = (s, r = document) => r.querySelector(s);
   const $$ = (s, r = document) => [...r.querySelectorAll(s)];
   const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
-  const canHover = matchMedia("(hover: hover) and (pointer: fine)").matches;
   const PROJECTS = window.PROJECTS || [];
   const EMAIL = "tanzeelhussain346@gmail.com";
   const RESUME = "assets/Tanzeel_Hussain_Resume.pdf";
@@ -71,46 +70,54 @@
       : `${p.art.svg}<span class="win-cap">${esc(p.art.caption)}</span>`;
     return `<div class="win"><div class="win-bar"><b>●</b> ${esc(m.window)}</div><div class="win-body">${inner}</div></div>`;
   };
-  const mediaHTML = (p) => {
-    const s = shotOf(p);
-    if (s) return `<div class="phone"><img src="${s.src}" alt="${esc(s.alt)}" loading="lazy" decoding="async">${p.video ? `<video muted loop playsinline preload="none" tabindex="-1" aria-hidden="true"></video>` : ""}</div>`;
-    if (p.image || p.art) return winHTML(p);
-    return "";
-  };
+  // every screen of the app stacked in one phone; the card cycles through them
+  const phoneHTML = (p) => `<div class="phone">${p.screens.map((s, j) => `<img${j ? "" : ` class="on"`} src="${s.src}" alt="${esc(s.alt)}" loading="lazy" decoding="async">`).join("")}</div>
+    ${p.screens.length > 1 ? `<div class="dots" aria-hidden="true">${p.screens.map((_, j) => `<i${j ? "" : ` class="on"`}></i>`).join("")}</div>` : ""}`;
+  const mediaHTML = (p) => p.screens ? phoneHTML(p) : (p.image || p.art) ? winHTML(p) : "";
   safely(() => {
     const grid = $("#apps");
     grid.innerHTML = PROJECTS.map((p, i) => `
-      <article class="app${i === 0 ? " wide" : ""}" data-tags="${p.categories.join(" ")}" data-i="${i}">
-        <div class="app-media">${p.video ? `<span class="play-chip">${icon("play")}Demo video</span>` : ""}${mediaHTML(p)}</div>
+      <article class="app" data-tags="${p.categories.join(" ")}" data-i="${i}">
+        <div class="app-media${p.screens ? "" : " is-win"}">${mediaHTML(p)}</div>
         <div class="app-body">
           ${p.featured || p.badges ? `<div class="app-badges">${(p.badges || ["Featured"]).map((b) => `<span>${esc(b)}</span>`).join("")}</div>` : ""}
           <h3 class="app-name">${esc(p.name)}</h3>
           <p class="app-tag">${esc(p.tagline)}</p>
           <p class="app-desc">${esc(p.description)}</p>
-          <ul class="app-stack">${p.stack.slice(0, 5).map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
-          <span class="app-open">${p.video ? "Watch demo" : "View project"}${icon("arrow")}</span>
+          ${p.highlights ? `<ul class="app-hl">${p.highlights.map(([b, t]) => `<li><b>${esc(b)}</b>${esc(t)}</li>`).join("")}</ul>` : ""}
+          <ul class="app-stack">${p.stack.map((s) => `<li>${esc(s)}</li>`).join("")}</ul>
+          <div class="app-cta">
+            <span class="btn btn-primary btn-sm">${p.video ? `${icon("play")}Watch demo` : `View project${icon("arrow")}`}</span>
+            ${p.screens && p.screens.length > 1 ? `<span class="app-count">${p.screens.length} screens</span>` : ""}
+          </div>
         </div>
         <button class="app-hit" type="button" aria-label="Open ${esc(p.name)}"></button>
       </article>`).join("");
 
-    // a demo plays in the card's phone while the pointer rests on it
-    if (canHover && !reduceMotion) {
-      $$(".app", grid).forEach((card) => {
-        const p = PROJECTS[+card.dataset.i], v = $("video", card);
-        if (!p.video || !v) return;
-        let over = false;
-        card.addEventListener("mouseenter", () => {
-          over = true;
-          if (!v.getAttribute("src")) v.src = p.video.src;
-          v.play().then(() => { if (over) v.classList.add("on"); }).catch(() => {});
-        });
-        card.addEventListener("mouseleave", () => {
-          over = false;
-          v.classList.remove("on");
-          setTimeout(() => { if (!over) { v.pause(); v.currentTime = 0; } }, 400);
-        });
-      });
-    }
+    // each card's phone changes screen on its own while the card is on screen
+    const STEP = 2600;
+    $$(".app", grid).forEach((card, n) => {
+      const imgs = $$(".phone img", card), dots = $$(".dots i", card);
+      if (imgs.length < 2) return;
+      let k = 0, timer = 0, visible = false;
+      const show = (j) => {
+        imgs[k].classList.remove("on"); dots[k]?.classList.remove("on");
+        k = j % imgs.length;
+        imgs[k].classList.add("on"); dots[k]?.classList.add("on");
+      };
+      const run = () => {
+        clearInterval(timer);
+        if (visible && !card.hidden && !document.hidden) timer = setInterval(() => show(k + 1), STEP);
+      };
+      // load every screen once the card comes near, so each change is instant
+      new IntersectionObserver(([e]) => {
+        visible = e.isIntersecting;
+        if (visible) imgs.forEach((im) => { im.loading = "eager"; });
+        // stagger the cards so they don't all change at the same moment
+        setTimeout(run, visible ? (n % 3) * 700 : 0);
+      }, { rootMargin: "120px 0px" }).observe(card);
+      document.addEventListener("visibilitychange", run);
+    });
 
     // filters
     const tabs = $$("#filters button");
@@ -153,6 +160,7 @@
         <p class="d-tag">${esc(p.tagline)}</p>
       </div>
       <div><p class="d-h">Overview</p><p class="d-desc">${esc(p.description)}</p></div>
+      ${p.screens && p.screens.length > 1 ? `<div><p class="d-h">Screens</p><div class="d-screens">${p.screens.map((sc) => `<figure><img src="${sc.src}" alt="${esc(sc.alt)}" loading="lazy" decoding="async"><figcaption>${esc(sc.alt)}</figcaption></figure>`).join("")}</div></div>` : ""}
       ${hl}
       <div><p class="d-h">How it's built</p><ul class="d-arch">${arch}</ul></div>
       <div><p class="d-h">Stack</p><ul class="d-stack">${p.stack.map((s) => `<li>${esc(s)}</li>`).join("")}</ul></div>

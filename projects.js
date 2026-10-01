@@ -1,7 +1,7 @@
 /* ============================================================
    PROJECTS: single source for the project cards, the project drawer and the app spotlight.
    Descriptions, highlights and stacks come from Tanzeel's own project write-ups and resume.
-   screens   = the app's own screenshot (cards, drawer and the spotlight on the overview).
+   screens   = the app's own screens in play order; cards cycle through them, the spotlight uses the first.
    video     = a portrait demo that plays inside a phone frame.
    image     = a wide picture (console apps) shown in a code window instead of a phone.
    art       = inline SVG drawn for projects that have no screenshot.
@@ -10,6 +10,8 @@
    ============================================================ */
 const demo = (file, poster) => ({ src: `Apps-Demo-Videos/web/${file}.mp4`, poster });
 const shot = (file, alt) => ({ src: `assets/projects/${file}.webp`, alt });
+// more screens of the same app, taken from its own demo video
+const frame = (file, n, alt) => ({ src: `assets/projects/screens/${file}-${n}.webp`, alt });
 
 window.PROJECTS = [
   {
@@ -25,7 +27,8 @@ window.PROJECTS = [
     categories: ["mobile", "backend", "systems"],
     badges: ["Flagship", "IoT"],
     video: demo("bioguard", "assets/projects/bioguard.webp"),
-    screens: [shot("bioguard", "BioGuard dashboard listing three monitored fridges with live temperatures, lock status and an anomaly flagged on the insulin fridge")],
+    screens: [shot("bioguard", "BioGuard dashboard listing three monitored fridges with live temperatures, lock status and an anomaly flagged on the insulin fridge"),
+      frame("bioguard", 2, "Push alert for a fridge outside its safe range"), frame("bioguard", 3, "Alerts screen with active and resolved alerts"), frame("bioguard", 4, "History screen charting a temperature excursion")],
   },
   {
     slug: "acadai-buddy",
@@ -39,7 +42,8 @@ window.PROJECTS = [
     languages: ["Dart"],
     categories: ["mobile", "ai"],
     video: demo("acadai", "assets/projects/acadai-buddy.webp"),
-    screens: [shot("acadai-buddy", "AcadAI Buddy home screen with AI tutor, quiz and notes tools")],
+    screens: [shot("acadai-buddy", "AcadAI Buddy home screen with AI tutor, quiz and notes tools"),
+      frame("acadai", 2, "AI tutor answering with a summary table"), frame("acadai", 3, "Quiz generator choosing a subject and topic"), frame("acadai", 4, "Generated multiple-choice quiz question"), frame("acadai", 5, "Notes summarized into key points and likely exam questions")],
   },
   {
     slug: "createresume-ai",
@@ -53,7 +57,8 @@ window.PROJECTS = [
     languages: ["Dart"],
     categories: ["mobile", "ai", "backend"],
     video: demo("createresume", "assets/projects/createresume-ai.webp"),
-    screens: [shot("createresume-ai", "CreateResume AI home screen for building resumes")],
+    screens: [shot("createresume-ai", "CreateResume AI home screen for building resumes"),
+      frame("createresume", 2, "Choosing a career stage"), frame("createresume", 3, "Describing yourself in plain language"), frame("createresume", 4, "Choosing a resume template"), frame("createresume", 5, "Editing the generated resume sections"), frame("createresume", 6, "Finished resume exported as a PDF")],
   },
   {
     slug: "weather-app",
