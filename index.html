@@ -1,2975 +1,257 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tanzeel Hussain — Flutter Developer</title>
-    <meta
-      name="description"
-      content="Tanzeel Hussain is a Flutter developer from Faisalabad, Pakistan, building clean, AI-ready mobile apps with Clean Architecture, Riverpod/BLoC, Firebase and Supabase."
-    />
-    <meta name="theme-color" content="#12110f" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Tanzeel Hussain — Flutter Developer" />
-    <meta
-      property="og:description"
-      content="Clean, AI-ready mobile experiences built with Flutter."
-    />
-    <link
-      rel="icon"
-      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%234aa6f5'/%3E%3Ctext x='32' y='42' font-family='Georgia,serif' font-style='italic' font-size='26' font-weight='700' text-anchor='middle' fill='%2312110f'%3ETH%3C/text%3E%3C/svg%3E"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=Instrument+Sans:wght@400..700&display=swap"
-      rel="stylesheet"
-    />
-    <script>
-      document.documentElement.classList.add("js");
-    </script>
-    <style>
-      /* ---------------------------------------------------------------
-         PALETTE — six named values. Every other colour on the page is
-         derived from these; no raw hex should appear below this block
-         except inside the (intentionally neutral) phone hardware.
-         --------------------------------------------------------------- */
-      :root {
-        --ink: #12110f; /* warm near-black ground */
-        --char: #1b1a17; /* card / panel surface */
-        --bone: #eee8dd; /* primary text */
-        --stone: #a39b8e; /* secondary + meta text (6.9:1 on ink) */
-        --flutter: #4aa6f5; /* the one accent — lifted from the Flutter mark */
-        --deep: #0f3355; /* shade of the accent for tinted fills */
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Tanzeel Hussain is a Flutter developer from Faisalabad, Pakistan, building clean, AI-ready mobile apps with Clean Architecture, Riverpod/BLoC, Firebase and Supabase. Open to Flutter roles and freelance work.">
+  <meta name="theme-color" content="#efe4cf">
+  <meta property="og:title" content="Tanzeel Hussain · Flutter Developer">
+  <meta property="og:description" content="Clean, AI-ready mobile experiences built with Flutter. Open to Flutter roles and freelance work.">
+  <meta property="og:type" content="website">
+  <title>Tanzeel Hussain · Flutter Developer</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230a0e14'/%3E%3Ctext x='50%25' y='56%25' dominant-baseline='middle' text-anchor='middle' font-family='monospace' font-size='34' font-weight='700' fill='%2300e5a0'%3E%3E_%3C/text%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Tanzeel Hussain",
+    "jobTitle": "Flutter Developer",
+    "description": "Flutter developer building clean, AI-ready mobile apps with Clean Architecture, Riverpod/BLoC and Firebase/Supabase backends.",
+    "email": "mailto:tanzeelhussain346@gmail.com",
+    "address": { "@type": "PostalAddress", "addressLocality": "Faisalabad", "addressCountry": "PK" },
+    "affiliation": { "@type": "CollegeOrUniversity", "name": "FAST-NUCES Faisalabad" },
+    "knowsAbout": ["Flutter", "Dart", "Clean Architecture", "Riverpod", "Firebase", "Supabase", "REST APIs", "FastAPI", "OpenRouter", "C++"],
+    "sameAs": ["https://github.com/f243077-cell", "https://linkedin.com/in/tanzeel-hussain-176a93327"]
+  }
+  </script>
+  <noscript><style>.boot { display: none; } .reveal { opacity: 1; transform: none; filter: none; }</style></noscript>
+  <script>/* light unless the visitor picked dark; applied before first paint so a saved dark theme doesn't flash light */
+    try { var t = localStorage.getItem("theme") || "light"; document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+    document.documentElement.classList.add("js");
+  </script>
+</head>
+<body>
 
-        /* derived surfaces + lines */
-        --bg: var(--ink);
-        --panel: var(--char);
-        --panel-2: color-mix(in srgb, var(--bone) 5%, var(--char));
-        --border: color-mix(in srgb, var(--bone) 10%, transparent);
-        --border-soft: color-mix(in srgb, var(--bone) 6%, transparent);
-        --border-strong: color-mix(in srgb, var(--bone) 18%, transparent);
+  <!-- ===== BOOT SCREEN ===== -->
+  <div id="boot" class="boot" aria-hidden="true">
+    <div class="boot-inner">
+      <pre id="boot-log" class="boot-log"></pre>
+      <div class="boot-bar"><span id="boot-fill"></span></div>
+      <button id="boot-skip" class="boot-skip" type="button">skip ⏎</button>
+    </div>
+  </div>
 
-        /* derived accent family */
-        --accent: var(--flutter);
-        --accent-soft: color-mix(in srgb, var(--flutter) 12%, transparent);
-        --accent-line: color-mix(in srgb, var(--flutter) 38%, transparent);
-        --accent-tint: color-mix(in srgb, var(--flutter) 50%, var(--bone));
-        --accent-hover: color-mix(in srgb, var(--flutter) 80%, var(--bone));
+  <!-- ===== CUSTOM CURSOR (desktop only) ===== -->
+  <div class="cursor" id="cursor" aria-hidden="true"></div>
+  <div class="cursor-ring" id="cursor-ring" aria-hidden="true"></div>
 
-        /* derived text */
-        --text-0: var(--bone);
-        --text-1: color-mix(in srgb, var(--bone) 78%, var(--ink));
-        --text-2: var(--stone);
+  <!-- ===== SCROLL PROGRESS ===== -->
+  <div class="progress" id="progress" aria-hidden="true"></div>
 
-        /* TYPE — Fraunces (display) + Instrument Sans (text/UI).
-           Scale: major third (1.25) from a 16px base for text sizes,
-           fluid steps for display. */
-        --font-display: "Fraunces", Georgia, "Times New Roman", serif;
-        --font-body: "Instrument Sans", system-ui, -apple-system, "Segoe UI",
-          Roboto, sans-serif;
-        --font-code: ui-monospace, "Cascadia Code", Consolas, monospace;
-        --fs-xs: 13px; /* meta, captions, labels */
-        --fs-sm: 14px; /* UI: nav, buttons, pills */
-        --fs-base: 16px; /* body */
-        --fs-md: 18px; /* lede, timeline roles */
-        --fs-lg: 22px; /* card titles */
-        --fs-xl: clamp(26px, 2.8vw, 32px); /* feature titles */
-        --fs-2xl: clamp(32px, 4vw, 46px); /* section headings */
-        --fs-3xl: clamp(42px, 5.6vw, 72px); /* hero */
-        --lh-display: 1.02;
-        --lh-heading: 1.15;
-        --lh-body: 1.6;
-        --lh-prose: 1.7;
+  <!-- ===== BACKGROUND ===== -->
+  <canvas id="bg" class="bg" aria-hidden="true"></canvas>
+  <div class="noise" aria-hidden="true"></div>
 
-        --ease-out: cubic-bezier(0.2, 0.8, 0.2, 1);
-        color-scheme: dark;
-      }
-      *,
-      *::before,
-      *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-      }
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 88px;
-        -webkit-text-size-adjust: 100%;
-      }
-      body {
-        background: var(--bg);
-        color: var(--text-0);
-        font-family: var(--font-body);
-        font-size: var(--fs-base);
-        line-height: var(--lh-body);
-        min-height: 100vh;
-        overflow-x: hidden;
-        overflow-x: clip;
-        -webkit-font-smoothing: antialiased;
-      }
-      body::before {
-        content: "";
-        position: fixed;
-        inset: 0;
-        z-index: -2;
-        pointer-events: none;
-        background: radial-gradient(
-          1000px 640px at 85% -12%,
-          color-mix(in srgb, var(--deep) 55%, transparent),
-          transparent 65%
-        );
-      }
-      #bg3d {
-        position: fixed;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        z-index: -1;
-        pointer-events: none;
-      }
-      h1,
-      h2,
-      h3,
-      .brand-name {
-        font-family: var(--font-display);
-        font-optical-sizing: auto;
-        font-weight: 400;
-      }
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-      ul {
-        list-style: none;
-      }
-      img {
-        display: block;
-        max-width: 100%;
-      }
-      button {
-        font: inherit;
-        color: inherit;
-        background: none;
-        border: 0;
-        cursor: pointer;
-      }
-      :focus-visible {
-        outline: 2px solid var(--accent);
-        outline-offset: 3px;
-        border-radius: 6px;
-      }
-      ::selection {
-        background: color-mix(in srgb, var(--flutter) 35%, transparent);
-      }
-      .wrap {
-        max-width: 1180px;
-        margin: 0 auto;
-        padding-inline: clamp(16px, 4vw, 32px);
-      }
-      .icon {
-        width: 18px;
-        height: 18px;
-        flex-shrink: 0;
-      }
-      .visually-hidden {
-        position: absolute;
-        width: 1px;
-        height: 1px;
-        overflow: hidden;
-        clip-path: inset(50%);
-        white-space: nowrap;
-      }
-      .skip-link {
-        position: fixed;
-        left: 16px;
-        top: -60px;
-        z-index: 100;
-        padding: 10px 16px;
-        border-radius: 10px;
-        background: var(--accent);
-        color: var(--ink);
-        font-weight: 600;
-        transition: top 0.2s;
-      }
-      .skip-link:focus {
-        top: 12px;
-      }
-      .progress {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 2px;
-        z-index: 60;
-        transform: scaleX(0);
-        transform-origin: 0 50%;
-        background: var(--accent);
-      }
+  <!-- ===== NAV ===== -->
+  <header class="nav" id="nav">
+    <a href="#top" class="logo" aria-label="Home">
+      <span class="logo-prompt">~</span><span class="logo-name">/tanzeel</span><span class="logo-cursor">_</span>
+    </a>
+    <nav class="nav-links" id="nav-links" aria-label="Primary">
+      <a href="#about"><span class="nav-idx">01.</span>about</a>
+      <a href="#experience"><span class="nav-idx">02.</span>experience</a>
+      <a href="#skills"><span class="nav-idx">03.</span>skills</a>
+      <a href="#projects"><span class="nav-idx">04.</span>projects</a>
+      <a href="#contact"><span class="nav-idx">05.</span>contact</a>
+      <a class="nav-cv" href="assets/Tanzeel_Hussain_Resume.pdf" download="Tanzeel_Hussain_Resume.pdf">resume ↓</a>
+    </nav>
+    <div class="nav-actions">
+      <button class="kbd-btn" id="open-palette" type="button" aria-label="Open command palette">
+        <span class="kbd-btn-text">Search</span>
+        <kbd>Ctrl</kbd><kbd>K</kbd>
+      </button>
+      <button class="icon-btn" id="theme-toggle" type="button" aria-label="Toggle theme">
+        <svg class="icon-sun" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+        <svg class="icon-moon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      </button>
+      <button class="icon-btn burger" id="burger" type="button" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
 
-      /* NAV */
-      .topbar {
-        position: sticky;
-        top: 0;
-        z-index: 50;
-        border-bottom: 1px solid transparent;
-        transition:
-          background-color 0.3s,
-          border-color 0.3s;
-      }
-      .topbar.scrolled,
-      .topbar.menu-open {
-        background: color-mix(in srgb, var(--ink) 84%, transparent);
-        -webkit-backdrop-filter: blur(14px) saturate(140%);
-        backdrop-filter: blur(14px) saturate(140%);
-        border-bottom-color: var(--border);
-      }
-      .nav {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 20px;
-        height: 72px;
-      }
-      .brand {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .brand-avatar {
-        width: 40px;
-        height: 40px;
-        display: block;
-        border-radius: 50%;
-        flex-shrink: 0;
-        overflow: hidden;
-        background: var(--panel);
-        box-shadow: 0 0 0 1px var(--border-strong);
-      }
-      /* The source is a head-and-shoulders crop; zoom to the face so it
-         reads at 40px. */
-      .brand-avatar img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transform: scale(1.9);
-        transform-origin: 49% 44%;
-      }
-      .brand-name {
-        font-size: 17px;
-        font-weight: 500;
-        line-height: 1.2;
-      }
-      .brand-title {
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-      }
-      .nav-links {
-        display: flex;
-        gap: 2px;
-        padding: 5px;
-        border: 1px solid var(--border);
-        border-radius: 100px;
-      }
-      .nav-links a {
-        padding: 7px 15px;
-        border-radius: 100px;
-        font-size: var(--fs-sm);
-        font-weight: 500;
-        color: var(--text-1);
-        transition:
-          color 0.2s,
-          background-color 0.2s;
-      }
-      .nav-links a:hover {
-        color: var(--text-0);
-      }
-      .nav-links a.active {
-        color: var(--text-0);
-        background: color-mix(in srgb, var(--bone) 9%, transparent);
-      }
-      .nav-cta {
-        padding: 10px 18px;
-      }
-      .menu-toggle {
-        display: none;
-        width: 44px;
-        height: 44px;
-        border-radius: 12px;
-        border: 1px solid var(--border-strong);
-        place-items: center;
-      }
-      .menu-toggle .icon-close,
-      .menu-open .menu-toggle .icon-menu {
-        display: none;
-      }
-      .menu-open .menu-toggle .icon-close {
-        display: block;
-      }
-      .mobile-menu {
-        display: none;
-        padding-block: 8px 20px;
-      }
-      .mobile-menu a:not(.btn) {
-        display: block;
-        padding: 14px 4px;
-        font: 400 22px var(--font-display);
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .mobile-menu .btn {
-        margin-top: 18px;
-        width: 100%;
-        justify-content: center;
-      }
+  <main id="top">
 
-      /* BUTTONS */
-      .btn {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        padding: 12px 18px;
-        border-radius: 12px;
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        line-height: 1.2;
-        transition:
-          border-color 0.2s,
-          color 0.2s,
-          background-color 0.2s;
-      }
-      .btn .icon {
-        width: 16px;
-        height: 16px;
-      }
-      .btn-solid {
-        background: var(--accent);
-        color: var(--ink);
-      }
-      .btn-solid:hover {
-        background: var(--accent-hover);
-      }
-      .btn-outline {
-        border: 1px solid var(--border-strong);
-      }
-      .btn-outline:hover {
-        border-color: var(--accent);
-        color: var(--accent);
-      }
-
-      /* HERO */
-      .hero {
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-        gap: clamp(24px, 4vw, 56px);
-        align-items: center;
-        min-height: min(860px, calc(100svh - 72px));
-        padding-block: 32px 24px;
-      }
-      .badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-size: var(--fs-xs);
-        font-weight: 500;
-        color: var(--text-1);
-        border: 1px solid var(--border);
-        padding: 7px 14px;
-        border-radius: 100px;
-        margin-bottom: 28px;
-      }
-      .dot {
-        position: relative;
-        width: 7px;
-        height: 7px;
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 0 3px var(--accent-soft);
-      }
-      .headline {
-        font-size: var(--fs-3xl);
-        font-weight: 400;
-        line-height: var(--lh-display);
-        letter-spacing: -0.02em;
-        margin-bottom: 26px;
-      }
-      .hl {
-        font-style: italic;
-        color: var(--accent);
-      }
-      .nowrap {
-        white-space: nowrap;
-      }
-      .hero-lede {
-        font-size: var(--fs-md);
-        line-height: 1.65;
-        color: var(--text-1);
-        max-width: 34em;
-        margin-bottom: 32px;
-      }
-      .hero-lede b {
-        color: var(--text-0);
-        font-weight: 600;
-      }
-      .btn-row {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      /* Hero stats: open columns on a hairline, not boxed cards */
-      .stat-row {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        margin-top: 44px;
-        border-top: 1px solid var(--border);
-      }
-      .stat-card {
-        position: relative;
-        padding: 18px 20px 0 0;
-      }
-      .stat-card + .stat-card {
-        padding-left: 20px;
-        border-left: 1px solid var(--border-soft);
-      }
-      .stat-num {
-        font: 500 var(--fs-lg) / 1.2 var(--font-display);
-        letter-spacing: -0.01em;
-        margin-bottom: 6px;
-      }
-      .stat-label {
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-        line-height: 1.5;
-      }
-
-      /* 3D PHONE (shared by hero + project showcases) — neutral hardware */
-      .phone {
-        --pw: 232px;
-        --ph: 480px;
-        --pr: 38px;
-        --bezel: 9px;
-        position: relative;
-        width: var(--pw);
-        height: var(--ph);
-        transform-style: preserve-3d;
-      }
-      .phone-body {
-        position: absolute;
-        inset: 0;
-        transform-style: preserve-3d;
-      }
-      .phone-body i {
-        position: absolute;
-        inset: 0;
-        border-radius: var(--pr);
-        background: linear-gradient(145deg, #4a463f, #1d1b18 45%, #36332d);
-        transform: translateZ(calc(var(--i) * -1px));
-      }
-      .phone-body i:last-child {
-        background: linear-gradient(145deg, #24221e, #0c0b0a);
-      }
-      .phone-face {
-        position: absolute;
-        inset: 0;
-        border-radius: var(--pr);
-        padding: var(--bezel);
-        background: linear-gradient(145deg, #2c2925, #0a0908 30%);
-        box-shadow:
-          inset 0 0 0 1px color-mix(in srgb, var(--bone) 18%, transparent),
-          inset 0 0 0 6px #070605;
-      }
-      .phone-screen {
-        position: relative;
-        height: 100%;
-        border-radius: calc(var(--pr) - var(--bezel));
-        overflow: hidden;
-        background: #070605;
-      }
-      .phone-screen img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-      }
-      /* Project demo videos: sit exactly on top of the screenshot (same box,
-         same fit) and fade in only while playing, so the image stays the
-         resting state. */
-      .phone-screen .demo-video {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-        opacity: 0;
-        transition: opacity 0.35s var(--ease-out);
-      }
-      .phone-screen.is-playing .demo-video {
-        opacity: 1;
-      }
-      .demo-toggle {
-        position: absolute;
-        inset: 0;
-        z-index: 2;
-        border-radius: inherit;
-        cursor: pointer;
-      }
-      .demo-toggle:focus-visible {
-        outline-offset: -3px;
-      }
-      .phone-glare {
-        position: absolute;
-        inset: 0;
-        pointer-events: none;
-        background: linear-gradient(
-          115deg,
-          transparent 38%,
-          color-mix(in srgb, var(--bone) 13%, transparent) 49%,
-          transparent 60%
-        );
-        background-size: 300% 100%;
-        background-position: calc(50% + var(--ry, -18) * 1.6%) 0;
-      }
-      .phone-cam {
-        position: absolute;
-        top: calc(var(--bezel) + 7px);
-        left: 50%;
-        width: 9px;
-        height: 9px;
-        margin-left: -4.5px;
-        border-radius: 50%;
-        background: #000;
-        box-shadow: 0 0 0 1.5px #24221e;
-      }
-
-      /* HERO STAGE */
-      .stage {
-        --rx: 8;
-        --ry: -18;
-        --s: 1;
-        position: relative;
-        height: 580px;
-        perspective: 1100px;
-        perspective-origin: 50% 40%;
-      }
-      .stage-glow {
-        position: absolute;
-        inset: 8% 12% 18%;
-        border-radius: 50%;
-        background: radial-gradient(
-          circle at 50% 45%,
-          color-mix(in srgb, var(--flutter) 20%, transparent),
-          color-mix(in srgb, var(--deep) 40%, transparent) 45%,
-          transparent 70%
-        );
-        filter: blur(30px);
-        pointer-events: none;
-      }
-      .scene {
-        position: absolute;
-        left: 50%;
-        top: 45%;
-        width: 0;
-        height: 0;
-        transform-style: preserve-3d;
-        transform: scale(var(--s)) rotateX(calc(var(--rx) * 1deg))
-          rotateY(calc(var(--ry) * 1deg));
-      }
-      .float {
-        position: absolute;
-        transform-style: preserve-3d;
-        animation: bob 7s ease-in-out infinite;
-      }
-      @keyframes bob {
-        0%,
-        100% {
-          transform: translateY(-10px);
-        }
-        50% {
-          transform: translateY(10px);
-        }
-      }
-      .scene .phone {
-        position: absolute;
-        left: calc(var(--pw) / -2);
-        top: calc(var(--ph) / -2);
-      }
-      .stage .phone-screen img {
-        opacity: 0;
-        transform: scale(1.06);
-        transition:
-          opacity 0.9s var(--ease-out),
-          transform 1.4s var(--ease-out);
-      }
-      .stage .phone-screen img.is-active {
-        opacity: 1;
-        transform: none;
-      }
-      /* The hero's one video slide (BioGuard) fades in/out exactly like its
-         image siblings; only the tag differs. */
-      .stage .phone-screen video {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: top center;
-        opacity: 0;
-        transform: scale(1.06);
-        transition:
-          opacity 0.9s var(--ease-out),
-          transform 1.4s var(--ease-out);
-      }
-      .stage .phone-screen video.is-active {
-        opacity: 1;
-        transform: none;
-      }
-      .floor {
-        position: absolute;
-        left: -300px;
-        top: -300px;
-        width: 600px;
-        height: 600px;
-        transform: translateY(272px) rotateX(90deg);
-        background-image:
-          linear-gradient(var(--accent-line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--accent-line) 1px, transparent 1px);
-        background-size: 40px 40px;
-        background-position: center;
-        opacity: 0.5;
-        -webkit-mask-image: radial-gradient(
-          closest-side,
-          #000 25%,
-          transparent 100%
-        );
-        mask-image: radial-gradient(closest-side, #000 25%, transparent 100%);
-      }
-      .floor-glow {
-        position: absolute;
-        left: -150px;
-        top: -150px;
-        width: 300px;
-        height: 300px;
-        border-radius: 50%;
-        transform: translateY(271px) rotateX(90deg);
-        background: radial-gradient(
-          closest-side,
-          color-mix(in srgb, var(--flutter) 40%, transparent),
-          transparent
-        );
-        opacity: 0.7;
-      }
-      .orbit {
-        position: absolute;
-        left: calc(var(--d) / -2);
-        top: calc(var(--d) / -2);
-        width: var(--d);
-        height: var(--d);
-        border-radius: 50%;
-        border: 1px solid var(--accent-line);
-        transform-style: preserve-3d;
-      }
-      .orbit span {
-        position: absolute;
-        top: -4px;
-        left: 50%;
-        width: 8px;
-        height: 8px;
-        margin-left: -4px;
-        border-radius: 50%;
-        background: var(--accent);
-        box-shadow: 0 0 12px 2px color-mix(in srgb, var(--flutter) 60%, transparent);
-      }
-      .orbit-a {
-        --d: 430px;
-        animation: orbit-a 16s linear infinite;
-      }
-      @keyframes orbit-a {
-        from {
-          transform: rotateX(76deg) rotateY(-8deg) rotateZ(0deg);
-        }
-        to {
-          transform: rotateX(76deg) rotateY(-8deg) rotateZ(360deg);
-        }
-      }
-      .chip {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: var(--w, 200px);
-        display: flex;
-        align-items: flex-start;
-        gap: 10px;
-        padding: 12px 14px;
-        border-radius: 14px;
-        background: color-mix(in srgb, var(--char) 92%, transparent);
-        border: 1px solid var(--border);
-        box-shadow: 0 24px 40px -20px #000;
-        font-size: var(--fs-xs);
-        line-height: 1.45;
-        color: var(--text-2);
-        transform: translate3d(var(--x), var(--y), var(--z));
-      }
-      .chip b {
-        display: block;
-        color: var(--text-0);
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        margin-bottom: 2px;
-      }
-      .chip-ico {
-        width: 30px;
-        height: 30px;
-        border-radius: 9px;
-        display: grid;
-        place-items: center;
-        flex-shrink: 0;
-        color: var(--c);
-        background: color-mix(in srgb, var(--c) 14%, transparent);
-        border: 1px solid color-mix(in srgb, var(--c) 28%, transparent);
-      }
-      .chip-ico .icon {
-        width: 16px;
-        height: 16px;
-      }
-      .chip-1 {
-        --x: -270px;
-        --y: -200px;
-        --z: 90px;
-        --c: var(--accent);
-      }
-      .chip-2 {
-        --x: 64px;
-        --y: -56px;
-        --z: 140px;
-        --w: 186px;
-        --c: var(--bone);
-      }
-      .chip-3 {
-        --x: -250px;
-        --y: 112px;
-        --z: 60px;
-        --c: var(--accent-tint);
-      }
-      .stage-caption {
-        position: absolute;
-        left: 50%;
-        bottom: 0;
-        transform: translateX(-50%);
-        display: flex;
-        align-items: center;
-        gap: 10px;
-        padding: 0 4px 0 18px;
-        border-radius: 100px;
-        background: color-mix(in srgb, var(--char) 90%, transparent);
-        border: 1px solid var(--border);
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-        white-space: nowrap;
-      }
-      .stage-caption b {
-        color: var(--text-0);
-        font-weight: 600;
-      }
-      .screen-dots {
-        display: flex;
-      }
-      /* 44×44 touch targets; the visible dot stays small inside */
-      .screen-dots button {
-        display: grid;
-        place-items: center;
-        width: 44px;
-        height: 44px;
-      }
-      .screen-dots button::before {
-        content: "";
-        width: 7px;
-        height: 7px;
-        border-radius: 8px;
-        background: color-mix(in srgb, var(--bone) 25%, transparent);
-        transition:
-          width 0.3s var(--ease-out),
-          background-color 0.3s;
-      }
-      .screen-dots button[aria-current="true"]::before {
-        width: 18px;
-        background: var(--accent);
-      }
-      .carousel-toggle {
-        display: grid;
-        place-items: center;
-        width: 44px;
-        height: 44px;
-        border-radius: 50%;
-        color: var(--text-1);
-        transition: color 0.2s;
-      }
-      .carousel-toggle:hover {
-        color: var(--accent);
-      }
-      .carousel-toggle .icon {
-        width: 14px;
-        height: 14px;
-      }
-      .carousel-toggle .icon-play,
-      .carousel-toggle.is-paused .icon-pause {
-        display: none;
-      }
-      .carousel-toggle.is-paused .icon-play {
-        display: block;
-      }
-
-      /* SECTION SHELL */
-      .section {
-        padding-top: clamp(88px, 11vw, 136px);
-      }
-      .section-head {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 40px;
-        align-items: end;
-        margin-bottom: 36px;
-      }
-      .eyebrow {
-        display: inline-flex;
-        align-items: center;
-        gap: 10px;
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        color: var(--accent);
-        margin-bottom: 12px;
-      }
-      .eyebrow::before {
-        content: "";
-        width: 22px;
-        height: 1px;
-        background: currentColor;
-        opacity: 0.6;
-      }
-      .section-heading {
-        font-size: var(--fs-2xl);
-        font-weight: 400;
-        line-height: var(--lh-heading);
-        letter-spacing: -0.015em;
-      }
-      .section-note {
-        font-size: var(--fs-base);
-        line-height: var(--lh-prose);
-        color: var(--text-1);
-        max-width: 30em;
-        justify-self: end;
-      }
-      .sub-head {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        margin: 44px 0 18px;
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        color: var(--text-2);
-      }
-      .sub-head::after {
-        content: "";
-        flex: 1;
-        height: 1px;
-        background: var(--border);
-      }
-
-      /* CARDS + 3D TILT */
-      .card {
-        position: relative;
-        background: var(--panel);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 28px;
-      }
-      .card-label {
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        color: var(--text-2);
-        margin-bottom: 16px;
-      }
-      .tilt {
-        transform-style: preserve-3d;
-      }
-      .tilt::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        border-radius: inherit;
-        pointer-events: none;
-        background: radial-gradient(
-          480px circle at var(--gx, 50%) var(--gy, 50%),
-          color-mix(in srgb, var(--flutter) 7%, transparent),
-          transparent 45%
-        );
-        opacity: 0;
-        transition: opacity 0.35s;
-      }
-      .tilt:hover {
-        border-color: var(--accent-line);
-      }
-      .tilt:hover::after {
-        opacity: 1;
-      }
-      .card {
-        transition: border-color 0.3s;
-      }
-      /* One orchestrated page-load sequence for the hero only. Pure CSS, so
-         content is never left hidden if JS fails or motion is reduced. */
-      .reveal {
-        animation: enter 0.9s var(--ease-out) both;
-        animation-delay: var(--d, 0s);
-      }
-      @keyframes enter {
-        from {
-          opacity: 0;
-          translate: 0 20px;
-        }
-      }
-
-      /* ABOUT */
-      .about-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1fr) minmax(0, 1fr);
-        grid-template-areas:
-          "photo summary summary"
-          "photo intern edu"
-          "strengths strengths strengths";
-        gap: 20px;
-      }
-      .about-grid .summary {
-        grid-area: summary;
-        display: flex;
-        flex-direction: column;
-      }
-      .about-grid .intern {
-        grid-area: intern;
-      }
-      .about-grid .edu {
-        grid-area: edu;
-      }
-      .about-grid .strengths {
-        grid-area: strengths;
-      }
-      /* Portrait: same surface, hairline and radius as the cards — no glow */
-      .portrait {
-        grid-area: photo;
-        position: relative;
-        min-height: 100%;
-        border-radius: 20px;
-        overflow: hidden;
-        border: 1px solid var(--border);
-        background: var(--panel);
-      }
-      .portrait img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        object-position: 50% 30%;
-        transform: scale(1.12);
-        transform-origin: 50% 62%;
-      }
-      .intern-role {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1.3;
-        letter-spacing: -0.01em;
-        margin-bottom: 18px;
-      }
-      .intern-org {
-        color: var(--accent);
-        font-style: italic;
-      }
-      .intern-meta {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 14px 16px;
-        border-top: 1px solid var(--border-soft);
-        padding-top: 16px;
-      }
-      .intern-meta dt {
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-      }
-      .intern-meta dd {
-        font-size: var(--fs-sm);
-        font-weight: 500;
-        color: var(--text-0);
-      }
-      .summary-text {
-        font-size: var(--fs-base);
-        line-height: var(--lh-prose);
-        color: var(--text-1);
-      }
-      .fact-list {
-        margin-top: auto;
-        padding-top: 26px;
-        display: grid;
-        gap: 10px;
-      }
-      .fact-list li {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        font-size: var(--fs-sm);
-        color: var(--text-0);
-        padding-top: 12px;
-        border-top: 1px solid var(--border-soft);
-      }
-      .fact-list .icon {
-        color: var(--accent);
-      }
-      .pill-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 10px;
-      }
-      .pill {
-        padding: 8px 14px;
-        border-radius: 100px;
-        font-size: var(--fs-sm);
-        background: var(--panel-2);
-        border: 1px solid var(--border-soft);
-        color: var(--text-1);
-      }
-      .edu-text {
-        font-size: var(--fs-base);
-        color: var(--text-1);
-        line-height: var(--lh-prose);
-      }
-      .edu-text b {
-        color: var(--text-0);
-        font-weight: 600;
-      }
-
-      /* TIMELINE */
-      /* Timeline: open rows on a rail, not a stack of boxes */
-      .timeline {
-        position: relative;
-        display: grid;
-        padding-left: 38px;
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .timeline::before {
-        content: "";
-        position: absolute;
-        left: 11px;
-        top: 34px;
-        bottom: 34px;
-        width: 1px;
-        background: var(--border-strong);
-      }
-      .tl-item {
-        position: relative;
-        padding: 26px 0;
-        border-top: 1px solid var(--border-soft);
-      }
-      .tl-item .tl-desc {
-        max-width: 62ch;
-      }
-      .tl-item::before {
-        content: "";
-        position: absolute;
-        left: -32px;
-        top: 33px;
-        width: 11px;
-        height: 11px;
-        border-radius: 50%;
-        background: var(--bg);
-        border: 2px solid var(--accent);
-      }
-      .tl-item.edu::before {
-        border-color: var(--stone);
-      }
-      .tl-top {
-        display: flex;
-        justify-content: space-between;
-        align-items: flex-start;
-        gap: 16px;
-        flex-wrap: wrap;
-        margin-bottom: 10px;
-      }
-      .tl-role {
-        font-size: 20px;
-        font-weight: 500;
-        line-height: 1.3;
-        letter-spacing: -0.01em;
-      }
-      .tl-org {
-        color: var(--accent);
-        font-style: italic;
-      }
-      .tl-item.edu .tl-org {
-        color: var(--text-1);
-      }
-      .tl-meta {
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-        margin-top: 4px;
-      }
-      .tl-badge {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-        font-size: var(--fs-xs);
-        font-weight: 500;
-        color: var(--text-1);
-        border: 1px solid var(--border);
-        padding: 5px 12px;
-        border-radius: 100px;
-        white-space: nowrap;
-      }
-      .tl-badge.live::before {
-        content: "";
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-      }
-      .tl-desc {
-        font-size: var(--fs-base);
-        color: var(--text-1);
-        line-height: var(--lh-prose);
-      }
-
-      /* PROJECTS */
-      .project-title {
-        font-size: var(--fs-lg);
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        line-height: 1.25;
-      }
-      .project-sub {
-        font-size: var(--fs-xs);
-        font-weight: 500;
-        color: var(--text-2);
-        margin: 6px 0 14px;
-      }
-      .project-desc {
-        font-size: var(--fs-base);
-        color: var(--text-1);
-        line-height: var(--lh-prose);
-        margin-bottom: 18px;
-      }
-      .tags {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .tag {
-        font-size: var(--fs-xs);
-        font-weight: 500;
-        padding: 4px 10px;
-        border-radius: 8px;
-        background: var(--panel-2);
-        border: 1px solid var(--border);
-        color: var(--text-1);
-      }
-      /* FEATURED AI APPS — large, deep-tinted panels. Two genuinely
-         different compositions rather than a mirrored flip:
-         .feature-side  = copy | angled phone
-         .feature-split = full-width header, then copy | upright phone | spec stack */
-      .feature {
-        display: grid;
-        gap: 32px 44px;
-        align-items: center;
-        padding: clamp(24px, 4vw, 48px);
-        margin-bottom: 20px;
-        border-radius: 24px;
-      }
-      .feature .project-title {
-        font-size: var(--fs-xl);
-      }
-      .feature-label {
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        color: var(--accent);
-        margin-bottom: 10px;
-      }
-      .feature-side {
-        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
-        background:
-          radial-gradient(
-            520px 440px at 78% 50%,
-            color-mix(in srgb, var(--deep) 75%, transparent),
-            transparent 70%
-          ),
-          var(--panel);
-      }
-      .feature-split {
-        grid-template-columns: minmax(0, 1fr) auto minmax(0, 0.62fr);
-        grid-template-areas:
-          "head head head"
-          "body phone facts";
-        background:
-          radial-gradient(
-            440px 460px at 52% 66%,
-            color-mix(in srgb, var(--deep) 75%, transparent),
-            transparent 70%
-          ),
-          var(--panel);
-      }
-      /* Flagship accent: a faint circuit-grid "window" layered over the
-         same glow recipe as the other feature panels, using the accent-line
-         token already used for the systems cards' dependency graph — so
-         BioGuard reads as the standout without a new color or new layout. */
-      .feature-flagship {
-        background:
-          radial-gradient(
-            460px 460px at 52% 62%,
-            transparent 32%,
-            var(--panel) 76%
-          ),
-          linear-gradient(var(--accent-line) 1px, transparent 1px),
-          linear-gradient(90deg, var(--accent-line) 1px, transparent 1px),
-          radial-gradient(
-            440px 460px at 52% 66%,
-            color-mix(in srgb, var(--deep) 75%, transparent),
-            transparent 70%
-          ),
-          var(--panel);
-        background-size: auto, 32px 32px, 32px 32px, auto;
-      }
-      .feature-head {
-        grid-area: head;
-        padding-bottom: 22px;
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .feature-head .project-sub {
-        margin-bottom: 0;
-      }
-      .feature-body {
-        grid-area: body;
-      }
-      .feature-split .showcase {
-        grid-area: phone;
-        width: 250px;
-        height: 450px;
-      }
-      .feature-split .facts-stack {
-        grid-area: facts;
-      }
-
-      /* Spec figures: hairline-divided, not boxed */
-      .facts {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        margin-bottom: 24px;
-        border-top: 1px solid var(--border-soft);
-      }
-      .fact {
-        padding: 14px 16px 0 0;
-      }
-      .fact + .fact {
-        padding-left: 16px;
-        border-left: 1px solid var(--border-soft);
-      }
-      .fact b {
-        display: block;
-        font: 500 26px / 1.2 var(--font-display);
-        letter-spacing: -0.01em;
-      }
-      .fact span {
-        display: block;
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-        line-height: 1.45;
-        margin-top: 2px;
-      }
-      .facts-stack {
-        grid-template-columns: minmax(0, 1fr);
-        margin: 0;
-        border-top: 0;
-      }
-      .facts-stack .fact,
-      .facts-stack .fact + .fact {
-        padding: 18px 0;
-        border-left: 0;
-        border-top: 1px solid var(--border-soft);
-      }
-      .facts-stack .fact:first-child {
-        border-top: 0;
-        padding-top: 0;
-      }
-      .facts-stack .fact b {
-        font-size: 40px;
-        font-style: italic;
-        font-weight: 400;
-        line-height: 1.05;
-      }
-
-      .showcase {
-        position: relative;
-        height: 470px;
-        display: grid;
-        place-items: center;
-        perspective: 1000px;
-      }
-      .showcase::after {
-        content: "";
-        position: absolute;
-        bottom: 8px;
-        left: 50%;
-        width: 240px;
-        height: 30px;
-        margin-left: -120px;
-        border-radius: 50%;
-        background: radial-gradient(closest-side, rgba(0, 0, 0, 0.7), transparent);
-      }
-      .showcase .phone {
-        --pw: 200px;
-        --ph: 414px;
-        --pr: 32px;
-        --bezel: 8px;
-        z-index: 1;
-        transition: transform 1s var(--ease-out);
-      }
-      .feature-side .showcase .phone {
-        transform: rotateY(-24deg) rotateX(8deg) rotateZ(2deg);
-      }
-      .feature-side:hover .showcase .phone {
-        transform: rotateY(-8deg) rotateX(3deg) translateZ(30px);
-      }
-      .feature-split .showcase .phone {
-        transform: rotateX(10deg);
-      }
-      .feature-split:hover .showcase .phone {
-        transform: rotateX(3deg) translateZ(30px);
-      }
-
-      /* UTILITY APPS — quiet, open rows on the page ground: no panel,
-         no glow, a small upright phone. Reads as secondary work. */
-      .app-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        column-gap: 48px;
-      }
-      .app-card {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) auto;
-        gap: 24px;
-        align-items: center;
-        padding: 28px 0;
-      }
-      .app-card .project-title {
-        font-size: 20px;
-      }
-      .app-card .showcase {
-        height: 250px;
-        width: 140px;
-      }
-      .app-card .showcase::after {
-        width: 110px;
-        margin-left: -55px;
-        bottom: 2px;
-      }
-      .app-card .showcase .phone {
-        --pw: 112px;
-        --ph: 232px;
-        --pr: 20px;
-        --bezel: 5px;
-        transform: rotateY(-12deg) rotateX(4deg);
-      }
-      .app-card .phone-cam {
-        width: 6px;
-        height: 6px;
-        margin-left: -3px;
-        top: calc(var(--bezel) + 4px);
-      }
-
-      /* SYSTEMS / CS — the whole card is a terminal window: title bar
-         across the top edge, output flush beneath, darker ground. */
-      .sys-grid {
-        display: grid;
-        grid-template-columns: repeat(3, minmax(0, 1fr));
-        gap: 20px;
-      }
-      .sys-card {
-        display: flex;
-        flex-direction: column;
-        padding-bottom: 22px;
-        border-radius: 10px;
-        overflow: hidden;
-        background: color-mix(in srgb, black 35%, var(--ink));
-        border: 1px solid var(--border);
-        transition: border-color 0.3s;
-      }
-      .sys-card:hover {
-        border-color: var(--border-strong);
-      }
-      .sys-card > :not(.term) {
-        margin-inline: 22px;
-      }
-      .sys-card .project-title {
-        font-size: 20px;
-      }
-      .sys-card .tags {
-        margin-top: auto;
-      }
-      .sys-card .tag {
-        background: transparent;
-      }
-      .term {
-        margin-bottom: 20px;
-        border-bottom: 1px solid var(--border-soft);
-        overflow: hidden;
-      }
-      .term-bar {
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        padding: 9px 12px;
-        background: var(--panel-2);
-        border-bottom: 1px solid var(--border-soft);
-      }
-      .term-bar span {
-        width: 9px;
-        height: 9px;
-        border-radius: 50%;
-        background: var(--border-strong);
-      }
-      .term-bar em {
-        margin-left: 8px;
-        font: 500 12px var(--font-code);
-        font-style: normal;
-        color: var(--text-2);
-      }
-      .term-body {
-        position: relative;
-        height: 190px;
-        display: grid;
-        place-items: center;
-        background: var(--term-bg, #0b0a09);
-      }
-      .term-body img {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-        object-fit: contain;
-      }
-      .term-body .img-small {
-        position: static;
-        width: 92%;
-        height: auto;
-      }
-      .term-caption {
-        position: absolute;
-        left: 12px;
-        bottom: 9px;
-        font: 500 12px var(--font-code);
-        color: var(--text-2);
-      }
-      .graph {
-        width: 88%;
-        height: auto;
-        margin-top: -12px;
-      }
-      .graph .edges path {
-        stroke: var(--accent-line);
-        stroke-dasharray: 4 6;
-      }
-      /* The dependency graph only "flows" while you're looking at it. */
-      .sys-card:hover .graph .edges path {
-        animation: flow 2.6s linear infinite;
-      }
-      .graph .nodes circle {
-        fill: var(--char);
-        stroke: var(--accent);
-        stroke-width: 2;
-      }
-      .graph .nodes .v {
-        stroke: var(--stone);
-      }
-      .graph .nodes .warn {
-        fill: var(--accent);
-        stroke: var(--bone);
-      }
-      @keyframes flow {
-        to {
-          stroke-dashoffset: -40;
-        }
-      }
-
-      /* SKILLS */
-      .skills-grid {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 20px;
-      }
-      /* Sized to its content and pinned while the taller toolkit column
-         scrolls past, instead of stretching to that column's height. */
-      .sphere-card {
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        align-self: start;
-        position: sticky;
-        top: 96px;
-      }
-      .sphere {
-        position: relative;
-        height: 500px;
-        display: none;
-        cursor: grab;
-        touch-action: pan-y;
-        user-select: none;
-      }
-      .sphere.dragging {
-        cursor: grabbing;
-      }
-      .js .sphere {
-        display: block;
-      }
-      .sphere::before {
-        content: "";
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        width: var(--sd, 300px);
-        height: var(--sd, 300px);
-        translate: -50% -50%;
-        border-radius: 50%;
-        border: 1px solid var(--border-soft);
-        background: radial-gradient(
-          circle at 35% 30%,
-          color-mix(in srgb, var(--flutter) 10%, transparent),
-          color-mix(in srgb, var(--deep) 25%, transparent) 45%,
-          transparent 70%
-        );
-      }
-      .sphere-tag {
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        white-space: nowrap;
-        color: var(--c);
-        will-change: transform, opacity;
-      }
-      /* Categories are tonal steps of the one accent + the neutrals:
-         three blues (tint / accent / deep) and three neutrals
-         (bone / stone / dim stone). The deep and dim steps are mixed at
-         82% so they still clear 4.5:1 on the card. */
-      .sphere-tag[data-g="mobile"],
-      .legend .mobile {
-        --c: var(--accent);
-      }
-      .sphere-tag[data-g="backend"],
-      .legend .backend {
-        --c: var(--accent-tint);
-      }
-      .sphere-tag[data-g="ai"],
-      .legend .ai {
-        --c: color-mix(in srgb, var(--flutter) 82%, var(--ink));
-      }
-      .sphere-tag[data-g="architecture"],
-      .legend .architecture {
-        --c: var(--bone);
-      }
-      .sphere-tag[data-g="languages"],
-      .legend .languages {
-        --c: var(--stone);
-      }
-      .sphere-tag[data-g="tools"],
-      .legend .tools {
-        --c: color-mix(in srgb, var(--stone) 82%, var(--ink));
-      }
-      .legend {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px 18px;
-        font-size: var(--fs-xs);
-        color: var(--text-1);
-      }
-      .legend span {
-        display: inline-flex;
-        align-items: center;
-        gap: 8px;
-      }
-      .legend span::before {
-        content: "";
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: var(--c);
-      }
-      .sphere-hint {
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-        margin-top: 12px;
-      }
-      .stack-group + .stack-group {
-        margin-top: 22px;
-      }
-      .stack-title {
-        font-size: var(--fs-sm);
-        font-weight: 600;
-        color: var(--text-0);
-        margin-bottom: 10px;
-      }
-      .mini-pill-wrap {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 8px;
-      }
-      .mini-pill {
-        font-size: var(--fs-xs);
-        padding: 6px 12px;
-        border-radius: 10px;
-        background: var(--panel-2);
-        border: 1px solid var(--border-soft);
-        color: var(--text-1);
-      }
-      .skills-side {
-        display: grid;
-        gap: 20px;
-        align-content: start;
-      }
-      .learn-card .card-label {
-        margin-bottom: 8px;
-      }
-      .learn-title {
-        font-size: var(--fs-lg);
-        font-weight: 500;
-        letter-spacing: -0.01em;
-        margin-bottom: 16px;
-      }
-      .roadmap {
-        list-style: none;
-        display: grid;
-        gap: 8px;
-        counter-reset: step;
-      }
-      .roadmap li {
-        display: flex;
-        align-items: baseline;
-        gap: 14px;
-        padding: 11px 14px;
-        border-radius: 12px;
-        background: var(--panel-2);
-        border: 1px solid var(--border-soft);
-        font-size: var(--fs-sm);
-        line-height: 1.5;
-        color: var(--text-1);
-      }
-      .roadmap li::before {
-        counter-increment: step;
-        content: counter(step);
-        font: italic 500 16px var(--font-display);
-        color: var(--accent);
-        min-width: 1ch;
-      }
-      /* Completed steps recede: no fill, muted text, a quiet "Done" marker */
-      .roadmap li.done {
-        background: transparent;
-        color: var(--text-2);
-      }
-      .roadmap li.done::before {
-        color: var(--text-2);
-      }
-      .step-done {
-        margin-left: auto;
-        padding-left: 12px;
-        font-size: var(--fs-xs);
-        font-weight: 600;
-        color: var(--accent);
-        white-space: nowrap;
-      }
-
-      /* CONTACT */
-      .contact-panel {
-        display: grid;
-        grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-        gap: clamp(28px, 5vw, 56px);
-        align-items: center;
-        padding: clamp(28px, 5vw, 56px);
-        border-radius: 28px;
-        border: 1px solid var(--border);
-        background:
-          radial-gradient(
-            640px 360px at 0% 0%,
-            color-mix(in srgb, var(--deep) 70%, transparent),
-            transparent 65%
-          ),
-          var(--panel);
-      }
-      .contact-panel .section-heading {
-        margin-bottom: 16px;
-      }
-      .contact-text {
-        font-size: var(--fs-md);
-        line-height: 1.65;
-        color: var(--text-1);
-        max-width: 26em;
-        margin-bottom: 28px;
-      }
-      .contact-loc {
-        display: flex;
-        align-items: center;
-        gap: 8px;
-        margin-top: 22px;
-        font-size: var(--fs-sm);
-        color: var(--text-2);
-      }
-      .contact-links {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: 10px;
-      }
-      .contact-links a {
-        display: flex;
-        align-items: center;
-        gap: 14px;
-        padding: 14px 16px;
-        border-radius: 14px;
-        background: var(--panel-2);
-        border: 1px solid var(--border-soft);
-        transition: border-color 0.2s;
-      }
-      .contact-links a:hover {
-        border-color: var(--accent-line);
-      }
-      .contact-ico {
-        width: 40px;
-        height: 40px;
-        border-radius: 12px;
-        display: grid;
-        place-items: center;
-        flex-shrink: 0;
-        color: var(--accent);
-        background: var(--accent-soft);
-        border: 1px solid color-mix(in srgb, var(--flutter) 20%, transparent);
-      }
-      .contact-meta {
-        min-width: 0;
-        flex: 1;
-      }
-      .contact-meta small {
-        display: block;
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-      }
-      .contact-meta span {
-        display: block;
-        font-size: var(--fs-base);
-        font-weight: 500;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
-      .contact-links .arrow {
-        color: var(--text-2);
-        transition: color 0.2s;
-      }
-      .contact-links a:hover .arrow {
-        color: var(--accent);
-      }
-
-      footer {
-        padding-block: 64px 36px;
-      }
-      .footer-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 16px;
-        flex-wrap: wrap;
-        padding-top: 24px;
-        border-top: 1px solid var(--border-soft);
-        font-size: var(--fs-xs);
-        color: var(--text-2);
-      }
-      .footer-inner a:hover {
-        color: var(--accent);
-      }
-
-      /* RESPONSIVE */
-      @media (max-width: 1180px) {
-        .stage {
-          --s: 0.88;
-        }
-      }
-      @media (max-width: 960px) {
-        .sphere-card {
-          position: static;
-        }
-        .sphere {
-          height: 420px;
-        }
-        .nav-links,
-        .nav-cta {
-          display: none;
-        }
-        .menu-toggle {
-          display: grid;
-        }
-        .menu-open .mobile-menu {
-          display: block;
-        }
-        .hero {
-          grid-template-columns: 1fr;
-          min-height: 0;
-          padding-top: 28px;
-        }
-        .stage {
-          --s: 0.8;
-          height: 520px;
-        }
-        .section-head,
-        .about-grid,
-        .feature,
-        .app-grid,
-        .skills-grid,
-        .contact-panel {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .section-head {
-          gap: 14px;
-        }
-        .section-note {
-          justify-self: start;
-        }
-        .about-grid {
-          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-          grid-template-areas:
-            "photo photo"
-            "summary summary"
-            "intern edu"
-            "strengths strengths";
-        }
-        .portrait {
-          min-height: 0;
-          aspect-ratio: 4 / 5;
-          max-height: 560px;
-        }
-        .feature .showcase {
-          height: 440px;
-        }
-        .feature-split {
-          grid-template-areas:
-            "head"
-            "phone"
-            "body"
-            "facts";
-        }
-        .feature-split .showcase {
-          width: auto;
-        }
-        .facts-stack {
-          grid-template-columns: repeat(3, minmax(0, 1fr));
-          border-top: 1px solid var(--border-soft);
-        }
-        .facts-stack .fact,
-        .facts-stack .fact + .fact,
-        .facts-stack .fact:first-child {
-          padding: 14px 16px 0 0;
-          border-top: 0;
-        }
-        .facts-stack .fact + .fact {
-          padding-left: 16px;
-          border-left: 1px solid var(--border-soft);
-        }
-        .facts-stack .fact b {
-          font-size: 30px;
-        }
-        /* Four specs wrap to a 2×2 grid; each row restarts its divider */
-        .facts-4 {
-          grid-template-columns: repeat(2, minmax(0, 1fr));
-          row-gap: 16px;
-        }
-        .facts-stack.facts-4 .fact:nth-child(odd) {
-          padding-left: 0;
-          border-left: 0;
-        }
-        .app-card {
-          border-bottom: 1px solid var(--border-soft);
-        }
-        .sys-grid {
-          grid-template-columns: 1fr 1fr;
-        }
-      }
-      @media (max-width: 600px) {
-        :root {
-          --fs-base: 15px;
-          --fs-md: 17px;
-        }
-        .stage {
-          --s: 0.64;
-          height: 440px;
-        }
-        .chip {
-          --w: 170px;
-          font-size: 12px;
-        }
-        .chip-1 {
-          --x: -236px;
-        }
-        .chip-2 {
-          --x: 30px;
-          --w: 170px;
-        }
-        .chip-3 {
-          --x: -224px;
-        }
-        /* Keep the full-size touch targets; the dots' labels already name
-           each screen, so the caption text is visually hidden on phones. */
-        .stage-caption {
-          padding: 0 4px;
-          gap: 0;
-        }
-        .caption-text {
-          position: absolute;
-          width: 1px;
-          height: 1px;
-          overflow: hidden;
-          clip-path: inset(50%);
-          white-space: nowrap;
-        }
-        .stat-row {
-          grid-template-columns: 1fr;
-        }
-        .stat-card,
-        .stat-card + .stat-card {
-          display: flex;
-          align-items: baseline;
-          gap: 14px;
-          padding: 14px 0;
-          border-left: 0;
-          border-bottom: 1px solid var(--border-soft);
-        }
-        .stat-num {
-          margin: 0;
-          min-width: 110px;
-        }
-        .fact,
-        .facts-stack .fact,
-        .facts-stack .fact:first-child {
-          padding-right: 10px;
-        }
-        .fact + .fact,
-        .facts-stack .fact + .fact {
-          padding-left: 10px;
-        }
-        .fact b,
-        .facts-stack .fact b {
-          font-size: 22px;
-        }
-        .about-grid {
-          grid-template-columns: minmax(0, 1fr);
-          grid-template-areas:
-            "photo"
-            "summary"
-            "intern"
-            "edu"
-            "strengths";
-        }
-        .app-card {
-          grid-template-columns: minmax(0, 1fr);
-        }
-        .app-card .showcase {
-          width: 100%;
-        }
-        .sys-grid {
-          grid-template-columns: 1fr;
-        }
-        .card {
-          padding: 22px;
-        }
-        .timeline {
-          padding-left: 30px;
-        }
-        .timeline::before {
-          left: 7px;
-        }
-        .tl-item {
-          padding: 22px 0;
-        }
-        .tl-item::before {
-          left: -28px;
-          top: 29px;
-        }
-        .timeline::before {
-          top: 30px;
-          bottom: 30px;
-        }
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        html {
-          scroll-behavior: auto;
-        }
-        *,
-        *::before,
-        *::after {
-          animation: none !important;
-          transition: none !important;
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <a class="skip-link" href="#main">Skip to content</a>
-    <canvas id="bg3d" aria-hidden="true"></canvas>
-    <div class="progress" aria-hidden="true"></div>
-
-    <!-- ICON SPRITE -->
-    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-      <symbol id="i-github" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M12 .5C5.73.5.5 5.73.5 12a11.5 11.5 0 0 0 7.86 10.92c.58.1.79-.25.79-.56v-2c-3.2.7-3.87-1.37-3.87-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.04-.71.08-.7.08-.7 1.15.08 1.76 1.19 1.76 1.19 1.03 1.76 2.69 1.25 3.35.96.1-.75.4-1.25.73-1.54-2.55-.29-5.24-1.28-5.24-5.68 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.41-2.69 5.39-5.25 5.67.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 23.5 12C23.5 5.73 18.27.5 12 .5Z"
-        />
-      </symbol>
-      <symbol id="i-linkedin" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"
-        />
-      </symbol>
-      <symbol id="i-mail" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect x="3" y="5" width="18" height="14" rx="2.5" />
-          <path d="m3.5 7 8.5 6 8.5-6" />
-        </g>
-      </symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"
-        />
-      </symbol>
-      <symbol id="i-arrow" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M7 17 17 7M8 7h9v9"
-        />
-      </symbol>
-      <symbol id="i-file" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z" />
-          <path d="M14 3v5h5M9 13h6M9 17h6" />
-        </g>
-      </symbol>
-      <symbol id="i-download" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 4v11m0 0-4.5-4.5M12 15l4.5-4.5M5 20h14"
-        />
-      </symbol>
-      <symbol id="i-copy" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <rect x="9" y="9" width="12" height="12" rx="2" />
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1" />
-        </g>
-      </symbol>
-      <symbol id="i-bolt" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M13 2 3 14h8l-1 8 10-12h-8l1-8Z" />
-      </symbol>
-      <symbol id="i-flame" viewBox="0 0 24 24">
-        <path
-          fill="currentColor"
-          d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.07-2.14-.22-4.05 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.15.43-2.29 1-3a2.5 2.5 0 0 0 2.5 2.5Z"
-        />
-      </symbol>
-      <symbol id="i-rocket" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path
-            d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09Z"
-          />
-          <path
-            d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2Z"
-          />
-          <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0" />
-          <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5" />
-        </g>
-      </symbol>
-      <symbol id="i-pin" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" />
-          <circle cx="12" cy="10" r="3" />
-        </g>
-      </symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24">
-        <g
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          <circle cx="12" cy="12" r="10" />
-          <path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10Z" />
-        </g>
-      </symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8"
-        />
-      </symbol>
-      <symbol id="i-pause" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M7 5h3.5v14H7zM13.5 5H17v14h-3.5z" />
-      </symbol>
-      <symbol id="i-play" viewBox="0 0 24 24">
-        <path fill="currentColor" d="M8 5.5v13a.8.8 0 0 0 1.2.7l10.4-6.5a.8.8 0 0 0 0-1.4L9.2 4.8A.8.8 0 0 0 8 5.5Z" />
-      </symbol>
-      <symbol id="i-menu" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          d="M4 7h16M4 12h16M4 17h16"
-        />
-      </symbol>
-      <symbol id="i-close" viewBox="0 0 24 24">
-        <path
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          d="M6 6l12 12M18 6 6 18"
-        />
-      </symbol>
-    </svg>
-
-    <!-- NAV -->
-    <header class="topbar">
-      <nav class="wrap nav" aria-label="Primary">
-        <a class="brand" href="#home">
-          <span class="brand-avatar">
-            <img
-              src="assets/profile-square.webp"
-              alt="Headshot of Tanzeel Hussain with dark wavy hair and a beard, in a white T-shirt"
-              width="600"
-              height="600"
-            />
-          </span>
-          <span>
-            <span class="brand-name" style="display: block">Tanzeel Hussain</span>
-            <span class="brand-title">Flutter Developer</span>
-          </span>
-        </a>
-        <div class="nav-links">
-          <a href="#about">About</a>
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
-        </div>
-        <a class="btn btn-solid nav-cta" href="#contact">Let's talk</a>
-        <button
-          class="menu-toggle"
-          type="button"
-          aria-label="Open menu"
-          aria-expanded="false"
-          aria-controls="mobile-menu"
-        >
-          <svg class="icon icon-menu"><use href="#i-menu" /></svg>
-          <svg class="icon icon-close"><use href="#i-close" /></svg>
-        </button>
-      </nav>
-      <div class="wrap mobile-menu" id="mobile-menu">
-        <a href="#about">About</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <a class="btn btn-solid" href="#contact">Let's talk</a>
-      </div>
-    </header>
-
-    <main class="wrap" id="main">
-      <!-- HERO -->
-      <section class="hero" id="home">
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+      <div class="hero-grid">
         <div class="hero-copy">
-          <div class="badge reveal">
-            <span class="dot"></span> Open to Flutter roles &amp; freelance work
-          </div>
-          <h1 class="headline reveal" style="--d: 0.08s">
-            Building <em class="hl">clean</em>,
-            <em class="hl nowrap">AI-ready</em> mobile experiences with
-            Flutter.
+          <p class="hero-eyebrow reveal"><span class="live-dot" aria-hidden="true"></span>Open to Flutter roles &amp; freelance work</p>
+          <h1 class="hero-title reveal">
+            <span class="hero-hi">Hi, I'm</span>
+            <span class="hero-name" data-text="Tanzeel Hussain">Tanzeel Hussain</span>
           </h1>
-          <p class="hero-lede reveal" style="--d: 0.16s">
-            I'm <b>Tanzeel Hussain</b>, a Software Engineering student and
-            Flutter Developer from Faisalabad, Pakistan, with hands-on
-            experience turning ideas into production-grade mobile apps. I focus
-            on <b>Clean Architecture</b>, <b>Riverpod/BLoC state management</b>,
-            and <b>Firebase/Supabase-powered backends</b>. I recently completed
-            a remote internship at <b>FlutterCraft.app</b> and deliver freelance
-            Flutter work on Fiverr.
+          <p class="hero-sub reveal">
+            <span class="hero-prompt">$</span> I build <span class="typed" id="typed"></span><span class="typed-caret">|</span>
           </p>
-          <div class="btn-row reveal" style="--d: 0.24s">
-            <a class="btn btn-solid" href="#projects"
-              >View projects
-              <svg class="icon"><use href="#i-arrow" /></svg
-            ></a>
-            <a
-              class="btn btn-outline"
-              href="https://github.com/f243077-cell"
-              target="_blank"
-              rel="noopener"
-              ><svg class="icon"><use href="#i-github" /></svg> GitHub</a
-            >
-            <a
-              class="btn btn-outline"
-              href="https://linkedin.com/in/tanzeel-hussain-176a93327"
-              target="_blank"
-              rel="noopener"
-              ><svg class="icon"><use href="#i-linkedin" /></svg> LinkedIn</a
-            >
-            <a class="btn btn-outline" href="mailto:tanzeelhussain346@gmail.com"
-              ><svg class="icon"><use href="#i-mail" /></svg> Email me</a
-            >
-            <a
-              class="btn btn-outline"
-              href="assets/Tanzeel_Hussain_Resume.pdf"
-              target="_blank"
-              rel="noopener"
-              ><svg class="icon"><use href="#i-file" /></svg> Résumé
-              <span class="visually-hidden">(PDF, opens in a new tab)</span></a
-            >
+          <p class="hero-desc reveal">
+            Software Engineering student and Flutter developer from Faisalabad, Pakistan. I build clean,
+            AI-ready mobile apps with Clean Architecture, Riverpod/BLoC state management and Firebase or
+            Supabase backends. I recently completed a remote internship at FlutterCraft.app and deliver
+            freelance Flutter work on Fiverr.
+          </p>
+          <div class="hero-cta reveal">
+            <a href="#projects" class="btn btn-primary">
+              <span>view projects</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#contact" class="btn btn-ghost"><span>get in touch</span></a>
+            <a href="assets/Tanzeel_Hussain_Resume.pdf" class="btn btn-ghost" download="Tanzeel_Hussain_Resume.pdf">
+              <span>resume</span>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3"/><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><path d="m7 10 5 5 5-5"/></svg>
+            </a>
           </div>
-          <div class="stat-row">
-            <div class="stat-card reveal" style="--d: 0.3s">
-              <div class="stat-num">8 weeks</div>
-              <div class="stat-label">
-                Remote Flutter internship at FlutterCraft.app, completed Aug 2026
-              </div>
-            </div>
-            <div class="stat-card reveal" style="--d: 0.36s">
-              <div class="stat-num">8 projects</div>
-              <div class="stat-label">
-                Flutter, AI, IoT &amp; C++ builds across mobile and systems
-              </div>
-            </div>
-            <div class="stat-card reveal" style="--d: 0.42s">
-              <div class="stat-num">Freelance</div>
-              <div class="stat-label">
-                Ongoing Flutter client work alongside coursework
-              </div>
-            </div>
+          <div class="hero-socials reveal">
+            <a href="https://linkedin.com/in/tanzeel-hussain-176a93327" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.03-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.47-.9 1.63-1.85 3.36-1.85 3.6 0 4.27 2.37 4.27 5.45v6.29zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+            </a>
+            <a href="mailto:tanzeelhussain346@gmail.com" aria-label="Email">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 7L2 7"/></svg>
+            </a>
+            <a href="https://github.com/f243077-cell" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1.1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.8-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.7 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+            </a>
+            <a href="tel:+923704905558" aria-label="Phone">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.8 19.8 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>
+            </a>
           </div>
         </div>
 
-        <div
-          class="stage reveal"
-          id="stage"
-          style="--d: 0.2s"
-          role="group"
-          aria-roledescription="carousel"
-          aria-label="3D preview of Tanzeel's Flutter apps"
-        >
-          <div class="stage-glow" aria-hidden="true"></div>
-          <div class="scene">
-            <div class="floor" aria-hidden="true"></div>
-            <div class="floor-glow" aria-hidden="true"></div>
-            <div class="float">
-              <div class="orbit orbit-a" aria-hidden="true"><span></span></div>
-              <div class="phone">
-                <div class="phone-body" data-depth="14"></div>
-                <div class="phone-face">
-                  <div class="phone-screen">
-                    <video
-                      class="is-active"
-                      src="Apps-Demo-Videos/web/bioguard.mp4"
-                      poster="assets/projects/bioguard.webp"
-                      data-name="BioGuard"
-                      aria-label="BioGuard live dashboard demo showing temperature alerts and device status"
-                      muted
-                      loop
-                      playsinline
-                      preload="auto"
-                      width="314"
-                      height="698"
-                    ></video>
-                    <img
-                      src="assets/projects/acadai-buddy.webp"
-                      data-name="AcadAI Buddy"
-                      alt="AcadAI Buddy home screen with AI tutor, quiz and notes tools"
-                      width="314"
-                      height="698"
-                      decoding="async"
-                    />
-                    <img
-                      src="assets/projects/createresume-ai.webp"
-                      data-name="CreateResume AI"
-                      alt="CreateResume AI home screen for building resumes"
-                      width="314"
-                      height="681"
-                      decoding="async"
-                    />
-                    <img
-                      src="assets/projects/weather-app.webp"
-                      data-name="Weather App"
-                      alt="Flutter Weather App showing live conditions for London"
-                      width="314"
-                      height="698"
-                      decoding="async"
-                    />
-                    <img
-                      src="assets/projects/currency-converter.webp"
-                      data-name="Currency Converter"
-                      alt="Flutter Multi-Currency Converter input screen"
-                      width="314"
-                      height="697"
-                      decoding="async"
-                    />
-                    <div class="phone-glare"></div>
-                  </div>
-                  <div class="phone-cam"></div>
-                </div>
+        <div class="hero-visual reveal">
+          <div class="showcase" id="showcase" role="region" aria-roledescription="carousel" aria-label="App showcase">
+            <div class="showcase-stage">
+              <div class="device-wrap">
+                <button class="device" id="device" type="button" aria-label="Open the BioGuard case study">
+                  <span class="device-edge" aria-hidden="true"><i style="--i:1"></i><i style="--i:2"></i><i style="--i:3"></i><i style="--i:4"></i><i style="--i:5"></i><i style="--i:6"></i><i style="--i:7"></i><i style="--i:8"></i><i style="--i:9"></i></span>
+                  <span class="device-body">
+                    <span class="device-screen">
+                      <img class="scr on" src="assets/projects/bioguard.webp" alt="" decoding="async" fetchpriority="high">
+                      <img class="scr" alt="" decoding="async">
+                      <video class="scr-video" muted playsinline disablepictureinpicture disableremoteplayback tabindex="-1" aria-hidden="true"></video>
+                      <span class="device-glare"></span>
+                    </span>
+                    <span class="device-cam"></span>
+                  </span>
+                </button>
               </div>
-              <div class="chip chip-1">
-                <span class="chip-ico"
-                  ><svg class="icon"><use href="#i-bolt" /></svg
-                ></span>
-                <span
-                  ><b>Flutter-first</b>Clean Architecture &amp; scalable state
-                  management</span
-                >
-              </div>
-              <div class="chip chip-2">
-                <span class="chip-ico"
-                  ><svg class="icon"><use href="#i-flame" /></svg
-                ></span>
-                <span><b>Real apps</b>Firebase, Supabase &amp; REST APIs</span>
-              </div>
-              <div class="chip chip-3">
-                <span class="chip-ico"
-                  ><svg class="icon"><use href="#i-rocket" /></svg
-                ></span>
-                <span
-                  ><b>Remote delivery</b>Internship + freelance shipping</span
-                >
-              </div>
+              <p class="showcase-note n1" aria-hidden="true"></p>
+              <p class="showcase-note n2" aria-hidden="true"></p>
+              <p class="showcase-note n3" aria-hidden="true"></p>
+              <p class="showcase-note n4" aria-hidden="true"></p>
+            </div>
+            <div class="showcase-bar">
+              <p class="showcase-now" aria-live="off"><span class="sn-label">Now showing</span> <b id="showcase-name">BioGuard</b></p>
+              <button class="showcase-step" type="button" data-step="-1" aria-label="Previous app"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m15 18-6-6 6-6"/></svg></button>
+              <div class="showcase-dots" role="group" aria-label="Choose an app"></div>
+              <button class="showcase-step" type="button" data-step="1" aria-label="Next app"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 18 6-6-6-6"/></svg></button>
+              <button class="showcase-pause" type="button" aria-label="Pause the showcase">
+                <svg class="i-pause" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="14" y="3" width="5" height="18" rx="1"/><rect x="5" y="3" width="5" height="18" rx="1"/></svg>
+                <svg class="i-play" width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"/></svg>
+              </button>
             </div>
           </div>
-          <div class="stage-caption">
-            <span class="caption-text" aria-live="polite">Now showing <b data-screen-name>BioGuard</b></span>
-            <div class="screen-dots"></div>
-            <button class="carousel-toggle" type="button" aria-label="Pause slideshow">
-              <svg class="icon icon-pause"><use href="#i-pause" /></svg>
-              <svg class="icon icon-play"><use href="#i-play" /></svg>
-            </button>
-          </div>
         </div>
-      </section>
+      </div>
+      <a href="#about" class="scroll-hint" aria-label="Scroll down">
+        <span class="mouse"><span></span></span>
+      </a>
+    </section>
 
-      <!-- ABOUT -->
-      <section class="section" id="about">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">About</div>
-            <h2 class="section-heading">
-              A profile built around real, shipped work
-            </h2>
-          </div>
-          <p class="section-note">
-            My path runs from coursework and internships to freelance delivery —
-            combining clean architecture, thoughtful UI, and AI integration
-            across real mobile app use cases.
+    <!-- ===== ABOUT ===== -->
+    <section class="section" id="about">
+      <h2 class="section-title reveal"><span class="section-idx">01.</span> about<span class="section-line"></span></h2>
+      <div class="about-grid">
+        <div class="about-text reveal">
+          <p>
+            I’m a Software Engineering student and Flutter developer with hands-on experience in cross-platform
+            mobile app development, building production-grade applications across mobile, web and
+            systems-level programming. I focus on <em>Clean Architecture</em>, Riverpod/BLoC state management,
+            and Firebase or Supabase-powered backends.
           </p>
+          <p>
+            I built AcadAI Buddy and CreateResume AI, two full-stack AI-powered Flutter apps, and BioGuard, an
+            IoT cold-chain monitoring system with a FastAPI backend and MQTT sensors. Alongside them sit a C++
+            chess engine, a console-based social platform and a discrete-mathematics university management system.
+          </p>
+          <p>
+            I recently completed an eight-week remote Flutter internship at FlutterCraft.app, and I deliver
+            freelance Flutter work on Fiverr alongside my coursework.
+          </p>
+          <ul class="about-facts">
+            <li><span class="fact-k">based in</span><span class="fact-v">Faisalabad, Pakistan · working remotely</span></li>
+            <li><span class="fact-k">studying</span><span class="fact-v">BS Software Engineering · FAST-NUCES Faisalabad · 2024–2028</span></li>
+            <li><span class="fact-k">internship</span><span class="fact-v">Flutter Developer Intern · FlutterCraft.app · 8 weeks, completed Aug 2026</span></li>
+            <li><span class="fact-k">strengths</span><span class="fact-v">Flutter UI · Firebase · Supabase · REST APIs · Riverpod / BLoC · Clean Architecture · C++ / OOP · Git</span></li>
+            <li><span class="fact-k">open to</span><span class="fact-v">Flutter roles · freelance projects</span></li>
+          </ul>
         </div>
-        <div class="about-grid">
-          <figure class="portrait">
-            <img
-              src="assets/profile-portrait.webp"
-              alt="Tanzeel Hussain, with dark wavy hair and a trimmed beard, wearing a white T-shirt and relaxing in a black leather armchair in a warmly lit café"
-              width="900"
-              height="1199"
-              loading="lazy"
-              decoding="async"
-            />
+        <div class="about-card reveal">
+          <figure class="json-card photo-card">
+            <div class="json-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span>~ $ open tanzeel.webp</span></div>
+            <div class="photo-wrap"><img class="photo" src="assets/profile-portrait.webp" alt="Tanzeel Hussain, with dark wavy hair and a trimmed beard, wearing a white T-shirt and relaxing in a black leather armchair in a warmly lit café" width="900" height="1199" loading="lazy" decoding="async"></div>
           </figure>
-          <div class="card summary">
-            <div class="card-label">Professional summary</div>
-            <p class="summary-text">
-              Software Engineering student and Flutter Developer with hands-on
-              experience in cross-platform mobile app development, building
-              production-grade applications across mobile, web, and
-              systems-level programming. Built AcadAI Buddy and CreateResume AI,
-              two full-stack AI-powered Flutter apps using Clean Architecture,
-              Riverpod, and Firebase/Supabase, alongside a C++ chess engine, a
-              console-based social platform, and a discrete-mathematics
-              university management system. Recently completed an eight-week
-              remote Flutter internship at FlutterCraft.app.
-            </p>
-            <ul class="fact-list">
-              <li>
-                <svg class="icon"><use href="#i-pin" /></svg> Faisalabad,
-                Pakistan
-              </li>
-              <li>
-                <svg class="icon"><use href="#i-globe" /></svg> Remote
-                internship completed + freelance delivery
-              </li>
-              <li>
-                <svg class="icon"><use href="#i-spark" /></svg> Open to Flutter
-                roles &amp; freelance work
-              </li>
-            </ul>
-          </div>
-          <div class="card intern">
-            <div class="card-label">Internship</div>
-            <h3 class="intern-role">
-              Flutter Developer Intern at
-              <span class="intern-org">FlutterCraft.app</span>
-            </h3>
-            <dl class="intern-meta">
-              <div><dt>Dates</dt><dd>1 Jul – 28 Aug 2026</dd></div>
-              <div><dt>Length</dt><dd>8 weeks</dd></div>
-              <div><dt>Mode</dt><dd>Remote</dd></div>
-              <div><dt>Status</dt><dd>Completed</dd></div>
-            </dl>
-          </div>
-          <div class="card strengths">
-            <div class="card-label">Strength areas</div>
-            <div class="pill-wrap">
-              <span class="pill">Flutter UI</span>
-              <span class="pill">Firebase Suite</span>
-              <span class="pill">Supabase</span>
-              <span class="pill">REST API Integration</span>
-              <span class="pill">Riverpod / BLoC</span>
-              <span class="pill">Clean Architecture</span>
-              <span class="pill">C++ / OOP</span>
-              <span class="pill">Git &amp; GitHub</span>
-            </div>
-          </div>
-          <div class="card edu">
-            <div class="card-label">Education</div>
-            <p class="edu-text">
-              Bachelor's in Software Engineering from
-              <b>FAST-NUCES, Faisalabad</b> — Batch 2024–2028. The academic path
-              is paired with applied Flutter projects, a remote internship, and
-              freelance delivery work.
-            </p>
-          </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- EXPERIENCE -->
-      <section class="section" id="experience">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Experience</div>
-            <h2 class="section-heading">Career timeline</h2>
+    <!-- ===== EXPERIENCE ===== -->
+    <section class="section" id="experience">
+      <h2 class="section-title reveal"><span class="section-idx">02.</span> experience<span class="section-line"></span></h2>
+      <p class="section-lead reveal">Hands-on work across coursework, a remote internship and freelance delivery, with growing ownership over architecture, integrations and shipping.</p>
+      <ol class="xp">
+        <li class="xp-item reveal">
+          <span class="xp-when">Jul – Aug 2026</span>
+          <div class="xp-main">
+            <h3 class="xp-role">Flutter Developer Intern <span class="xp-at">@</span> <span class="xp-org">FlutterCraft.app</span></h3>
+            <p class="xp-meta">Remote internship · 8 weeks · 1 Jul – 28 Aug 2026</p>
+            <p class="xp-desc">Eight-week remote Flutter development internship at FlutterCraft.app, completed 28 August 2026.</p>
           </div>
-          <p class="section-note">
-            Hands-on work across coursework, a remote internship, and freelance
-            delivery — with growing ownership over architecture, integrations,
-            and shipping.
-          </p>
-        </div>
-        <div class="timeline">
-          <article class="tl-item">
-            <div class="tl-top">
-              <div>
-                <h3 class="tl-role">
-                  Flutter Developer — <span class="tl-org">FlutterCraft.app</span>
-                </h3>
-                <div class="tl-meta">Remote internship, 8 weeks</div>
-              </div>
-              <span class="tl-badge">Jul – Aug 2026</span>
-            </div>
-            <p class="tl-desc">
-              Eight-week remote Flutter development internship at
-              FlutterCraft.app, completed 28 August 2026.
-            </p>
-          </article>
-          <article class="tl-item">
-            <div class="tl-top">
-              <div>
-                <h3 class="tl-role">
-                  Freelance Flutter Developer —
-                  <span class="tl-org">Fiverr</span>
-                </h3>
-                <div class="tl-meta">Remote / Contract</div>
-              </div>
-              <span class="tl-badge live">Ongoing</span>
-            </div>
-            <p class="tl-desc">
-              Delivering freelance Flutter app development, Firebase
-              integration, and REST API integration for independent clients.
-            </p>
-          </article>
-          <article class="tl-item edu">
-            <div class="tl-top">
-              <div>
-                <h3 class="tl-role">
-                  BS Software Engineering —
-                  <span class="tl-org">FAST-NUCES Faisalabad</span>
-                </h3>
-                <div class="tl-meta">Batch 2024 – 2028</div>
-              </div>
-              <span class="tl-badge">In progress</span>
-            </div>
-            <p class="tl-desc">
-              Building a foundation in Data Structures, OOP, Design Patterns,
-              and Software Design Architecture alongside applied Flutter
-              projects.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <!-- PROJECTS -->
-      <section class="section" id="projects">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Projects</div>
-            <h2 class="section-heading">Portfolio-ready Flutter projects</h2>
+          <span class="xp-badge">completed</span>
+        </li>
+        <li class="xp-item reveal">
+          <span class="xp-when">Ongoing</span>
+          <div class="xp-main">
+            <h3 class="xp-role">Freelance Flutter Developer <span class="xp-at">@</span> <span class="xp-org">Fiverr</span></h3>
+            <p class="xp-meta">Remote · contract</p>
+            <p class="xp-desc">Delivering freelance Flutter app development, Firebase integration and REST API integration for independent clients.</p>
           </div>
-          <p class="section-note">
-            An IoT cold-chain compliance system, two full-stack AI apps,
-            Flutter utilities built on live APIs, and systems-level C++ work —
-            eight builds across mobile, backend, and systems.
-          </p>
-        </div>
-
-        <div class="sub-head">Flagship project</div>
-
-        <article class="card feature feature-split feature-flagship">
-          <div class="feature-head">
-            <div class="feature-label">Flagship IoT system</div>
-            <h3 class="project-title">BioGuard</h3>
-            <div class="project-sub">
-              Real-time cold-chain monitoring, from sensor to alert
-            </div>
+          <span class="xp-badge live"><span class="live-dot" aria-hidden="true"></span>ongoing</span>
+        </li>
+        <li class="xp-item reveal">
+          <span class="xp-when">2024 – 2028</span>
+          <div class="xp-main">
+            <h3 class="xp-role">BS Software Engineering <span class="xp-at">@</span> <span class="xp-org">FAST-NUCES Faisalabad</span></h3>
+            <p class="xp-meta">Batch 2024 – 2028</p>
+            <p class="xp-desc">Building a foundation in Data Structures, OOP, Design Patterns and Software Design Architecture alongside applied Flutter projects.</p>
           </div>
-          <div class="feature-body">
-            <p class="project-desc">
-              An IoT-based cold-chain medicine safety and compliance system that
-              monitors temperature-sensitive medical supplies (insulin,
-              vaccines, biologics) in real time — detecting temperature
-              excursions and unauthorized lock events, pushing live alerts over
-              WebSocket and Firebase Cloud Messaging, and generating PDF
-              compliance reports for auditing. Built with a FastAPI backend, a
-              Flutter frontend (Riverpod), a Mosquitto MQTT broker, and a Python
-              sensor simulator standing in for physical hardware.
-            </p>
-            <div class="tags">
-              <span class="tag">FastAPI</span><span class="tag">Flutter</span
-              ><span class="tag">Riverpod</span><span class="tag">MQTT</span
-              ><span class="tag">Firebase</span
-              ><span class="tag">WebSocket</span>
-            </div>
-          </div>
-          <div class="facts facts-stack facts-4">
-            <div class="fact"><b>JWT</b><span>Authenticated access</span></div>
-            <div class="fact">
-              <b>Live</b><span>Dashboard + history &amp; trend charts</span>
-            </div>
-            <div class="fact">
-              <b>Multi-device</b><span>Per-device temperature thresholds</span>
-            </div>
-            <div class="fact">
-              <b>PDF</b><span>Compliance reports for auditing</span>
-            </div>
-          </div>
-          <div class="showcase">
-            <div class="phone">
-              <div class="phone-body" data-depth="12"></div>
-              <div class="phone-face">
-                <div class="phone-screen" data-demo>
-                  <img
-                    src="assets/projects/bioguard.webp"
-                    alt="BioGuard dashboard listing three monitored fridges — vaccine, insulin and biologics — with live temperatures, lock status, and an anomaly flagged on the insulin fridge at 9.3 °C"
-                    width="460"
-                    height="988"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <video
-                    class="demo-video"
-                    src="Apps-Demo-Videos/web/bioguard.mp4"
-                    poster="assets/projects/bioguard.webp"
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    aria-hidden="true"
-                  ></video>
-                  <div class="phone-glare"></div>
-                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play BioGuard demo video"></button>
-                </div>
-                <div class="phone-cam"></div>
-              </div>
-            </div>
-          </div>
-        </article>
+          <span class="xp-badge">in progress</span>
+        </li>
+      </ol>
+    </section>
 
-        <div class="sub-head">Featured AI apps</div>
+    <!-- ===== SKILLS ===== -->
+    <section class="section" id="skills">
+      <h2 class="section-title reveal"><span class="section-idx">03.</span> skills<span class="section-line"></span></h2>
+      <p class="section-lead reveal">A Flutter-first toolkit backed by solid CS fundamentals and software architecture, plus a growing AI and data stack.</p>
 
-        <article class="card feature feature-side tilt" data-tilt="3">
-          <div>
-            <div class="feature-label">Featured AI study app</div>
-            <h3 class="project-title">AcadAI Buddy</h3>
-            <div class="project-sub">An AI tutor that actually knows the FAST-NUCES syllabus</div>
-            <p class="project-desc">
-              Full-stack AI study app for Pakistani university students with
-              real-time AI chat, auto-generated MCQ quizzes, and note
-              summarization. Four-layer Clean Architecture, Firebase Auth +
-              Firestore, OpenRouter API — supports 40+ subjects including all
-              FAST-NUCES core courses.
-            </p>
-            <div class="facts">
-              <div class="fact"><b>40+</b><span>Subjects supported</span></div>
-              <div class="fact"><b>3</b><span>AI study tools</span></div>
-              <div class="fact"><b>4-layer</b><span>Clean Architecture</span></div>
-            </div>
-            <div class="tags">
-              <span class="tag">Flutter</span><span class="tag">Firebase</span
-              ><span class="tag">Riverpod</span><span class="tag">AI Chat</span>
-            </div>
-          </div>
-          <div class="showcase">
-            <div class="phone">
-              <div class="phone-body" data-depth="12"></div>
-              <div class="phone-face">
-                <div class="phone-screen" data-demo>
-                  <img
-                    src="assets/projects/acadai-buddy.webp"
-                    alt="AcadAI Buddy dashboard"
-                    width="314"
-                    height="698"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <video
-                    class="demo-video"
-                    src="Apps-Demo-Videos/web/acadai.mp4"
-                    poster="assets/projects/acadai-buddy.webp"
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    aria-hidden="true"
-                  ></video>
-                  <div class="phone-glare"></div>
-                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play AcadAI Buddy demo video"></button>
-                </div>
-                <div class="phone-cam"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <article class="card feature feature-split tilt" data-tilt="3">
-          <div class="feature-head">
-            <div class="feature-label">Featured AI resume builder</div>
-            <h3 class="project-title">CreateResume AI</h3>
-            <div class="project-sub">Turns a few sentences into an ATS-ready resume</div>
-          </div>
-          <div class="feature-body">
-            <p class="project-desc">
-              Generates complete, ATS-optimized resumes from plain-language
-              input, exportable as polished PDFs across 5 templates. Clean
-              Architecture with Riverpod + go_router, Supabase for
-              Auth/Postgres/Storage/Edge Functions, and job-targeted
-              optimization on a credit-based usage system.
-            </p>
-            <div class="tags">
-              <span class="tag">Flutter</span><span class="tag">Supabase</span
-              ><span class="tag">Riverpod</span
-              ><span class="tag">OpenRouter API</span>
-            </div>
-          </div>
-          <div class="facts facts-stack">
-            <div class="fact"><b>5</b><span>PDF resume templates</span></div>
-            <div class="fact"><b>ATS</b><span>Optimized output</span></div>
-            <div class="fact"><b>Credits</b><span>Usage-based system</span></div>
-          </div>
-          <div class="showcase">
-            <div class="phone">
-              <div class="phone-body" data-depth="12"></div>
-              <div class="phone-face">
-                <div class="phone-screen" data-demo>
-                  <img
-                    src="assets/projects/createresume-ai.webp"
-                    alt="CreateResume AI resume screen"
-                    width="314"
-                    height="681"
-                    loading="lazy"
-                    decoding="async"
-                  />
-                  <video
-                    class="demo-video"
-                    src="Apps-Demo-Videos/web/createresume.mp4"
-                    poster="assets/projects/createresume-ai.webp"
-                    muted
-                    loop
-                    playsinline
-                    preload="metadata"
-                    aria-hidden="true"
-                  ></video>
-                  <div class="phone-glare"></div>
-                  <button class="demo-toggle" type="button" aria-pressed="false" aria-label="Play CreateResume AI demo video"></button>
-                </div>
-                <div class="phone-cam"></div>
-              </div>
-            </div>
-          </div>
-        </article>
-
-        <div class="sub-head">More Flutter builds</div>
-
-        <div class="app-grid">
-          <article class="app-card">
-            <div>
-              <h3 class="project-title">Flutter Weather App</h3>
-              <div class="project-sub">
-                Weather Forecasting · Flutter + REST API
-              </div>
-              <p class="project-desc">
-                Real-time weather app fetching live temperature, humidity, wind
-                speed, and multi-day forecast data, with responsive Material UI,
-                location-based lookup, and graceful error handling.
-              </p>
-              <div class="tags">
-                <span class="tag">Flutter</span><span class="tag">Dart</span
-                ><span class="tag">REST API</span>
-              </div>
-            </div>
-            <div class="showcase">
-              <div class="phone">
-                <div class="phone-body" data-depth="9"></div>
-                <div class="phone-face">
-                  <div class="phone-screen">
-                    <img
-                      src="assets/projects/weather-app.webp"
-                      alt="Flutter Weather App screen"
-                      width="314"
-                      height="698"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="phone-glare"></div>
-                  </div>
-                  <div class="phone-cam"></div>
-                </div>
-              </div>
-            </div>
-          </article>
-
-          <article class="app-card">
-            <div>
-              <h3 class="project-title">Flutter Multi-Currency Converter</h3>
-              <div class="project-sub">Currency Exchange · Flutter</div>
-              <p class="project-desc">
-                Cross-platform app converting PKR to 20+ currencies in real time
-                via a live exchange API, with async API calls, JSON parsing, and
-                auto-calculation on input using Material Design UI.
-              </p>
-              <div class="tags">
-                <span class="tag">Flutter</span><span class="tag">Dart</span>
-              </div>
-            </div>
-            <div class="showcase">
-              <div class="phone">
-                <div class="phone-body" data-depth="9"></div>
-                <div class="phone-face">
-                  <div class="phone-screen">
-                    <img
-                      src="assets/projects/currency-converter.webp"
-                      alt="Flutter Multi-Currency Converter screen"
-                      width="314"
-                      height="697"
-                      loading="lazy"
-                      decoding="async"
-                    />
-                    <div class="phone-glare"></div>
-                  </div>
-                  <div class="phone-cam"></div>
-                </div>
-              </div>
-            </div>
-          </article>
-        </div>
-
-        <div class="sub-head">Systems &amp; CS projects</div>
-
-        <div class="sys-grid">
-          <article class="sys-card">
-            <div class="term">
-              <div class="term-bar">
-                <span></span><span></span><span></span><em>console-chess</em>
-              </div>
-              <div class="term-body" style="--term-bg: #1e1e1e">
-                <img
-                  src="assets/projects/console-chess.webp"
-                  alt="Console Chess Game board"
-                  width="685"
-                  height="595"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-            <h3 class="project-title">Console Chess Game</h3>
-            <div class="project-sub">Terminal Chess Engine · C++ + OOP</div>
-            <p class="project-desc">
-              Fully functional chess engine with each piece as a separate class
-              carrying its own movement logic. Complete rule enforcement —
-              check, checkmate, and stalemate detection — with ANSI colored
-              terminal rendering.
-            </p>
-            <div class="tags">
-              <span class="tag">C++</span><span class="tag">OOP</span>
-            </div>
-          </article>
-
-          <article class="sys-card">
-            <div class="term">
-              <div class="term-bar">
-                <span></span><span></span><span></span><em>social-platform</em>
-              </div>
-              <div class="term-body" style="--term-bg: #04070f">
-                <img
-                  class="img-small"
-                  src="assets/projects/social-media-console.webp"
-                  alt="Console-Based Social Media Platform splash screen"
-                  width="160"
-                  height="67"
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </div>
-            <h3 class="project-title">Console-Based Social Media Platform</h3>
-            <div class="project-sub">Data Structures Project · C++</div>
-            <p class="project-desc">
-              Integrated console-based social system combining linked lists,
-              stacks, queues, trees, and graphs — user connections, post feeds,
-              notifications, and search, each mapped to the data structure
-              suited for it.
-            </p>
-            <div class="tags">
-              <span class="tag">C++</span
-              ><span class="tag">Data Structures</span>
-            </div>
-          </article>
-
-          <article class="sys-card">
-            <div class="term">
-              <div class="term-bar">
-                <span></span><span></span><span></span><em>unidisc</em>
-              </div>
-              <div class="term-body">
-                <svg class="graph" viewBox="0 0 320 170" aria-hidden="true">
-                  <g class="edges" fill="none" stroke-width="1.5">
-                    <path d="M40 45C80 45 80 35 120 35" />
-                    <path d="M40 45C80 45 80 90 120 90" />
-                    <path d="M40 125C80 125 80 90 120 90" />
-                    <path d="M40 125C80 125 80 145 120 145" />
-                    <path d="M120 35C160 35 160 60 200 60" />
-                    <path d="M120 90C160 90 160 60 200 60" />
-                    <path d="M120 90C160 90 160 120 200 120" />
-                    <path d="M120 145C160 145 160 120 200 120" />
-                    <path d="M200 60C240 60 240 90 280 90" />
-                    <path d="M200 120C240 120 240 90 280 90" />
-                  </g>
-                  <g class="nodes">
-                    <circle cx="40" cy="45" r="7" />
-                    <circle cx="40" cy="125" r="7" />
-                    <circle class="v" cx="120" cy="35" r="7" />
-                    <circle class="v" cx="120" cy="90" r="7" />
-                    <circle class="v" cx="120" cy="145" r="7" />
-                    <circle cx="200" cy="60" r="7" />
-                    <circle class="warn" cx="200" cy="120" r="7" />
-                    <circle class="v" cx="280" cy="90" r="8" />
-                  </g>
-                </svg>
-                <span class="term-caption"
-                  >prerequisite graph · conflict detection</span
-                >
-              </div>
-            </div>
-            <h3 class="project-title">UniDisc (University Management System)</h3>
-            <div class="project-sub">Where discrete math meets course scheduling</div>
-            <p class="project-desc">
-              Models course scheduling, prerequisite validation, faculty
-              assignment, and enrollment using propositional/predicate logic,
-              set and relation analysis, and dynamic programming for conflict
-              detection.
-            </p>
-            <div class="tags">
-              <span class="tag">C++</span><span class="tag">Java</span
-              ><span class="tag">OOP</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <!-- SKILLS / LEARNING -->
-      <section class="section" id="skills">
-        <div class="section-head">
-          <div>
-            <div class="eyebrow">Skills</div>
-            <h2 class="section-heading">Tech stack &amp; tools</h2>
-          </div>
-          <p class="section-note">
-            A Flutter-first toolkit backed by solid CS fundamentals and
-            software architecture — plus a growing AI &amp; data stack.
-          </p>
-        </div>
-
-        <div class="skills-grid">
-          <div class="card sphere-card">
-            <div class="card-label">Skill globe</div>
+      <div class="skills-top">
+        <figure class="json-card globe-card reveal">
+          <div class="json-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span>~ $ ./skill-globe --spin</span></div>
+          <div class="globe-body">
             <div class="sphere" data-sphere aria-hidden="true">
               <span class="sphere-tag" data-g="mobile">Flutter</span>
               <span class="sphere-tag" data-g="architecture">Clean Architecture</span>
@@ -3021,748 +303,207 @@
               <span class="sphere-tag" data-g="mobile">Animations</span>
             </div>
             <div class="legend">
-              <span class="mobile">Mobile</span>
-              <span class="architecture">Architecture &amp; design</span>
-              <span class="backend">Backend &amp; cloud</span>
-              <span class="ai">AI</span>
-              <span class="languages">Languages</span>
-              <span class="tools">Tools</span>
+              <span class="mobile">mobile</span>
+              <span class="architecture">architecture &amp; design</span>
+              <span class="backend">backend &amp; cloud</span>
+              <span class="ai">ai</span>
+              <span class="languages">languages</span>
+              <span class="tools">tools</span>
             </div>
-            <p class="sphere-hint">Drag the globe to spin it</p>
+            <p class="sphere-hint">drag the globe to spin it</p>
           </div>
+        </figure>
 
-          <div class="skills-side">
-            <div class="card">
-              <div class="card-label">Toolkit</div>
-              <div class="stack-group">
-                <div class="stack-title">Mobile</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Flutter</span>
-                  <span class="mini-pill">Dart</span>
-                  <span class="mini-pill">Riverpod</span>
-                  <span class="mini-pill">Provider</span>
-                  <span class="mini-pill">Hive</span>
-                  <span class="mini-pill">Drift (SQLite)</span>
-                  <span class="mini-pill">Platform Channels</span>
-                  <span class="mini-pill">iOS Live Activities</span>
-                  <span class="mini-pill">Android Foreground Services</span>
-                  <span class="mini-pill">flutter_local_notifications</span>
-                  <span class="mini-pill">Material Design</span>
-                  <span class="mini-pill">Animations</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Architecture &amp; design</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Clean Architecture</span>
-                  <span class="mini-pill">Layered Architecture</span>
-                  <span class="mini-pill">MVC</span>
-                  <span class="mini-pill">MVP</span>
-                  <span class="mini-pill">Repository Pattern</span>
-                  <span class="mini-pill">Feature-First Architecture</span>
-                  <span class="mini-pill">SOLID</span>
-                  <span class="mini-pill">GoF Design Patterns</span>
-                  <span class="mini-pill">OOP</span>
-                  <span class="mini-pill">UML</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Backend &amp; cloud</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Firebase Auth</span>
-                  <span class="mini-pill">Firestore</span>
-                  <span class="mini-pill">Firebase Realtime Database</span>
-                  <span class="mini-pill">Firestore Security Rules</span>
-                  <span class="mini-pill">REST APIs</span>
-                  <span class="mini-pill">Cloudflare Workers</span>
-                  <span class="mini-pill">Google Cloud Run</span>
-                  <span class="mini-pill">PostgreSQL</span>
-                  <span class="mini-pill">FastAPI</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">AI</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Antigravity</span>
-                  <span class="mini-pill">Cursor</span>
-                  <span class="mini-pill">Claude Code</span>
-                  <span class="mini-pill">Google Stitch</span>
-                  <span class="mini-pill">OpenRouter</span>
-                  <span class="mini-pill">Postman</span>
-                  <span class="mini-pill">LLMs</span>
-                  <span class="mini-pill">Prompt Engineering</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Languages</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">SQL</span>
-                  <span class="mini-pill">Dart</span>
-                  <span class="mini-pill">C++</span>
-                  <span class="mini-pill">Java</span>
-                  <span class="mini-pill">Python</span>
-                </div>
-              </div>
-              <div class="stack-group">
-                <div class="stack-title">Tools</div>
-                <div class="mini-pill-wrap">
-                  <span class="mini-pill">Git</span>
-                  <span class="mini-pill">GitHub</span>
-                  <span class="mini-pill">VS Code</span>
-                  <span class="mini-pill">Android Studio</span>
-                  <span class="mini-pill">Docker</span>
-                </div>
-              </div>
-            </div>
-
-            <div class="card learn-card">
-              <div class="card-label">Learning roadmap</div>
-              <h3 class="learn-title">Growing into GenAI Engineering</h3>
-              <ol class="roadmap">
-                <li class="done">
-                  SQL foundations for AI engineering
-                  <span class="step-done">Done</span>
-                </li>
-                <li class="done">
-                  LLM fundamentals &amp; prompt / context engineering
-                  <span class="step-done">Done</span>
-                </li>
-                <li>RAG pipelines &amp; vector databases</li>
-                <li>Agent orchestration (LangGraph, MCP)</li>
-                <li>AI deployment &amp; observability</li>
-              </ol>
-            </div>
+        <figure class="json-card roadmap-card reveal">
+          <div class="json-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span>roadmap.md</span></div>
+          <div class="roadmap-body">
+            <h3 class="roadmap-title">Growing into GenAI Engineering</h3>
+            <ol class="roadmap">
+              <li class="done"><span class="rm-box" aria-hidden="true"></span>SQL foundations for AI engineering<span class="rm-state">done</span></li>
+              <li class="done"><span class="rm-box" aria-hidden="true"></span>LLM fundamentals &amp; prompt / context engineering<span class="rm-state">done</span></li>
+              <li><span class="rm-box" aria-hidden="true"></span>RAG pipelines &amp; vector databases<span class="rm-state">next</span></li>
+              <li><span class="rm-box" aria-hidden="true"></span>Agent orchestration (LangGraph, MCP)</li>
+              <li><span class="rm-box" aria-hidden="true"></span>AI deployment &amp; observability</li>
+            </ol>
           </div>
-        </div>
-      </section>
-
-      <!-- CONTACT -->
-      <section class="section" id="contact">
-        <div class="contact-panel">
-          <div>
-            <h2 class="section-heading">Let's build something meaningful</h2>
-            <p class="contact-text">
-              Open to Flutter roles and freelance work. Have an app idea, an MVP,
-              or a role in mind? Let's talk.
-            </p>
-            <div class="btn-row">
-              <a class="btn btn-solid" href="mailto:tanzeelhussain346@gmail.com"
-                ><svg class="icon"><use href="#i-mail" /></svg> Email me</a
-              >
-              <button
-                class="btn btn-outline"
-                type="button"
-                data-copy="tanzeelhussain346@gmail.com"
-              >
-                <svg class="icon"><use href="#i-copy" /></svg>
-                <span data-copy-label>Copy email</span>
-              </button>
-              <a
-                class="btn btn-outline"
-                href="assets/Tanzeel_Hussain_Resume.pdf"
-                download="Tanzeel_Hussain_Resume.pdf"
-                ><svg class="icon"><use href="#i-download" /></svg> Download
-                résumé <span class="visually-hidden">(PDF)</span></a
-              >
-            </div>
-            <p class="contact-loc">
-              <svg class="icon"><use href="#i-pin" /></svg> Faisalabad, Pakistan
-              · Working remotely
-            </p>
-          </div>
-          <ul class="contact-links">
-            <li>
-              <a href="mailto:tanzeelhussain346@gmail.com">
-                <span class="contact-ico"
-                  ><svg class="icon"><use href="#i-mail" /></svg
-                ></span>
-                <span class="contact-meta"
-                  ><small>Email</small
-                  ><span>tanzeelhussain346@gmail.com</span></span
-                >
-                <svg class="icon arrow"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a href="tel:+923704905558">
-                <span class="contact-ico"
-                  ><svg class="icon"><use href="#i-phone" /></svg
-                ></span>
-                <span class="contact-meta"
-                  ><small>Phone</small><span>+92 370 4905558</span></span
-                >
-                <svg class="icon arrow"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://github.com/f243077-cell"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="contact-ico"
-                  ><svg class="icon"><use href="#i-github" /></svg
-                ></span>
-                <span class="contact-meta"
-                  ><small>GitHub</small><span>github.com/f243077-cell</span></span
-                >
-                <svg class="icon arrow"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-            <li>
-              <a
-                href="https://linkedin.com/in/tanzeel-hussain-176a93327"
-                target="_blank"
-                rel="noopener"
-              >
-                <span class="contact-ico"
-                  ><svg class="icon"><use href="#i-linkedin" /></svg
-                ></span>
-                <span class="contact-meta"
-                  ><small>LinkedIn</small
-                  ><span>in/tanzeel-hussain-176a93327</span></span
-                >
-                <svg class="icon arrow"><use href="#i-arrow" /></svg>
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </main>
-
-    <footer class="wrap">
-      <div class="footer-inner">
-        <span
-          >© <span data-year>2026</span> Tanzeel Hussain. Built with Flutter
-          energy, one widget at a time.</span
-        >
-        <a href="#home">Back to top ↑</a>
+        </figure>
       </div>
-    </footer>
 
-    <script>
-      (() => {
-        const reduceMotion = matchMedia(
-          "(prefers-reduced-motion: reduce)",
-        ).matches;
-        const finePointer = matchMedia(
-          "(hover: hover) and (pointer: fine)",
-        ).matches;
-        const clamp = (v, min, max) => Math.min(max, Math.max(min, v));
+      <div class="skills-grid">
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="14" height="20" x="5" y="2" rx="2" ry="2" /><path d="M12 18h.01" /></svg> Mobile</h3>
+          <div class="tags">
+            <span class="tag">Flutter</span><span class="tag">Dart</span><span class="tag">Riverpod</span><span class="tag">Provider</span>
+            <span class="tag">Hive</span><span class="tag">Drift (SQLite)</span><span class="tag">Platform Channels</span>
+            <span class="tag">iOS Live Activities</span><span class="tag">Android Foreground Services</span>
+            <span class="tag">flutter_local_notifications</span><span class="tag">Material Design</span><span class="tag">Animations</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12.99 6.74 1.93 3.44" /><path d="M19.136 12a10 10 0 0 1-14.271 0" /><path d="m21 21-2.16-3.84" /><path d="m3 21 8.02-14.26" /><circle cx="12" cy="5" r="2" /></svg> Architecture &amp; Design</h3>
+          <div class="tags">
+            <span class="tag">Clean Architecture</span><span class="tag">Layered Architecture</span><span class="tag">MVC</span>
+            <span class="tag">MVP</span><span class="tag">Repository Pattern</span><span class="tag">Feature-First Architecture</span>
+            <span class="tag">SOLID</span><span class="tag">GoF Design Patterns</span><span class="tag">OOP</span><span class="tag">UML</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" /></svg> Backend &amp; Cloud</h3>
+          <div class="tags">
+            <span class="tag">Firebase Auth</span><span class="tag">Firestore</span><span class="tag">Firebase Realtime Database</span>
+            <span class="tag">Firestore Security Rules</span><span class="tag">REST APIs</span><span class="tag">Cloudflare Workers</span>
+            <span class="tag">Google Cloud Run</span><span class="tag">PostgreSQL</span><span class="tag">FastAPI</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" /><path d="M20 2v4" /><path d="M22 4h-4" /><circle cx="4" cy="20" r="2" /></svg> AI</h3>
+          <div class="tags">
+            <span class="tag">Antigravity</span><span class="tag">Cursor</span><span class="tag">Claude Code</span><span class="tag">Google Stitch</span>
+            <span class="tag">OpenRouter</span><span class="tag">Postman</span><span class="tag">LLMs</span><span class="tag">Prompt Engineering</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m18 16 4-4-4-4" /><path d="m6 8-4 4 4 4" /><path d="m14.5 4-5 16" /></svg> Languages</h3>
+          <div class="tags">
+            <span class="tag">SQL</span><span class="tag">Dart</span><span class="tag">C++</span><span class="tag">Java</span><span class="tag">Python</span>
+          </div>
+        </div>
+        <div class="skill-group reveal">
+          <h3><svg class="sg-icon" width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.106-3.105c.32-.322.863-.22.983.218a6 6 0 0 1-8.259 7.057l-7.91 7.91a1 1 0 0 1-2.999-3l7.91-7.91a6 6 0 0 1 7.057-8.259c.438.12.54.662.219.984z" /></svg> Tools</h3>
+          <div class="tags">
+            <span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">VS Code</span><span class="tag">Android Studio</span><span class="tag">Docker</span>
+          </div>
+        </div>
+      </div>
 
-        // Run each feature in isolation so one failure can't blank the page.
-        const safely = (fn) => {
-          try {
-            fn();
-          } catch (err) {
-            console.error(err);
-          }
-        };
+      <div class="terminal reveal" id="terminal">
+        <div class="term-bar">
+          <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+          <span class="term-title">tanzeel@portfolio: ~</span>
+          <span class="term-hint">try <code>help</code></span>
+        </div>
+        <div class="term-body" id="term-body">
+          <div class="term-line term-out">Welcome to tanzeel.sh. Type <b>help</b> to get started, or <b>ls projects</b>.</div>
+        </div>
+        <form class="term-input" id="term-form" autocomplete="off">
+          <label for="term-in"><span class="term-ps1">tanzeel@portfolio</span>:<span class="term-path">~</span>$</label>
+          <input id="term-in" type="text" spellcheck="false" autocapitalize="off" aria-label="Terminal input" placeholder="type a command…">
+        </form>
+      </div>
+    </section>
 
-        /* PHONE THICKNESS — stacked layers give the CSS phones real depth */
-        safely(() => {
-          document.querySelectorAll(".phone-body").forEach((body) => {
-            const depth = Number(body.dataset.depth) || 12;
-            for (let i = 1; i <= depth; i++) {
-              const layer = document.createElement("i");
-              layer.style.setProperty("--i", i);
-              body.appendChild(layer);
-            }
-          });
-        });
+    <!-- ===== PROJECTS ===== -->
+    <section class="section" id="projects">
+      <h2 class="section-title reveal"><span class="section-idx">04.</span> projects<span class="section-line"></span></h2>
+      <p class="section-lead reveal">An IoT cold-chain system, two full-stack AI apps, a Flutter weather app on a live API and systems-level C++ work. Open one to see it running and how it’s built.</p>
+      <div class="project-filters reveal" id="filters" role="group" aria-label="Filter projects">
+        <button class="chip active" data-filter="all" type="button">all</button>
+        <button class="chip" data-filter="mobile" type="button">mobile</button>
+        <button class="chip" data-filter="ai" type="button">ai</button>
+        <button class="chip" data-filter="backend" type="button">backend</button>
+        <button class="chip" data-filter="systems" type="button">systems</button>
+      </div>
+      <div class="projects" id="project-grid"></div>
+    </section>
 
-        /* NAV: scrolled state, progress bar, mobile menu, active link */
-        safely(() => {
-          const header = document.querySelector(".topbar");
-          const progress = document.querySelector(".progress");
-          const toggle = header.querySelector(".menu-toggle");
-          let ticking = false;
-          const update = () => {
-            const max = document.documentElement.scrollHeight - innerHeight;
-            header.classList.toggle("scrolled", scrollY > 8);
-            progress.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-            ticking = false;
-          };
-          addEventListener(
-            "scroll",
-            () => {
-              if (!ticking) {
-                ticking = true;
-                requestAnimationFrame(update);
-              }
-            },
-            { passive: true },
-          );
-          update();
+    <!-- ===== CONTACT ===== -->
+    <section class="section contact" id="contact">
+      <h2 class="section-title reveal"><span class="section-idx">05.</span> contact<span class="section-line"></span></h2>
+      <div class="contact-grid">
+        <div class="contact-copy reveal">
+          <h3 class="contact-big">Let’s build something <span class="grad">meaningful</span>.</h3>
+          <p>Open to Flutter roles and freelance work. Have an app idea, an MVP, or a role in mind? Let’s talk.</p>
+          <div class="contact-links">
+            <a class="contact-row" href="mailto:tanzeelhussain346@gmail.com">
+              <span class="cr-k">email</span>
+              <span class="cr-v">tanzeelhussain346@gmail.com</span>
+              <span class="cr-a">write ↗</span>
+            </a>
+            <button class="contact-row copy-btn" type="button" data-copy="tanzeelhussain346@gmail.com">
+              <span class="cr-k">copy</span>
+              <span class="cr-v">copy my email address</span>
+              <span class="cr-a">copy</span>
+            </button>
+            <a class="contact-row" href="tel:+923704905558">
+              <span class="cr-k">phone</span>
+              <span class="cr-v">+92 370 4905558</span>
+              <span class="cr-a">call ↗</span>
+            </a>
+            <a class="contact-row" href="https://linkedin.com/in/tanzeel-hussain-176a93327" target="_blank" rel="noopener">
+              <span class="cr-k">linkedin</span>
+              <span class="cr-v">/in/tanzeel-hussain-176a93327</span>
+              <span class="cr-a">open ↗</span>
+            </a>
+            <a class="contact-row" href="https://github.com/f243077-cell" target="_blank" rel="noopener">
+              <span class="cr-k">github</span>
+              <span class="cr-v">/f243077-cell</span>
+              <span class="cr-a">open ↗</span>
+            </a>
+            <a class="contact-row" href="assets/Tanzeel_Hussain_Resume.pdf" download="Tanzeel_Hussain_Resume.pdf">
+              <span class="cr-k">resume</span>
+              <span class="cr-v">Tanzeel_Hussain_Resume.pdf</span>
+              <span class="cr-a">download ↓</span>
+            </a>
+          </div>
+          <p class="contact-loc">Faisalabad, Pakistan · working remotely</p>
+        </div>
+        <form class="contact-form reveal" id="contact-form" action="mailto:tanzeelhussain346@gmail.com" method="post" enctype="text/plain">
+          <div class="form-head"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span><span>new_message.md</span></div>
+          <label><span class="ln">name</span><input name="name" type="text" placeholder="your name" autocomplete="name" required></label>
+          <label><span class="ln">email</span><input name="email" type="email" placeholder="your@email.com" autocomplete="email" required></label>
+          <label><span class="ln">message</span><textarea name="message" rows="5" placeholder="what are you building?" required></textarea></label>
+          <div class="form-foot">
+            <span class="form-hint">opens your mail client</span>
+            <button class="btn btn-primary" type="submit"><span>send</span><span class="send-arrow">→</span></button>
+          </div>
+        </form>
+      </div>
+    </section>
 
-          const setMenu = (open) => {
-            header.classList.toggle("menu-open", open);
-            toggle.setAttribute("aria-expanded", String(open));
-            toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
-          };
-          toggle.addEventListener("click", () =>
-            setMenu(!header.classList.contains("menu-open")),
-          );
-          header
-            .querySelectorAll(".mobile-menu a")
-            .forEach((a) => a.addEventListener("click", () => setMenu(false)));
-          addEventListener("keydown", (e) => {
-            if (e.key === "Escape") setMenu(false);
-          });
+  </main>
 
-          const links = [...document.querySelectorAll(".nav-links a")];
-          const io = new IntersectionObserver(
-            (entries) => {
-              entries.forEach((entry) => {
-                if (!entry.isIntersecting) return;
-                links.forEach((a) =>
-                  a.classList.toggle(
-                    "active",
-                    a.getAttribute("href") === `#${entry.target.id}`,
-                  ),
-                );
-              });
-            },
-            { rootMargin: "-45% 0px -50% 0px" },
-          );
-          document
-            .querySelectorAll("main > section[id]")
-            .forEach((s) => io.observe(s));
-        });
+  <footer class="footer">
+    <p>Designed &amp; built by <b>Tanzeel Hussain</b> · <span id="year"></span></p>
+    <p class="footer-hint">press <kbd>Ctrl</kbd>+<kbd>K</kbd> · try the Konami code ↑↑↓↓←→←→BA</p>
+  </footer>
 
-        /* HERO 3D SCENE: pointer-driven rotation + idle sway */
-        safely(() => {
-          const stage = document.getElementById("stage");
-          if (!stage || reduceMotion) return;
-          const base = { x: 8, y: -18 };
-          const cur = { ...base };
-          const tgt = { ...base };
-          let lastMove = -Infinity;
-          let running = false;
+  <!-- ===== CASE STUDY (filled from projects.js) ===== -->
+  <div class="case" id="case" hidden>
+    <div class="case-backdrop" data-close></div>
+    <div class="case-box" role="dialog" aria-modal="true" aria-labelledby="case-title" tabindex="-1">
+      <div class="case-bar">
+        <span class="case-path" id="case-path"></span>
+        <span class="grow"></span>
+        <button class="icon-btn" type="button" id="case-prev" aria-label="Previous project"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 19-7-7 7-7" /><path d="M19 12H5" /></svg></button>
+        <button class="icon-btn" type="button" id="case-next" aria-label="Next project"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14" /><path d="m12 5 7 7-7 7" /></svg></button>
+        <button class="icon-btn" type="button" data-close aria-label="Close case study"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18" /><path d="m6 6 12 12" /></svg></button>
+      </div>
+      <div class="case-grid" id="case-body"></div>
+    </div>
+  </div>
 
-          if (finePointer) {
-            addEventListener(
-              "pointermove",
-              (e) => {
-                const r = stage.getBoundingClientRect();
-                const nx = clamp(
-                  (e.clientX - (r.left + r.width / 2)) / (innerWidth / 2),
-                  -1,
-                  1,
-                );
-                const ny = clamp(
-                  (e.clientY - (r.top + r.height / 2)) / (innerHeight / 2),
-                  -1,
-                  1,
-                );
-                tgt.y = base.y + nx * 16;
-                tgt.x = base.x - ny * 8;
-                lastMove = performance.now();
-              },
-              { passive: true },
-            );
-          }
+  <!-- ===== COMMAND PALETTE ===== -->
+  <div class="palette" id="palette" role="dialog" aria-modal="true" aria-label="Command palette" hidden>
+    <div class="palette-backdrop" id="palette-backdrop"></div>
+    <div class="palette-box">
+      <div class="palette-search">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input id="palette-input" type="text" placeholder="Type a command or search…" autocomplete="off" spellcheck="false" role="combobox" aria-expanded="true" aria-controls="palette-list" aria-autocomplete="list" aria-label="Search commands">
+        <kbd>esc</kbd>
+      </div>
+      <ul class="palette-list" id="palette-list" role="listbox"></ul>
+      <div class="palette-foot"><span><kbd>↑</kbd><kbd>↓</kbd> navigate</span><span><kbd>↵</kbd> select</span></div>
+    </div>
+  </div>
 
-          const frame = (t) => {
-            if (t - lastMove > 3500) {
-              tgt.y = base.y + Math.sin(t / 2600) * 12;
-              tgt.x = base.x + Math.sin(t / 3400) * 4;
-            }
-            cur.x += (tgt.x - cur.x) * 0.06;
-            cur.y += (tgt.y - cur.y) * 0.06;
-            stage.style.setProperty("--rx", cur.x.toFixed(2));
-            stage.style.setProperty("--ry", cur.y.toFixed(2));
-            if (running) requestAnimationFrame(frame);
-          };
-          new IntersectionObserver(([entry]) => {
-            const wasRunning = running;
-            running = entry.isIntersecting;
-            if (running && !wasRunning) requestAnimationFrame(frame);
-          }).observe(stage);
-        });
+  <!-- ===== TOAST ===== -->
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
 
-        /* HERO SCREEN CAROUSEL */
-        safely(() => {
-          const stage = document.getElementById("stage");
-          const shots = [...stage.querySelectorAll(".phone-screen img, .phone-screen video")];
-          const dotsWrap = stage.querySelector(".screen-dots");
-          const nameEl = stage.querySelector("[data-screen-name]");
-          const toggle = stage.querySelector(".carousel-toggle");
-          const captionText = stage.querySelector(".caption-text");
-          let idx = 0;
-          let timer = 0;
-          // Explicit pause (button) wins over hover/focus; reduced motion starts paused.
-          let paused = reduceMotion;
-          let hovering = false;
-          const dots = shots.map((img, i) => {
-            const b = document.createElement("button");
-            b.type = "button";
-            b.setAttribute("aria-label", `Show ${img.dataset.name}`);
-            b.addEventListener("click", () => {
-              show(i);
-              restart();
-            });
-            dotsWrap.appendChild(b);
-            return b;
-          });
-          const show = (i) => {
-            const prev = shots[idx];
-            prev.classList.remove("is-active");
-            if (prev.tagName === "VIDEO") {
-              prev.pause();
-              prev.currentTime = 0;
-            }
-            dots[idx].removeAttribute("aria-current");
-            idx = i;
-            const next = shots[idx];
-            next.classList.add("is-active");
-            if (next.tagName === "VIDEO") next.play().catch(() => {});
-            dots[idx].setAttribute("aria-current", "true");
-            nameEl.textContent = next.dataset.name;
-          };
-          const restart = () => {
-            clearInterval(timer);
-            if (!paused && !hovering)
-              timer = setInterval(() => show((idx + 1) % shots.length), 3800);
-          };
-          const setPaused = (p) => {
-            paused = p;
-            toggle.classList.toggle("is-paused", p);
-            toggle.setAttribute("aria-label", p ? "Play slideshow" : "Pause slideshow");
-            // Announce slide changes only when the user is driving them.
-            captionText.setAttribute("aria-live", p ? "polite" : "off");
-            restart();
-          };
-          toggle.addEventListener("click", () => setPaused(!paused));
-          show(0);
-          setPaused(paused);
-          stage.addEventListener("pointerenter", (e) => {
-            if (e.pointerType !== "mouse") return;
-            hovering = true;
-            restart();
-          });
-          stage.addEventListener("pointerleave", (e) => {
-            if (e.pointerType !== "mouse") return;
-            hovering = false;
-            restart();
-          });
-          // Keyboard users get the same hold while focus is inside the carousel.
-          stage.addEventListener("focusin", () => {
-            hovering = true;
-            restart();
-          });
-          stage.addEventListener("focusout", (e) => {
-            if (stage.contains(e.relatedTarget)) return;
-            hovering = false;
-            restart();
-          });
-        });
+  <!-- ===== BACK TO TOP ===== -->
+  <button class="totop" id="totop" type="button" aria-label="Back to top"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 7-7 7 7" /><path d="M12 19V5" /></svg></button>
 
-        /* PROJECT DEMO VIDEOS: play on hover (mouse) or on tap/click/Enter;
-           pause and fade back to the screenshot otherwise. */
-        safely(() => {
-          const screens = [...document.querySelectorAll(".phone-screen[data-demo]")];
-          const parts = (s) => [s.querySelector(".demo-video"), s.querySelector(".demo-toggle")];
-          const stop = (s) => {
-            const [video, btn] = parts(s);
-            s.classList.remove("is-playing");
-            s.dataset.pinned = "";
-            btn.setAttribute("aria-pressed", "false");
-            // Rewind after the fade so the screenshot is back when it's revealed.
-            setTimeout(() => {
-              if (s.classList.contains("is-playing")) return;
-              video.pause();
-              video.currentTime = 0;
-            }, 350);
-          };
-          const play = (s, pinned) => {
-            const [video, btn] = parts(s);
-            screens.forEach((o) => o !== s && stop(o));
-            s.classList.add("is-playing");
-            s.dataset.pinned = pinned ? "1" : "";
-            btn.setAttribute("aria-pressed", "true");
-            video.play().catch(() => stop(s));
-          };
-          screens.forEach((s) => {
-            const [, btn] = parts(s);
-            btn.addEventListener("click", () =>
-              s.dataset.pinned ? stop(s) : play(s, true),
-            );
-            if (!reduceMotion) {
-              btn.addEventListener("pointerenter", (e) => {
-                if (e.pointerType === "mouse") play(s, false);
-              });
-            }
-            btn.addEventListener("pointerleave", (e) => {
-              if (e.pointerType === "mouse" && !s.dataset.pinned) stop(s);
-            });
-          });
-          // Never keep playing (or downloading) off-screen.
-          const io = new IntersectionObserver((entries) =>
-            entries.forEach((en) => !en.isIntersecting && stop(en.target)),
-          );
-          screens.forEach((s) => io.observe(s));
-        });
-
-        /* 3D TILT CARDS (mouse only) */
-        safely(() => {
-          if (!finePointer || reduceMotion) return;
-          const states = new Map();
-          let raf = 0;
-          const loop = () => {
-            let moving = false;
-            states.forEach((s, el) => {
-              s.x += (s.tx - s.x) * 0.14;
-              s.y += (s.ty - s.y) * 0.14;
-              const settled =
-                Math.abs(s.tx - s.x) < 0.01 && Math.abs(s.ty - s.y) < 0.01;
-              if (settled && !s.hover) {
-                el.style.transform = "";
-                states.delete(el);
-                return;
-              }
-              el.style.transform = `perspective(1000px) rotateX(${s.x.toFixed(2)}deg) rotateY(${s.y.toFixed(2)}deg)`;
-              if (!settled) moving = true;
-            });
-            raf = moving ? requestAnimationFrame(loop) : 0;
-          };
-          const kick = () => {
-            if (!raf) raf = requestAnimationFrame(loop);
-          };
-          document.querySelectorAll("[data-tilt]").forEach((el) => {
-            const max = Number(el.dataset.tilt) || 10;
-            const state = () => {
-              if (!states.has(el))
-                states.set(el, { x: 0, y: 0, tx: 0, ty: 0, hover: false });
-              return states.get(el);
-            };
-            el.addEventListener("pointermove", (e) => {
-              const r = el.getBoundingClientRect();
-              const px = (e.clientX - r.left) / r.width;
-              const py = (e.clientY - r.top) / r.height;
-              const s = state();
-              s.hover = true;
-              s.tx = (0.5 - py) * max;
-              s.ty = (px - 0.5) * max;
-              el.style.setProperty("--gx", `${(px * 100).toFixed(1)}%`);
-              el.style.setProperty("--gy", `${(py * 100).toFixed(1)}%`);
-              kick();
-            });
-            el.addEventListener("pointerleave", () => {
-              const s = state();
-              s.hover = false;
-              s.tx = 0;
-              s.ty = 0;
-              kick();
-            });
-          });
-        });
-
-        /* SKILL GLOBE */
-        safely(() => {
-          const sphere = document.querySelector("[data-sphere]");
-          if (!sphere) return;
-          const tags = [...sphere.querySelectorAll(".sphere-tag")];
-          const n = tags.length;
-          const golden = Math.PI * (3 - Math.sqrt(5));
-          const pts = tags.map((el, i) => {
-            const y = 1 - (2 * (i + 0.5)) / n;
-            const r = Math.sqrt(1 - y * y);
-            return { el, x: Math.cos(golden * i) * r, y, z: Math.sin(golden * i) * r };
-          });
-          let radius = 150;
-          let ax = 0.3;
-          let ay = 0.4;
-          let vx = 0;
-          let vy = 0;
-          let running = false;
-          let dragging = false;
-          let last = 0;
-
-          const measure = () => {
-            // On narrow cards pull the ring in so long edge labels stay inside the card.
-            const k = sphere.clientWidth < 480 ? 0.3 : 0.4;
-            radius = Math.min(sphere.clientWidth * k, sphere.clientHeight * 0.44);
-            sphere.style.setProperty("--sd", `${radius * 2.3}px`);
-          };
-          const render = () => {
-            const cx = Math.cos(ax);
-            const sx = Math.sin(ax);
-            const cy = Math.cos(ay);
-            const sy = Math.sin(ay);
-            pts.forEach((p) => {
-              const x1 = p.x * cy + p.z * sy;
-              const z1 = -p.x * sy + p.z * cy;
-              const y2 = p.y * cx - z1 * sx;
-              const z2 = p.y * sx + z1 * cx;
-              const depth = (z2 + 1) / 2;
-              const scale = 0.62 + depth * 0.5;
-              p.el.style.transform = `translate(-50%, -50%) translate3d(${(x1 * radius).toFixed(1)}px, ${(y2 * radius).toFixed(1)}px, 0) scale(${scale.toFixed(3)})`;
-              p.el.style.opacity = (0.22 + depth * 0.78).toFixed(3);
-              p.el.style.zIndex = Math.round(depth * 100);
-            });
-          };
-          // Still by default: it only moves while dragged, then eases to a stop.
-          const frame = (t) => {
-            const dt = last ? Math.min(t - last, 50) / 16.67 : 1;
-            last = t;
-            if (!dragging) {
-              ax += vx * dt;
-              ay += vy * dt;
-              const decay = Math.pow(0.94, dt);
-              vx *= decay;
-              vy *= decay;
-            }
-            render();
-            if (dragging || Math.abs(vx) + Math.abs(vy) > 0.0004) {
-              requestAnimationFrame(frame);
-            } else {
-              running = false;
-              last = 0;
-            }
-          };
-          const kick = () => {
-            if (!running) {
-              running = true;
-              requestAnimationFrame(frame);
-            }
-          };
-
-          measure();
-          render();
-          addEventListener("resize", () => {
-            measure();
-            render();
-          });
-
-          let px = 0;
-          let py = 0;
-          sphere.addEventListener("pointerdown", (e) => {
-            dragging = true;
-            px = e.clientX;
-            py = e.clientY;
-            vx = vy = 0;
-            sphere.classList.add("dragging");
-            sphere.setPointerCapture(e.pointerId);
-            kick();
-          });
-          sphere.addEventListener("pointermove", (e) => {
-            if (!dragging) return;
-            const dx = e.clientX - px;
-            const dy = e.clientY - py;
-            px = e.clientX;
-            py = e.clientY;
-            ay += dx * 0.008;
-            ax -= dy * 0.008;
-            // Remember the flick speed for inertia (skipped under reduced motion).
-            if (!reduceMotion) {
-              vy = dx * 0.008;
-              vx = -dy * 0.008;
-            }
-          });
-          const release = () => {
-            dragging = false;
-            sphere.classList.remove("dragging");
-          };
-          sphere.addEventListener("pointerup", release);
-          sphere.addEventListener("pointercancel", release);
-        });
-
-        /* BACKGROUND PARTICLE FIELD — deliberately quiet: a sparse, faint
-           dust field that only redraws on scroll (no idle animation loop,
-           no pointer parallax), and is skipped entirely on small screens. */
-        safely(() => {
-          const canvas = document.getElementById("bg3d");
-          if (innerWidth < 720) {
-            canvas.remove();
-            return;
-          }
-          const ctx = canvas.getContext("2d");
-          if (!ctx) return;
-          // Particle colours come from the palette tokens (accent + bone).
-          const hexToRgb = (hex) =>
-            hex.trim().replace("#", "").match(/../g).map((x) => parseInt(x, 16)).join(",");
-          const root = getComputedStyle(document.documentElement);
-          const accentRgb = hexToRgb(root.getPropertyValue("--flutter"));
-          const boneRgb = hexToRgb(root.getPropertyValue("--bone"));
-          const colors = [accentRgb, boneRgb, boneRgb];
-          const count = 36;
-          const pts = Array.from({ length: count }, (_, i) => ({
-            x: Math.random() * 2 - 1,
-            y: Math.random() * 2 - 1,
-            z: Math.random() * 2 - 1,
-            c: colors[i % colors.length],
-          }));
-          let w = 0;
-          let h = 0;
-
-          const resize = () => {
-            const dpr = Math.min(devicePixelRatio || 1, 2);
-            w = innerWidth;
-            h = innerHeight;
-            canvas.width = Math.round(w * dpr);
-            canvas.height = Math.round(h * dpr);
-            ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-          };
-          const draw = () => {
-            const ay = 0.4 + (reduceMotion ? 0 : scrollY * 0.00025);
-            const cy = Math.cos(ay);
-            const sy = Math.sin(ay);
-            const cx = Math.cos(0.2);
-            const sx = Math.sin(0.2);
-            const spread = Math.max(w, h) * 0.6;
-            ctx.clearRect(0, 0, w, h);
-            pts.forEach((p) => {
-              const x1 = p.x * cy + p.z * sy;
-              const z1 = -p.x * sy + p.z * cy;
-              const y2 = p.y * cx - z1 * sx;
-              const z2 = p.y * sx + z1 * cx;
-              const k = 3 / (3 - z2);
-              const a = clamp((k - 0.62) * 0.2, 0.03, 0.22);
-              ctx.fillStyle = `rgba(${p.c},${a.toFixed(3)})`;
-              ctx.beginPath();
-              ctx.arc(w / 2 + x1 * spread * k, h / 2 + y2 * spread * k, 0.6 * k + 0.3, 0, Math.PI * 2);
-              ctx.fill();
-            });
-          };
-
-          let queued = false;
-          const schedule = () => {
-            if (queued) return;
-            queued = true;
-            requestAnimationFrame(() => {
-              queued = false;
-              draw();
-            });
-          };
-          resize();
-          draw();
-          addEventListener("resize", () => {
-            resize();
-            schedule();
-          });
-          if (!reduceMotion) addEventListener("scroll", schedule, { passive: true });
-        });
-
-        /* COPY EMAIL + FOOTER YEAR */
-        safely(() => {
-          document.querySelectorAll("[data-copy]").forEach((btn) => {
-            const label = btn.querySelector("[data-copy-label]");
-            btn.addEventListener("click", async () => {
-              try {
-                await navigator.clipboard.writeText(btn.dataset.copy);
-                label.textContent = "Copied!";
-              } catch {
-                label.textContent = btn.dataset.copy;
-              }
-              setTimeout(() => (label.textContent = "Copy email"), 2200);
-            });
-          });
-          document
-            .querySelectorAll("[data-year]")
-            .forEach((el) => (el.textContent = new Date().getFullYear()));
-        });
-      })();
-    </script>
-  </body>
+  <script src="projects.js" defer></script>
+  <script src="skill-icons.js" defer></script>
+  <script src="script.js" defer></script>
+</body>
 </html>
