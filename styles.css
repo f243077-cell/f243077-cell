@@ -4,9 +4,10 @@
    ============================================================ */
 
 /* ---------- TOKENS ----------
-   Palette: "deep sea & coral". Dark ocean teal with a coral accent, cyan and sun-yellow beside it;
-   the light theme is sea-glass white with a deeper coral and ocean teal. */
+   Palette: "deep sea & coral". Dark ocean teal with a coral accent, cyan and sun-yellow beside it.
+   The site has one theme: dark. */
 :root {
+  color-scheme: dark;
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; /* the site uses one typeface throughout */
   --font-grid: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* only where columns must line up */
@@ -53,37 +54,6 @@
   --ease: cubic-bezier(.22, 1, .36, 1);
   --nav-h: 68px;
   --gutter: clamp(20px, 6vw, 96px);
-}
-
-/* light = sea glass: cool green-white paper, deep-sea ink, deeper coral and ocean teal */
-[data-theme="light"] {
-  --bg: #f1f7f6;
-  --bg-2: #fbfefd;
-  --bg-3: #e2eeec;
-  --panel: rgba(255, 255, 255, .72);
-  --line: rgba(10, 60, 70, .12);
-  --line-2: rgba(10, 60, 70, .24);
-  --text: #0c2328;
-  --text-2: #3f5e62;
-  --text-3: #51686c;                      /* 4.6:1+ on every light surface it sits on */
-
-  --accent: #c2410c;                      /* deep coral: white text on it stays readable */
-  --accent-2: #0e7490;                    /* ocean teal */
-  --accent-3: #a16207;
-  --accent-glow: rgba(194, 65, 12, .22);
-  --on-accent: #ffffff;
-  --warn: #a16207;
-
-  --code-k: #0e7490;
-  --code-s: #c2410c;
-  --code-n: #a16207;
-  --code-b: #be185d;
-  --code-c: #6f8a8d;
-
-  --boot-bg: #071a1f;
-  --term-bg: #0c2328;
-
-  --shadow: 0 20px 60px -24px rgba(10, 50, 60, .28);
 }
 
 /* ---------- BASE ---------- */
@@ -133,7 +103,6 @@ code { font-family: var(--font-mono); }
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
 }
-[data-theme="light"] .noise { opacity: .05; mix-blend-mode: multiply; } /* faint paper grain */
 
 /* ---------- BOOT SCREEN ---------- */
 .boot {
@@ -240,9 +209,6 @@ code { font-family: var(--font-mono); }
 }
 .icon-btn:hover { color: var(--text); border-color: var(--line-2); }
 .icon-btn:active { transform: scale(.94); }
-.icon-moon { display: none; }
-[data-theme="light"] .icon-sun { display: none; }
-[data-theme="light"] .icon-moon { display: block; }
 .burger { display: none; flex-direction: column; justify-content: center; align-items: center; gap: 4.5px; }
 .burger span { width: 18px; height: 2px; background: currentColor; border-radius: 2px; transition: transform .3s var(--ease), opacity .2s; }
 .burger[aria-expanded="true"] span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
@@ -369,9 +335,6 @@ main { position: relative; z-index: 2; }
   backdrop-filter: blur(10px); transition: border-color .3s, transform .3s var(--ease);
 }
 .skill-group:hover { border-color: var(--line-2); transform: translateY(-3px); }
-/* light theme: a tan a step darker than the page, so the cards sit apart and the cream tags stand out */
-[data-theme="light"] .skill-group { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(10, 50, 60, .35); }
-[data-theme="light"] .skill-group:hover { border-color: var(--line-2); }
 .skill-group h3 { margin: 0 0 14px; font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: .08em; }
 .sg-icon { color: var(--accent); font-size: 16px; }
 .tags { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -386,7 +349,7 @@ main { position: relative; z-index: 2; }
 .skill-group .tag { display: inline-flex; align-items: center; gap: 7px; padding-left: 10px; }
 .ti { width: 15px; height: 15px; flex: none; color: var(--brand, var(--text)); }
 .ti-line { color: var(--text-2); }
-:where(:root:not([data-theme="light"])) .ti[data-lo~="dark"], :where([data-theme="light"]) .ti[data-lo~="light"] { color: var(--text); }
+:where(:root) .ti[data-lo~="dark"] { color: var(--text); } /* dark brand marks (GitHub, Cursor, MQTT) take the text colour */
 .tag:hover :is(.ti-line, .ti-mono) { color: inherit; }
 .tag[data-lvl]::after {
   content: attr(data-lvl); position: absolute; left: 50%; bottom: calc(100% + 8px); transform: translate(-50%, 4px);
@@ -400,7 +363,6 @@ main { position: relative; z-index: 2; }
   background: var(--term-bg); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
   font-family: var(--font-mono); box-shadow: var(--shadow); color: var(--term-ink);
 }
-[data-theme="light"] .case-backdrop, [data-theme="light"] .palette-backdrop { background: rgba(6, 24, 28, .5); }
 .term-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.06); font-size: 12px; }
 .term-title { margin-left: 8px; color: var(--term-dim); }
 .term-hint { margin-left: auto; color: var(--term-mute); }
@@ -665,9 +627,6 @@ body.party { animation: hue 3s linear infinite; }
   .section, .hero { max-width: 1240px; }
 }
 
-/* ---------- LIGHT THEME: the cursor dot can't rely on difference blending over paper ---------- */
-[data-theme="light"] .cursor { mix-blend-mode: normal; }
-
 /* ---------- PROJECT CARDS: title row ---------- */
 .project-head .project-title { min-width: 0; }
 .project-links { margin-left: auto; display: flex; gap: 2px; position: relative; z-index: 2; }
@@ -890,7 +849,6 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
   content: ""; position: absolute; z-index: -1; bottom: 8px; left: 50%; width: calc(var(--dw) * .9); height: 22px;
   transform: translateX(-50%); border-radius: 50%; background: rgba(0, 0, 0, .5); filter: blur(12px); pointer-events: none;
 }
-[data-theme="light"] .showcase-stage::after { background: rgba(10, 50, 60, .25); }
 
 .device-wrap { transform-style: preserve-3d; animation: deviceFloat 7s ease-in-out infinite; }
 @keyframes deviceFloat { 50% { transform: translateY(-9px); } }
@@ -959,7 +917,6 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 12px 30px -16px rgba(0, 0, 0, .55);
   font-family: var(--font-mono); font-size: 12.5px; color: var(--text-2); white-space: nowrap;
 }
-[data-theme="light"] .showcase-bar { box-shadow: 0 12px 28px -18px rgba(10, 50, 60, .35); }
 .showcase-now { margin: 0; }
 /* a fixed width keeps the pill still as the names change; each new name eases in */
 .showcase-now b { display: inline-block; min-width: 7.2ch; color: var(--text); font-weight: 600; }
@@ -1045,7 +1002,6 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
 }
 .xp-item::before { content: ""; position: absolute; left: -22px; top: 26px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
 .xp-item:hover { border-color: var(--line-2); transform: translateX(4px); }
-[data-theme="light"] .xp-item { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(10, 50, 60, .35); }
 .xp-when { font-family: var(--font-grid); font-size: 12.5px; color: var(--accent); padding-top: 4px; }
 .xp-role { margin: 0 0 4px; font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.35; }
 .xp-at { color: var(--text-3); font-weight: 500; }
@@ -1064,7 +1020,6 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
 .globe-body { padding: 8px 20px 18px; }
 /* category colours are each theme's accents, so the globe reads in both */
 :root { --g-mobile: var(--accent); --g-arch: var(--text); --g-backend: var(--accent-2); --g-ai: #f9a8d4; --g-lang: var(--warn); --g-tools: var(--text-2); }
-[data-theme="light"] { --g-mobile: #c2410c; --g-arch: #0c2328; --g-backend: #0e7490; --g-ai: #be185d; --g-lang: #a16207; --g-tools: #4b6b70; }
 .sphere { position: relative; height: 460px; display: none; cursor: grab; touch-action: pan-y; user-select: none; }
 .js .sphere { display: block; }
 .sphere.dragging { cursor: grabbing; }

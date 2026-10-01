@@ -29,17 +29,8 @@
     catch { toast("clipboard blocked — " + text, 3500); }
   };
 
-  /* ---------- theme ---------- */
-  const setTheme = (t) => {
-    root.setAttribute("data-theme", t);
-    $('meta[name="theme-color"]').setAttribute("content", t === "dark" ? "#0a1a1f" : "#f1f7f6");
-  };
-  const applyTheme = (t) => { setTheme(t); try { localStorage.setItem("theme", t); } catch {} }; // a visitor's choice sticks
-  const toggleTheme = () => applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
-  let savedTheme = null;
-  try { savedTheme = localStorage.getItem("theme"); } catch {}
-  setTheme(savedTheme || "light"); // light by default; only a choice made with the toggle is remembered
-  $("#theme-toggle").addEventListener("click", toggleTheme);
+  /* the site has one theme (dark); a choice saved by the old theme toggle no longer applies */
+  try { localStorage.removeItem("theme"); } catch {}
 
   /* ---------- boot screen ---------- */
   const boot = $("#boot");
@@ -144,7 +135,6 @@
   addEventListener("resize", () => { resize(); if (reduceMotion) { draw(); cancelAnimationFrame(raf); } }, { passive: true });
   addEventListener("mousemove", (e) => { mouse.x = e.clientX; mouse.y = e.clientY; }, { passive: true });
   addEventListener("mouseleave", () => { mouse.x = mouse.y = -9999; });
-  new MutationObserver(() => { rgb = hexToRgb(accent()); }).observe(root, { attributes: true, attributeFilter: ["data-theme"] });
   document.addEventListener("visibilitychange", () => {
     if (document.hidden) cancelAnimationFrame(raf); else if (!reduceMotion) draw();
   });
@@ -950,7 +940,7 @@
   }
 
   // expose for part 2
-  window.__pf = { $, $$, toast, scrollToId, copy, toggleTheme, setFilter, reduceMotion, runBoot, startHero, applyTheme, openCase, PROJECTS };
+  window.__pf = { $, $$, toast, scrollToId, copy, setFilter, reduceMotion, runBoot, startHero, openCase, PROJECTS };
 })();
 
 /* ============================================================
@@ -958,7 +948,7 @@
    ============================================================ */
 (() => {
   "use strict";
-  const { $, $$, toast, scrollToId, copy, toggleTheme, setFilter, reduceMotion, runBoot, openCase, PROJECTS } = window.__pf;
+  const { $, $$, toast, scrollToId, copy, setFilter, reduceMotion, runBoot, openCase, PROJECTS } = window.__pf;
   const body = document.body;
 
   /* ---------- interactive terminal ---------- */
@@ -1008,7 +998,6 @@
       `  <b>contact</b>         how to reach me\n` +
       `  <b>resume</b>          download my CV (PDF)\n` +
       `  <b>goto</b> &lt;section&gt;  scroll to about / experience / skills / projects / contact\n` +
-      `  <b>theme</b>           toggle dark / light\n` +
       `  <b>neofetch</b>        system info\n` +
       `  <b>clear</b>           clear the terminal`
     ),
@@ -1043,7 +1032,6 @@
       if (!ok.includes(args[0])) return print(`goto: unknown section. Options: ${ok.join(", ")}`, "term-err");
       scrollToId(args[0]); print(`→ ${args[0]}`, "term-ok");
     },
-    theme: () => { toggleTheme(); print(`theme → ${document.documentElement.getAttribute("data-theme")}`, "term-ok"); },
     date: () => print(new Date().toString()),
     echo: (args) => print(esc(args.join(" "))),
     pwd: () => print("/home/tanzeel/portfolio"),
@@ -1104,7 +1092,6 @@
     { g: "Actions", i: "copy", l: "Copy email", s: "tanzeelhussain346@gmail.com", run: () => copy("tanzeelhussain346@gmail.com") },
     { g: "Actions", i: "github", l: "Open GitHub", s: "github.com/f243077-cell", run: () => open("https://github.com/f243077-cell", "_blank", "noopener") },
     { g: "Actions", i: "linkedin", l: "Open LinkedIn", s: "linkedin.com/in/tanzeel-hussain-176a93327", run: () => open("https://linkedin.com/in/tanzeel-hussain-176a93327", "_blank", "noopener") },
-    { g: "Actions", i: "theme", l: "Toggle theme", s: "Dark ↔ light", k: "t", run: toggleTheme },
     { g: "Actions", i: "terminal", l: "Focus terminal", s: "Type commands in the shell", k: ">", run: () => { scrollToId("skills"); setTimeout(() => $("#term-in").focus({ preventScroll: true }), 600); } },
     { g: "Filter", i: "mobile", l: "Show mobile projects", s: "Filter: mobile", run: showFilter("mobile") },
     { g: "Filter", i: "ai", l: "Show AI projects", s: "Filter: ai", run: showFilter("ai") },
@@ -1166,7 +1153,6 @@
     if (e.key === "Escape") { if (pOpen) closePalette(); return; }
     if (typing || pOpen || e.ctrlKey || e.metaKey || e.altKey) return;
     if (e.key === "/") { e.preventDefault(); openPalette(); return; }
-    if (e.key === "t") { toggleTheme(); return; }
     if (e.key === ">") { scrollToId("skills"); setTimeout(() => $("#term-in").focus({ preventScroll: true }), 600); return; }
     // g-chords: g h / g a / g e / g s / g p / g c
     if (e.key === "g" && !chord) { chord = "g"; clearTimeout(chordT); chordT = setTimeout(() => chord = "", 900); return; }
