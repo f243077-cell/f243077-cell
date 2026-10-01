@@ -1,16 +1,14 @@
 /* ============================================================
-   PROJECTS: single source for cards, case studies, the hero phone, terminal and palette.
+   PROJECTS: single source for the project cards, the project drawer and the app spotlight.
    Descriptions, highlights and stacks come from Tanzeel's own project write-ups and resume.
-   screens   = the app's own screenshots (cards, the hero phone and phone case studies).
+   screens   = the app's own screenshot (cards, drawer and the spotlight on the overview).
    video     = a portrait demo that plays inside a phone frame.
-   image     = a wide picture (console apps) shown in a window instead of a phone.
+   image     = a wide picture (console apps) shown in a code window instead of a phone.
    art       = inline SVG drawn for projects that have no screenshot.
-   showcase  = puts the app on the hero phone, which changes picture on its own every few seconds.
-   uses      = notes floating by the hero phone (icon: a UI_ICONS or SKILL_ICONS key).
-   No project links to a repository, because none is public yet; the case studies point to GitHub instead.
+   The first project gets the wide card at the top of the grid.
+   No project links to a repository yet; add repo: "https://github.com/..." to show a source link.
    ============================================================ */
 const demo = (file, poster) => ({ src: `Apps-Demo-Videos/web/${file}.mp4`, poster });
-const use = (icon, label) => ({ icon, label });
 const shot = (file, alt) => ({ src: `assets/projects/${file}.webp`, alt });
 
 window.PROJECTS = [
@@ -28,8 +26,6 @@ window.PROJECTS = [
     badges: ["Flagship", "IoT"],
     video: demo("bioguard", "assets/projects/bioguard.webp"),
     screens: [shot("bioguard", "BioGuard dashboard listing three monitored fridges with live temperatures, lock status and an anomaly flagged on the insulin fridge")],
-    showcase: "screens",
-    uses: [use("fastapi", "FastAPI backend"), use("mqtt", "MQTT sensors"), use("live", "Live WebSocket alerts"), use("pdf", "PDF compliance reports")],
   },
   {
     slug: "acadai-buddy",
@@ -44,8 +40,6 @@ window.PROJECTS = [
     categories: ["mobile", "ai"],
     video: demo("acadai", "assets/projects/acadai-buddy.webp"),
     screens: [shot("acadai-buddy", "AcadAI Buddy home screen with AI tutor, quiz and notes tools")],
-    showcase: "screens",
-    uses: [use("firebase", "Firebase Auth + Firestore"), use("openrouter", "OpenRouter API"), use("flutter", "Flutter")],
   },
   {
     slug: "createresume-ai",
@@ -60,8 +54,6 @@ window.PROJECTS = [
     categories: ["mobile", "ai", "backend"],
     video: demo("createresume", "assets/projects/createresume-ai.webp"),
     screens: [shot("createresume-ai", "CreateResume AI home screen for building resumes")],
-    showcase: "screens",
-    uses: [use("supabase", "Supabase backend"), use("openrouter", "OpenRouter API"), use("pdf", "PDF export")],
   },
   {
     slug: "weather-app",
@@ -73,8 +65,6 @@ window.PROJECTS = [
     languages: ["Dart"],
     categories: ["mobile"],
     screens: [shot("weather-app", "Flutter Weather App showing live conditions for London")],
-    showcase: "screens",
-    uses: [use("api", "Live weather API"), use("flutter", "Flutter")],
   },
   {
     slug: "console-chess",
