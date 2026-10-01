@@ -4,46 +4,46 @@
    ============================================================ */
 
 /* ---------- TOKENS ----------
-   Palette: "midnight Flutter" in dark, "porcelain sky" in light.
-   One accent family, lifted from the Flutter mark: sky blue, with lavender and coral beside it. */
+   Palette: "deep sea & coral". Dark ocean teal with a coral accent, cyan and sun-yellow beside it;
+   the light theme is sea-glass white with a deeper coral and ocean teal. */
 :root {
   --font-sans: "Space Grotesk", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "Space Grotesk", ui-sans-serif, system-ui, sans-serif; /* the site uses one typeface throughout */
   --font-grid: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; /* only where columns must line up */
 
-  --bg: #0a0f1f;                          /* midnight blue */
-  --bg-2: #0f1629;
-  --bg-3: #172038;
-  --panel: rgba(23, 32, 56, .72);
-  --line: rgba(148, 172, 222, .13);
-  --line-2: rgba(148, 172, 222, .24);
-  --text: #eaf0fb;
-  --text-2: #a6b2cc;
-  --text-3: #8391ae;                      /* 4.6:1+ on every dark surface it sits on */
+  --bg: #0a1a1f;                          /* deep sea */
+  --bg-2: #0e2127;
+  --bg-3: #153039;
+  --panel: rgba(17, 38, 44, .72);
+  --line: rgba(180, 235, 230, .12);
+  --line-2: rgba(180, 235, 230, .24);
+  --text: #ecf7f5;
+  --text-2: #a2bfbd;
+  --text-3: #809f9d;                      /* 4.6:1+ on every dark surface it sits on */
 
-  --accent: #4cc2ff;                      /* Flutter sky blue */
-  --accent-2: #b18cff;                    /* lavender */
-  --accent-3: #ff8a5c;                    /* coral */
-  --accent-glow: rgba(76, 194, 255, .35);
-  --on-accent: #041526;                   /* text sitting on the accent */
-  --warn: #ffd166;
+  --accent: #ff7f6b;                      /* coral */
+  --accent-2: #67e8f9;                    /* cyan */
+  --accent-3: #fcd34d;                    /* sun yellow */
+  --accent-glow: rgba(255, 127, 107, .32);
+  --on-accent: #2a0a05;                   /* text sitting on the accent */
+  --warn: #fcd34d;
 
-  --code-k: #b18cff;
-  --code-s: #4cc2ff;
-  --code-n: #ffd166;
-  --code-b: #ff8a5c;
-  --code-c: #66779a;
+  --code-k: #67e8f9;
+  --code-s: #ff7f6b;
+  --code-n: #fcd34d;
+  --code-b: #f9a8d4;
+  --code-c: #5f7f7d;
 
   /* surfaces that stay dark in both themes: terminal, boot screen, console windows */
-  --boot-bg: #050913;
-  --term-bg: #070c1a;
-  --term-bg-2: #131c33;
-  --term-ink: #e4ebf8;
-  --term-dim: #a0aec8;
-  --term-mute: #7d8db0;                   /* 5:1+ on the terminal background */
-  --term-ok: #4cc2ff;                     /* prompt, "ok", success */
-  --term-path: #b18cff;
-  --term-err: #ff8a8a;
+  --boot-bg: #051013;
+  --term-bg: #061114;
+  --term-bg-2: #10262b;
+  --term-ink: #e3f1ef;
+  --term-dim: #9cb9b6;
+  --term-mute: #7a9996;                   /* 5:1+ on the terminal background */
+  --term-ok: #ff7f6b;                     /* prompt, "ok", success */
+  --term-path: #67e8f9;
+  --term-err: #ff8fa3;
 
   --r-sm: 8px;
   --r: 14px;
@@ -55,35 +55,35 @@
   --gutter: clamp(20px, 6vw, 96px);
 }
 
-/* light = porcelain sky: cool blue-white paper, ink-navy text, deep Flutter blue */
+/* light = sea glass: cool green-white paper, deep-sea ink, deeper coral and ocean teal */
 [data-theme="light"] {
-  --bg: #eef3fa;
-  --bg-2: #fbfdff;
-  --bg-3: #e1e9f5;
+  --bg: #f1f7f6;
+  --bg-2: #fbfefd;
+  --bg-3: #e2eeec;
   --panel: rgba(255, 255, 255, .72);
-  --line: rgba(30, 58, 110, .12);
-  --line-2: rgba(30, 58, 110, .22);
-  --text: #0d1b33;
-  --text-2: #3b4b68;
-  --text-3: #55647f;                      /* 4.6:1+ on every light surface it sits on */
+  --line: rgba(10, 60, 70, .12);
+  --line-2: rgba(10, 60, 70, .24);
+  --text: #0c2328;
+  --text-2: #3f5e62;
+  --text-3: #51686c;                      /* 4.6:1+ on every light surface it sits on */
 
-  --accent: #0a63c9;                      /* deep Flutter blue */
-  --accent-2: #6a3fd6;                    /* violet */
-  --accent-3: #d4492a;                    /* coral red */
-  --accent-glow: rgba(10, 99, 201, .25);
+  --accent: #c2410c;                      /* deep coral: white text on it stays readable */
+  --accent-2: #0e7490;                    /* ocean teal */
+  --accent-3: #a16207;
+  --accent-glow: rgba(194, 65, 12, .22);
   --on-accent: #ffffff;
-  --warn: #a15c00;
+  --warn: #a16207;
 
-  --code-k: #6a3fd6;
-  --code-s: #0a63c9;
-  --code-n: #a15c00;
-  --code-b: #d4492a;
-  --code-c: #7d8aa3;
+  --code-k: #0e7490;
+  --code-s: #c2410c;
+  --code-n: #a16207;
+  --code-b: #be185d;
+  --code-c: #6f8a8d;
 
-  --boot-bg: #0a1226;
-  --term-bg: #0c1530;
+  --boot-bg: #071a1f;
+  --term-bg: #0c2328;
 
-  --shadow: 0 20px 60px -24px rgba(20, 40, 90, .28);
+  --shadow: 0 20px 60px -24px rgba(10, 50, 60, .28);
 }
 
 /* ---------- BASE ---------- */
@@ -370,7 +370,7 @@ main { position: relative; z-index: 2; }
 }
 .skill-group:hover { border-color: var(--line-2); transform: translateY(-3px); }
 /* light theme: a tan a step darker than the page, so the cards sit apart and the cream tags stand out */
-[data-theme="light"] .skill-group { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(20, 40, 90, .35); }
+[data-theme="light"] .skill-group { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(10, 50, 60, .35); }
 [data-theme="light"] .skill-group:hover { border-color: var(--line-2); }
 .skill-group h3 { margin: 0 0 14px; font-family: var(--font-mono); font-size: 14px; font-weight: 600; color: var(--text-2); display: flex; align-items: center; gap: 10px; text-transform: uppercase; letter-spacing: .08em; }
 .sg-icon { color: var(--accent); font-size: 16px; }
@@ -400,7 +400,7 @@ main { position: relative; z-index: 2; }
   background: var(--term-bg); border: 1px solid var(--line); border-radius: var(--r); overflow: hidden;
   font-family: var(--font-mono); box-shadow: var(--shadow); color: var(--term-ink);
 }
-[data-theme="light"] .case-backdrop, [data-theme="light"] .palette-backdrop { background: rgba(13, 27, 51, .5); }
+[data-theme="light"] .case-backdrop, [data-theme="light"] .palette-backdrop { background: rgba(6, 24, 28, .5); }
 .term-bar { display: flex; align-items: center; gap: 8px; padding: 11px 14px; background: rgba(255,255,255,.04); border-bottom: 1px solid rgba(255,255,255,.06); font-size: 12px; }
 .term-title { margin-left: 8px; color: var(--term-dim); }
 .term-hint { margin-left: auto; color: var(--term-mute); }
@@ -756,7 +756,7 @@ body.party { animation: hue 3s linear infinite; }
 @keyframes crtOff {
   0%   { transform: scale(1, 1); }
   45%  { transform: scale(1, .004); }
-  60%  { transform: scale(1, .004); background-color: #eef8ff; box-shadow: 0 0 60px 14px var(--accent-glow); }
+  60%  { transform: scale(1, .004); background-color: #fff3ef; box-shadow: 0 0 60px 14px var(--accent-glow); }
   85%  { transform: scale(.18, .004); background-color: #fff; opacity: 1; }
   100% { transform: scale(0, .004); opacity: 0; }
 }
@@ -890,7 +890,7 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
   content: ""; position: absolute; z-index: -1; bottom: 8px; left: 50%; width: calc(var(--dw) * .9); height: 22px;
   transform: translateX(-50%); border-radius: 50%; background: rgba(0, 0, 0, .5); filter: blur(12px); pointer-events: none;
 }
-[data-theme="light"] .showcase-stage::after { background: rgba(20, 40, 90, .25); }
+[data-theme="light"] .showcase-stage::after { background: rgba(10, 50, 60, .25); }
 
 .device-wrap { transform-style: preserve-3d; animation: deviceFloat 7s ease-in-out infinite; }
 @keyframes deviceFloat { 50% { transform: translateY(-9px); } }
@@ -959,7 +959,7 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
   backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); box-shadow: 0 12px 30px -16px rgba(0, 0, 0, .55);
   font-family: var(--font-mono); font-size: 12.5px; color: var(--text-2); white-space: nowrap;
 }
-[data-theme="light"] .showcase-bar { box-shadow: 0 12px 28px -18px rgba(20, 40, 90, .35); }
+[data-theme="light"] .showcase-bar { box-shadow: 0 12px 28px -18px rgba(10, 50, 60, .35); }
 .showcase-now { margin: 0; }
 /* a fixed width keeps the pill still as the names change; each new name eases in */
 .showcase-now b { display: inline-block; min-width: 7.2ch; color: var(--text); font-weight: 600; }
@@ -1045,7 +1045,7 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
 }
 .xp-item::before { content: ""; position: absolute; left: -22px; top: 26px; width: 11px; height: 11px; border-radius: 50%; background: var(--bg); border: 2px solid var(--accent); }
 .xp-item:hover { border-color: var(--line-2); transform: translateX(4px); }
-[data-theme="light"] .xp-item { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(20, 40, 90, .35); }
+[data-theme="light"] .xp-item { background: rgba(255, 255, 255, .66); border-color: var(--line); box-shadow: 0 10px 30px -22px rgba(10, 50, 60, .35); }
 .xp-when { font-family: var(--font-grid); font-size: 12.5px; color: var(--accent); padding-top: 4px; }
 .xp-role { margin: 0 0 4px; font-size: 18px; font-weight: 700; letter-spacing: -.01em; line-height: 1.35; }
 .xp-at { color: var(--text-3); font-weight: 500; }
@@ -1063,8 +1063,8 @@ html { scrollbar-color: color-mix(in srgb, var(--text-3) 55%, transparent) var(-
 .globe-card, .roadmap-card { margin: 0; }
 .globe-body { padding: 8px 20px 18px; }
 /* category colours are each theme's accents, so the globe reads in both */
-:root { --g-mobile: var(--accent); --g-arch: var(--text); --g-backend: var(--accent-2); --g-ai: var(--accent-3); --g-lang: var(--warn); --g-tools: var(--text-2); }
-[data-theme="light"] { --g-mobile: #0a63c9; --g-arch: #0f766e; --g-backend: #6a3fd6; --g-ai: #d4492a; --g-lang: #a15c00; --g-tools: #475569; }
+:root { --g-mobile: var(--accent); --g-arch: var(--text); --g-backend: var(--accent-2); --g-ai: #f9a8d4; --g-lang: var(--warn); --g-tools: var(--text-2); }
+[data-theme="light"] { --g-mobile: #c2410c; --g-arch: #0c2328; --g-backend: #0e7490; --g-ai: #be185d; --g-lang: #a16207; --g-tools: #4b6b70; }
 .sphere { position: relative; height: 460px; display: none; cursor: grab; touch-action: pan-y; user-select: none; }
 .js .sphere { display: block; }
 .sphere.dragging { cursor: grabbing; }

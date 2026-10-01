@@ -32,7 +32,7 @@
   /* ---------- theme ---------- */
   const setTheme = (t) => {
     root.setAttribute("data-theme", t);
-    $('meta[name="theme-color"]').setAttribute("content", t === "dark" ? "#0a0f1f" : "#eef3fa");
+    $('meta[name="theme-color"]').setAttribute("content", t === "dark" ? "#0a1a1f" : "#f1f7f6");
   };
   const applyTheme = (t) => { setTheme(t); try { localStorage.setItem("theme", t); } catch {} }; // a visitor's choice sticks
   const toggleTheme = () => applyTheme(root.getAttribute("data-theme") === "dark" ? "light" : "dark");
@@ -103,14 +103,14 @@
       r: Math.random() * 1.4 + .6,
     }));
   };
-  const accent = () => getComputedStyle(root).getPropertyValue("--accent").trim() || "#4cc2ff";
+  const accent = () => getComputedStyle(root).getPropertyValue("--accent").trim() || "#ff7f6b";
   const hexToRgb = (h) => {
     const m = h.replace("#", "");
     const v = m.length === 3 ? m.split("").map(c => c + c).join("") : m;
     const n = parseInt(v, 16);
     return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
   };
-  let rgb = [76, 194, 255];
+  let rgb = [255, 127, 107];
   const draw = () => {
     ctx.clearRect(0, 0, W, H);
     const link = isTouch ? 90 : 120;
@@ -1198,7 +1198,7 @@
     c.width = innerWidth; c.height = innerHeight;
     document.body.appendChild(c);
     const x = c.getContext("2d");
-    const cols = ["#4cc2ff", "#b18cff", "#ff8a5c", "#ffd166", "#ffffff"];
+    const cols = ["#ff7f6b", "#67e8f9", "#fcd34d", "#f9a8d4", "#ffffff"];
     const ps = Array.from({ length: 160 }, () => ({
       x: Math.random() * c.width, y: -20 - Math.random() * c.height * .5,
       vx: (Math.random() - .5) * 3, vy: Math.random() * 3 + 2, s: Math.random() * 7 + 4,
@@ -1217,9 +1217,9 @@
   };
 
   /* ---------- console greeting ---------- */
-  console.log("%c👋 hey, curious one.", "font-size:18px;font-weight:700;color:#4cc2ff");
-  console.log("%cIf you're reading this, we'd probably get along. → tanzeelhussain346@gmail.com", "color:#a6b2cc");
-  console.log("%cTry: Ctrl+K, the terminal in #skills, or the Konami code.", "color:#b18cff");
+  console.log("%c👋 hey, curious one.", "font-size:18px;font-weight:700;color:#ff7f6b");
+  console.log("%cIf you're reading this, we'd probably get along. → tanzeelhussain346@gmail.com", "color:#a2bfbd");
+  console.log("%cTry: Ctrl+K, the terminal in #skills, or the Konami code.", "color:#67e8f9");
 
   /* ---------- go ---------- */
   runBoot();
