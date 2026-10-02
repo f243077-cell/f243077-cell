@@ -51,7 +51,7 @@
 
   /* ---------- reveal panels as they scroll in ---------- */
   safely(() => {
-    const els = $$(".panel, .stats > *, .intro");
+    const els = $$(".panel, .stats > *, .intro, .spot");
     els.forEach((el) => el.classList.add("rv"));
     if (reduceMotion || !("IntersectionObserver" in window)) { els.forEach((el) => el.classList.add("in")); return; }
     const io = new IntersectionObserver((entries) => entries.forEach((e) => {
@@ -71,7 +71,7 @@
     return `<div class="win"><div class="win-bar"><b>●</b> ${esc(m.window)}</div><div class="win-body">${inner}</div></div>`;
   };
   // every screen of the app stacked in one phone; the card cycles through them
-  const phoneHTML = (p) => `<div class="phone">${p.screens.map((s, j) => `<img${j ? "" : ` class="on"`} src="${s.src}" alt="${esc(s.alt)}" loading="lazy" decoding="async">`).join("")}</div>
+  const phoneHTML = (p) => `<div class="p3d"><div class="phone" data-tilt>${p.screens.map((s, j) => `<img${j ? "" : ` class="on"`} src="${s.src}" alt="${esc(s.alt)}" loading="lazy" decoding="async">`).join("")}</div></div>
     ${p.screens.length > 1 ? `<div class="dots" aria-hidden="true">${p.screens.map((_, j) => `<i${j ? "" : ` class="on"`}></i>`).join("")}</div>` : ""}`;
   const mediaHTML = (p) => p.screens ? phoneHTML(p) : (p.image || p.art) ? winHTML(p) : "";
   safely(() => {
@@ -101,7 +101,9 @@
       if (imgs.length < 2) return;
       let k = 0, timer = 0, visible = false;
       const show = (j) => {
-        imgs[k].classList.remove("on"); dots[k]?.classList.remove("on");
+        const prev = imgs[k];
+        prev.classList.remove("on"); prev.classList.add("was"); dots[k]?.classList.remove("on");
+        setTimeout(() => prev.classList.remove("was"), 900);
         k = j % imgs.length;
         imgs[k].classList.add("on"); dots[k]?.classList.add("on");
       };
@@ -139,12 +141,12 @@
 
   const stageHTML = (p) => {
     const s = shotOf(p);
-    if (p.video) return `<div class="stage"><div class="phone player paused">
+    if (p.video) return `<div class="stage"><div class="p3d"><div class="phone player paused" data-tilt>
         <video muted loop playsinline preload="auto" poster="${p.video.poster}" src="${p.video.src}" aria-label="${esc(p.name)} demo video"></video>
         <button class="toggle" type="button" aria-label="Play demo">${icon("play")}</button>
         <span class="bar" aria-hidden="true"><i></i></span>
-      </div></div>`;
-    if (s) return `<div class="stage"><div class="phone"><img src="${s.src}" alt="${esc(s.alt)}" decoding="async"></div></div>`;
+      </div></div></div>`;
+    if (s) return `<div class="stage"><div class="p3d"><div class="phone" data-tilt><img src="${s.src}" alt="${esc(s.alt)}" decoding="async"></div></div></div>`;
     if (p.image || p.art) return `<div class="stage">${winHTML(p)}</div>`;
     return "";
   };
@@ -235,7 +237,7 @@
     const spot = $("#spot");
     const apps = PROJECTS.map((p, i) => ({ p, i, s: shotOf(p) })).filter((a) => a.s);
     if (!spot || !apps.length) return;
-    const imgs = $$(".spot-screen img", spot), nameEl = $("#spot-name"), bars = $(".spot-bars", spot);
+    const imgs = $$(".spot-screen img", spot), nameEl = $("#spot-name"), tagEl = $("#spot-tag"), bars = $(".spot-bars", spot);
     const MS = 3500;
     spot.style.setProperty("--spot-ms", MS + "ms");
     bars.innerHTML = apps.map(() => "<i></i>").join("");
@@ -246,9 +248,12 @@
       const a = apps[k], back = imgs[1 - front];
       back.src = a.s.src;
       try { await back.decode(); } catch {}
-      imgs[front].classList.remove("on"); back.classList.add("on"); front = 1 - front;
+      const prev = imgs[front];
+      prev.classList.remove("on"); prev.classList.add("was"); back.classList.remove("was"); back.classList.add("on"); front = 1 - front;
+      setTimeout(() => prev.classList.remove("was"), 900);
       nameEl.textContent = a.p.name;
-      nameEl.classList.remove("in"); void nameEl.offsetWidth; nameEl.classList.add("in");
+      tagEl.textContent = a.p.tagline;
+      [nameEl, tagEl].forEach((el) => { el.classList.remove("in"); void el.offsetWidth; el.classList.add("in"); });
       spot.setAttribute("aria-label", `Open the ${a.p.name} project`);
       segs.forEach((s, j) => { s.classList.toggle("done", j < k); s.classList.remove("on"); });
       void segs[k].offsetWidth; segs[k].classList.add("on");
@@ -258,6 +263,36 @@
     new IntersectionObserver(([e]) => { visible = e.isIntersecting; loop(); }).observe(spot);
     document.addEventListener("visibilitychange", loop);
     spot.addEventListener("click", () => openProject(apps[k].i));
+  });
+
+  /* ---------- 3D: phones and the photo turn toward the pointer, with light moving across the glass ---------- */
+  safely(() => {
+    if (reduceMotion || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;
+    let raf = 0, target = null, px = 0, py = 0;
+    const apply = () => {
+      raf = 0;
+      if (!target) return;
+      const max = +target.dataset.tilt || 16;
+      target.style.transform = `rotateX(${(-py * max * .7).toFixed(2)}deg) rotateY(${(px * max).toFixed(2)}deg) translateZ(10px)`;
+      target.style.setProperty("--gx", `${(50 + px * 60).toFixed(1)}%`);
+      target.style.setProperty("--gy", `${(50 + py * 60).toFixed(1)}%`);
+    };
+    document.addEventListener("pointermove", (e) => {
+      // the card, panel or profile the pointer is over drives its own phone or photo
+      const host = e.target.closest?.(".app, .stage, .spot, .avatar");
+      const el = host ? (host.matches("[data-tilt]") ? host : host.querySelector("[data-tilt]")) : null;
+      if (el !== target) {
+        if (target) { target.style.transform = ""; target.classList.remove("tilting"); }
+        target = el;
+        target?.classList.add("tilting");
+      }
+      if (!target) return;
+      const r = (host || target).getBoundingClientRect();
+      px = Math.max(-1, Math.min(1, (e.clientX - r.left) / r.width * 2 - 1));
+      py = Math.max(-1, Math.min(1, (e.clientY - r.top) / r.height * 2 - 1));
+      if (!raf) raf = requestAnimationFrame(apply);
+    }, { passive: true });
+    document.addEventListener("pointerleave", () => { if (target) { target.style.transform = ""; target.classList.remove("tilting"); target = null; } });
   });
 
   /* ---------- skill logos ---------- */

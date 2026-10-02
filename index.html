@@ -66,7 +66,7 @@
     <!-- ===== PROFILE SIDEBAR (desktop) / PROFILE HEADER (phone) ===== -->
     <aside class="side" aria-label="Profile">
       <div class="profile">
-        <figure class="avatar">
+        <figure class="avatar" data-tilt="7">
           <img src="assets/profile-portrait.webp" alt="Tanzeel Hussain, with dark wavy hair and a trimmed beard, wearing a white T-shirt and relaxing in a black leather armchair in a warmly lit café" width="900" height="1199" fetchpriority="high" decoding="async">
           <figcaption class="status"><span class="pulse" aria-hidden="true"></span>Available for work</figcaption>
         </figure>
@@ -119,6 +119,19 @@
           </div>
         </div>
 
+        <button class="spot card" type="button" id="spot" aria-label="Open the BioGuard project">
+          <span class="spot-head">
+            <span class="spot-k"><span class="pulse" aria-hidden="true"></span>App spotlight</span>
+            <span class="spot-hint">Tap to open</span>
+          </span>
+          <span class="p3d"><span class="spot-screen" data-tilt><img class="on" src="assets/projects/bioguard.webp" alt="" decoding="async"><img alt="" decoding="async"></span></span>
+          <span class="spot-text">
+            <b class="spot-name" id="spot-name">BioGuard</b>
+            <span class="spot-tag" id="spot-tag">Real-time cold-chain monitoring, from sensor to alert</span>
+            <span class="spot-bars" aria-hidden="true"></span>
+          </span>
+        </button>
+
         <div class="stats">
           <div class="stat card">
             <span class="stat-ic"><svg class="ic"><use href="#i-briefcase"/></svg></span>
@@ -135,14 +148,6 @@
             <b class="stat-num">Freelance</b>
             <span class="stat-label">Ongoing Flutter client work on Fiverr alongside coursework</span>
           </div>
-          <button class="spot card" type="button" id="spot" aria-label="Open the BioGuard project">
-            <span class="spot-screen"><img class="on" src="assets/projects/bioguard.webp" alt="" decoding="async"><img alt="" decoding="async"></span>
-            <span class="spot-text">
-              <span class="spot-k">App spotlight</span>
-              <b class="spot-name" id="spot-name">BioGuard</b>
-              <span class="spot-bars" aria-hidden="true"></span>
-            </span>
-          </button>
         </div>
       </section>
 
