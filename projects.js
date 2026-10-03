@@ -8,7 +8,8 @@
    The first project gets the wide card at the top of the grid.
    No project links to a repository yet; add repo: "https://github.com/..." to show a source link.
    ============================================================ */
-const demo = (file, poster) => ({ src: `Apps-Demo-Videos/web/${file}.mp4`, poster });
+// wide = a landscape promo video, shown in a 16:9 player instead of a phone
+const demo = (file, poster, wide = false) => ({ src: `Apps-Demo-Videos/web/${file}.mp4`, poster, wide });
 const shot = (file, alt) => ({ src: `assets/projects/${file}.webp`, alt });
 // more screens of the same app, taken from its own demo video
 const frame = (file, n, alt) => ({ src: `assets/projects/screens/${file}-${n}.webp`, alt });
@@ -41,9 +42,9 @@ window.PROJECTS = [
     stack: ["Flutter", "Dart", "Riverpod", "Firebase", "OpenRouter"],
     languages: ["Dart"],
     categories: ["mobile", "ai"],
-    video: demo("acadai", "assets/projects/acadai-buddy.webp"),
-    screens: [shot("acadai-buddy", "AcadAI Buddy home screen with AI tutor, quiz and notes tools"),
-      frame("acadai", 2, "AI tutor answering with a summary table"), frame("acadai", 3, "Quiz generator choosing a subject and topic"), frame("acadai", 4, "Generated multiple-choice quiz question"), frame("acadai", 5, "Notes summarized into key points and likely exam questions")],
+    video: demo("acadai", "assets/projects/acadai-cover.webp", true),
+    screens: [shot("acadai-buddy", "AcadAI Buddy home screen with Ask Tutor, Practice Quiz and Summarize Notes"),
+      frame("acadai", 2, "AI tutor ready for a Data Structures question"), frame("acadai", 3, "Tutor answering step by step with math and code"), frame("acadai", 4, "Practice quiz question with an explanation"), frame("acadai", 5, "Quiz scored 9 of 10 with a review of each answer"), frame("acadai", 6, "Lecture notes summarized into key points")],
   },
   {
     slug: "createresume-ai",

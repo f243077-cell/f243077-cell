@@ -1,0 +1,3 @@
+# original uploads stay on this computer; the site uses the web-sized copies in Apps-Demo-Videos/web/
+Apps-Demo-Videos/*
+!Apps-Demo-Videos/web/

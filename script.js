@@ -141,6 +141,12 @@
 
   const stageHTML = (p) => {
     const s = shotOf(p);
+    // a landscape promo video plays in a wide screen
+    if (p.video?.wide) return `<div class="stage stage-wide"><div class="screen player paused">
+        <video muted loop playsinline preload="auto" poster="${p.video.poster}" src="${p.video.src}" aria-label="${esc(p.name)} demo video"></video>
+        <button class="toggle" type="button" aria-label="Play demo">${icon("play")}</button>
+        <span class="bar" aria-hidden="true"><i></i></span>
+      </div></div>`;
     if (p.video) return `<div class="stage"><div class="p3d"><div class="phone player paused" data-tilt>
         <video muted loop playsinline preload="auto" poster="${p.video.poster}" src="${p.video.src}" aria-label="${esc(p.name)} demo video"></video>
         <button class="toggle" type="button" aria-label="Play demo">${icon("play")}</button>
