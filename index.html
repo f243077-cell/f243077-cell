@@ -58,6 +58,7 @@
     <symbol id="i-right" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 18 6-6-6-6"/></symbol>
     <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5.5v13a1 1 0 0 0 1.5.86l10.5-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5z"/></symbol>
     <symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8Z"/><path d="M14 3v5h5M9 13h6M9 17h6"/></g></symbol>
+    <symbol id="i-award" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="6"/><path d="M15.48 12.89 17 22l-5-3-5 3 1.52-9.11"/></g></symbol>
     <symbol id="i-check" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" d="m5 12 5 5 9-10"/></symbol>
   </svg>
 
@@ -97,6 +98,7 @@
         <a href="#overview"><svg class="ic"><use href="#i-home"/></svg>Overview</a>
         <a href="#about"><svg class="ic"><use href="#i-user"/></svg>About</a>
         <a href="#experience"><svg class="ic"><use href="#i-briefcase"/></svg>Experience</a>
+        <a href="#achievements"><svg class="ic"><use href="#i-award"/></svg>Achievements</a>
         <a href="#projects"><svg class="ic"><use href="#i-apps"/></svg>Projects<span class="count" data-project-count></span></a>
         <a href="#skills"><svg class="ic"><use href="#i-spark"/></svg>Skills</a>
         <a href="#contact"><svg class="ic"><use href="#i-mail"/></svg>Contact</a>
@@ -206,6 +208,51 @@
             <p class="tl-desc">Building a foundation in Data Structures, OOP, Design Patterns and Software Design Architecture alongside applied Flutter projects.</p>
           </li>
         </ol>
+      </section>
+
+      <!-- ACHIEVEMENTS -->
+      <section class="card panel" id="achievements" aria-labelledby="ach-title">
+        <header class="panel-head"><span class="chip-ic"><svg class="ic"><use href="#i-award"/></svg></span><div><p class="eyebrow">Achievements</p><h2 class="panel-title" id="ach-title">Certificates</h2></div></header>
+        <p class="panel-lede">Recognition for a completed internship and a hackathon. Open a certificate to see it in full.</p>
+        <div class="certs">
+          <article class="cert">
+            <button class="cert-shot" type="button" data-cert="assets/certificates/fluttercraft-internship.webp" data-cert-title="Certificate of Internship · FlutterCraft" aria-label="View the FlutterCraft internship certificate full size">
+              <span class="cert-frame" data-tilt="10"><img src="assets/certificates/fluttercraft-internship.webp" alt="FlutterCraft Certificate of Internship presented to Tanzeel Hussain, Flutter Developer Intern, July 1 to August 28, 2026, issued August 30, 2026, signed by Muhammad Haris, Founder" width="1600" height="1131" loading="lazy" decoding="async"></span>
+            </button>
+            <div class="cert-body">
+              <span class="cert-kind">Internship</span>
+              <h3 class="cert-title">Certificate of Internship</h3>
+              <p class="cert-org">FlutterCraft <span>· fluttercraft.app</span></p>
+              <dl class="cert-meta">
+                <div><dt>Role</dt><dd>Flutter Developer Intern</dd></div>
+                <div><dt>Duration</dt><dd>1 Jul – 28 Aug 2026</dd></div>
+                <div><dt>Issued</dt><dd>30 Aug 2026</dd></div>
+                <div><dt>Certificate ID</dt><dd>FC-INT-2026-001</dd></div>
+              </dl>
+              <div class="cert-actions">
+                <button class="btn btn-primary btn-sm" type="button" data-cert="assets/certificates/fluttercraft-internship.webp" data-cert-title="Certificate of Internship · FlutterCraft">View certificate<svg class="ic"><use href="#i-arrow"/></svg></button>
+                <a class="btn btn-soft btn-sm" href="assets/certificates/Tanzeel_Hussain_FlutterCraft_Internship_Certificate.pdf" target="_blank" rel="noopener"><svg class="ic"><use href="#i-file"/></svg>PDF</a>
+              </div>
+            </div>
+          </article>
+          <article class="cert">
+            <button class="cert-shot" type="button" data-cert="assets/certificates/build-with-ai-hackathon.webp" data-cert-title="Build with AI Hackathon · Certificate of Participation" aria-label="View the Build with AI Hackathon certificate full size">
+              <span class="cert-frame" data-tilt="10"><img src="assets/certificates/build-with-ai-hackathon.webp" alt="Build with AI Hackathon Certificate of Participation presented to Tanzeel Hussain, organized by GDGoC FAST NUCES Chiniot-Faisalabad Campus, signed by Muhammad Taha, Campus Lead, and Momina Javaid, Mentor" width="1600" height="1131" loading="lazy" decoding="async"></span>
+            </button>
+            <div class="cert-body">
+              <span class="cert-kind">Hackathon</span>
+              <h3 class="cert-title">Build with AI Hackathon</h3>
+              <p class="cert-org">Google Developer Groups on Campus <span>· FAST-NUCES Chiniot-Faisalabad</span></p>
+              <dl class="cert-meta">
+                <div><dt>Award</dt><dd>Certificate of Participation</dd></div>
+                <div><dt>Built</dt><dd>FounderAI, an AI startup assistant on Node.js and Express</dd></div>
+              </dl>
+              <div class="cert-actions">
+                <button class="btn btn-primary btn-sm" type="button" data-cert="assets/certificates/build-with-ai-hackathon.webp" data-cert-title="Build with AI Hackathon · Certificate of Participation">View certificate<svg class="ic"><use href="#i-arrow"/></svg></button>
+              </div>
+            </div>
+          </article>
+        </div>
       </section>
 
       <!-- PROJECTS -->
@@ -423,6 +470,16 @@
       </header>
       <div class="drawer-body" id="d-body"></div>
     </article>
+  </div>
+
+  <!-- ===== CERTIFICATE VIEWER ===== -->
+  <div class="viewer" id="viewer" hidden>
+    <div class="viewer-scrim" data-vclose></div>
+    <figure class="viewer-box" role="dialog" aria-modal="true" aria-labelledby="viewer-cap" tabindex="-1">
+      <img id="viewer-img" alt="">
+      <figcaption id="viewer-cap"></figcaption>
+      <button class="icon-btn viewer-close" type="button" data-vclose aria-label="Close certificate"><svg class="ic"><use href="#i-close"/></svg></button>
+    </figure>
   </div>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>

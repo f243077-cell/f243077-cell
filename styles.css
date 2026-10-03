@@ -561,3 +561,44 @@ p { margin: 0; }
 .stage-wide { padding: 16px; }
 .screen { position: relative; width: 100%; aspect-ratio: 16 / 9; border-radius: 14px; overflow: hidden; background: #000; box-shadow: 0 0 0 1px var(--line-2), 0 30px 50px -28px rgba(0, 0, 0, .9); }
 .screen > video { display: block; width: 100%; height: 100%; object-fit: cover; }
+
+/* ---------- achievements: certificate cards ---------- */
+.certs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.cert { display: grid; grid-template-rows: auto 1fr; background: var(--surface-2); border: 1px solid var(--line); border-radius: var(--r-lg); overflow: hidden; min-width: 0; transition: border-color .25s, box-shadow .3s; }
+.cert:hover { border-color: var(--line-2); box-shadow: var(--shadow); }
+.cert-shot {
+  display: grid; place-items: center; padding: 26px 24px; perspective: 1000px; cursor: zoom-in;
+  background: radial-gradient(110% 80% at 50% 0%, rgba(255, 127, 107, .12), transparent 60%), linear-gradient(180deg, var(--surface-3), var(--surface-2));
+  border-bottom: 1px solid var(--line);
+}
+.cert-frame { position: relative; display: block; width: 100%; border-radius: 10px; overflow: hidden; background: #fff; box-shadow: 0 0 0 1px rgba(255, 255, 255, .08), 0 26px 44px -22px rgba(0, 0, 0, .9); animation: certFloat 8s ease-in-out infinite; }
+.cert:nth-child(2) .cert-frame { animation-delay: -4s; }
+.cert-frame.tilting { animation-play-state: paused; }
+.cert-frame img { display: block; width: 100%; height: auto; }
+.cert-frame::after { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(circle at var(--gx, 30%) var(--gy, 20%), rgba(255, 255, 255, .28), transparent 45%); mix-blend-mode: soft-light; }
+@keyframes certFloat { 0%, 100% { transform: rotateX(4deg) rotateY(-6deg); } 50% { transform: rotateX(-2deg) rotateY(6deg) translateY(-4px); } }
+.cert-body { padding: 18px 20px 20px; display: grid; gap: 8px; align-content: start; }
+.cert-kind { justify-self: start; font-size: 11.5px; font-weight: 700; letter-spacing: .03em; padding: 3px 10px; border-radius: 999px; background: var(--coral-soft); color: var(--coral); }
+.cert:nth-child(2) .cert-kind { background: var(--cyan-soft); color: var(--cyan); }
+.cert-title { font-size: 20px; line-height: 1.2; }
+.cert-org { color: var(--text); font-weight: 600; font-size: 15px; margin-top: -2px; }
+.cert-org span { color: var(--text-3); font-weight: 400; }
+.cert-meta { margin: 4px 0 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; }
+.cert-meta div { padding: 9px 11px; border-radius: var(--r-md); background: var(--surface); border: 1px solid var(--line); }
+.cert-meta dt { font-family: var(--mono); font-size: 11px; letter-spacing: .06em; text-transform: uppercase; color: var(--text-3); }
+.cert-meta dd { margin: 2px 0 0; font-size: 14px; line-height: 1.35; }
+.cert-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 6px; }
+
+/* full-size viewer */
+.viewer { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; padding: 20px; }
+.viewer[hidden] { display: none; }
+.viewer-scrim { position: absolute; inset: 0; background: rgba(3, 10, 12, .8); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); animation: fadeIn .25s ease; }
+.viewer-box { position: relative; margin: 0; max-width: min(1100px, 100%); display: grid; gap: 12px; outline: none; animation: viewerIn .4s var(--ease); }
+.viewer-box img { display: block; max-width: 100%; max-height: calc(100dvh - 110px); width: auto; margin: 0 auto; border-radius: 12px; background: #fff; box-shadow: 0 40px 80px -30px rgba(0, 0, 0, .9); }
+.viewer-box figcaption { text-align: center; color: var(--text-2); font-size: 14px; }
+.viewer-close { position: absolute; top: -10px; right: -10px; background: var(--surface); }
+@keyframes viewerIn { from { opacity: 0; transform: perspective(1000px) rotateX(10deg) scale(.94); } }
+
+@media (max-width: 1060px) { .certs { grid-template-columns: minmax(0, 1fr); } }
+@media (max-width: 640px) { .cert-meta { gap: 6px; } .cert-meta div { padding: 8px 10px; } .cert-shot { padding: 18px 14px; } .viewer-close { top: 6px; right: 6px; } }
+@media (prefers-reduced-motion: reduce) { .cert-frame { animation: none; } }

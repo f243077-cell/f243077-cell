@@ -34,9 +34,9 @@
   /* ---------- active section in the sidebar and tab bar ---------- */
   safely(() => {
     const links = $$(".topnav a, .tabbar a");
-    const ids = ["overview", "about", "experience", "projects", "skills", "contact"];
+    const ids = ["overview", "about", "experience", "achievements", "projects", "skills", "contact"];
     // the tab bar has no Experience tab, so it lights About while Experience is on screen
-    const tabFor = { experience: "about" };
+    const tabFor = { experience: "about", achievements: "about" };
     const setActive = (id) => links.forEach((a) => {
       const target = a.getAttribute("href").slice(1);
       const inTabbar = !!a.closest(".tabbar");
@@ -285,7 +285,7 @@
     };
     document.addEventListener("pointermove", (e) => {
       // the card, panel or profile the pointer is over drives its own phone or photo
-      const host = e.target.closest?.(".app, .stage, .spot, .avatar");
+      const host = e.target.closest?.(".app, .stage, .spot, .avatar, .cert-shot");
       const el = host ? (host.matches("[data-tilt]") ? host : host.querySelector("[data-tilt]")) : null;
       if (el !== target) {
         if (target) { target.style.transform = ""; target.classList.remove("tilting"); }
@@ -299,6 +299,25 @@
       if (!raf) raf = requestAnimationFrame(apply);
     }, { passive: true });
     document.addEventListener("pointerleave", () => { if (target) { target.style.transform = ""; target.classList.remove("tilting"); target = null; } });
+  });
+
+  /* ---------- certificate viewer ---------- */
+  safely(() => {
+    const viewer = $("#viewer"), img = $("#viewer-img"), cap = $("#viewer-cap"), box = $(".viewer-box", viewer);
+    let back = null;
+    const open = (btn) => {
+      back = btn;
+      img.src = btn.dataset.cert;
+      img.alt = $("img", btn.closest(".cert"))?.alt || "";
+      cap.textContent = btn.dataset.certTitle;
+      viewer.hidden = false;
+      document.body.classList.add("locked");
+      box.focus({ preventScroll: true });
+    };
+    const close = () => { viewer.hidden = true; document.body.classList.remove("locked"); back?.focus({ preventScroll: true }); };
+    $$("[data-cert]").forEach((b) => b.addEventListener("click", () => open(b)));
+    $$("[data-vclose]", viewer).forEach((b) => b.addEventListener("click", close));
+    viewer.addEventListener("keydown", (e) => { if (e.key === "Escape") close(); });
   });
 
   /* ---------- skill logos ---------- */
