@@ -24,6 +24,12 @@ I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter a
 
 ## Featured projects
 
+### [PlayGrid](https://github.com/f243077-cell/nasconhackathon): multi-sport league and club platform, top 4 at NaSCon '26
+
+Built by a team of three over the two days of the NaSCon '26 App Dev Competition, where we finished in the top 4 teams. I led the backend, infrastructure and integration: a FastAPI service computes scores from an append-only event stream in PostgreSQL, Redis handles rate limiting, domain events and realtime pub/sub, and MinIO stores PDF receipts and match recordings. Fixtures generate in four formats (round robin, Swiss, single and double elimination), and MediaMTX ingests streams over RTMP and WebRTC and serves them as HLS. The Flutter Android app covers fixtures, live scores, rosters, a club store, QR scanning and co-streaming, and queues changes offline to sync on reconnect. Score updates reached 25 WebSocket clients at a 41 ms p95, and a k6 run with 500 guest viewers and 50 chat posters held a 485 ms p95 with no failed requests.
+
+<sub>Flutter · Riverpod · FastAPI · PostgreSQL · Redis · MinIO · MediaMTX · WebSocket · Docker Compose</sub>
+
 ### [BioGuard](https://github.com/f243077-cell/BioGuard): cold-chain compliance for vaccines, insulin and biologics
 
 Simulated fridge sensors publish temperature and lock readings over MQTT (QoS 1, persistent broker) to a FastAPI backend, which re-checks every reading against *that device's own* thresholds, ignoring the sensor's self-reported anomaly flag and any device ID in the payload, before opening, escalating or resolving an alert. A drift more than 5 °C past the safe range escalates the same alert from warning to critical, which is what sounds the Flutter app's alarm; alerts are pushed live over WebSocket and Firebase Cloud Messaging, while the device dashboard deliberately polls every 5 s, because a slightly stale temperature is fine but a late alarm isn't. The Flutter app (Riverpod, JWT login/register/logout) covers a live multi-device dashboard, a history screen with trend charts, persistent alert history, and PDF compliance reports, and the backend runs SQLite in WAL mode so API reads never hit "database is locked" while the MQTT thread is writing.
@@ -99,6 +105,7 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 
 ## Achievements
 
+- Top 4 team at the NaSCon '26 App Dev Competition: built [PlayGrid](https://github.com/f243077-cell/nasconhackathon), a multi-sport league and club platform
 - GDG "Build with AI" hackathon participant: built [FounderAI](https://github.com/f243077-cell/Founder_AI), an AI startup assistant
 
 ## GitHub stats

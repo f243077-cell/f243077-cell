@@ -6,7 +6,7 @@
    image     = a wide picture (console apps) shown in a code window instead of a phone.
    art       = inline SVG drawn for projects that have no screenshot.
    The first project gets the wide card at the top of the grid.
-   No project links to a repository yet; add repo: "https://github.com/..." to show a source link.
+   Add repo: "https://github.com/..." to show a source link; projects without one link to the GitHub profile.
    ============================================================ */
 // wide = a landscape promo video, shown in a 16:9 player instead of a phone
 const demo = (file, poster, wide = false) => ({ src: `Apps-Demo-Videos/web/${file}.mp4`, poster, wide });
@@ -15,6 +15,23 @@ const shot = (file, alt) => ({ src: `assets/projects/${file}.webp`, alt });
 const frame = (file, n, alt) => ({ src: `assets/projects/screens/${file}-${n}.webp`, alt });
 
 window.PROJECTS = [
+  {
+    slug: "playgrid",
+    name: "PlayGrid",
+    featured: true,
+    tagline: "Multi-sport league and club platform, top 4 at NaSCon '26",
+    description: "A multi-sport league and club operations platform built by a team of three at the NaSCon '26 App Dev Competition, where we finished in the top 4 teams. It covers fixtures, live scores, standings, rosters, a club store with checkout, live streaming and QR links, and the Flutter Android app keeps working offline and syncs on reconnect. I led the backend, infrastructure and integration.",
+    architecture: "FastAPI REST and WebSocket API · PostgreSQL append-only event store · Redis for rate limiting, event streams and realtime pub/sub · MinIO for PDF receipts and match recordings · MediaMTX for RTMP, WebRTC and HLS streaming · Flutter app with Riverpod and an offline sync queue",
+    highlights: [["Top 4", "NaSCon '26 App Dev Competition"], ["41 ms", "p95 live score push to 25 clients"], ["4", "Tournament formats generated"], ["97%+", "Test coverage across core modules"]],
+    stack: ["Flutter", "Riverpod", "FastAPI", "PostgreSQL", "Redis", "MinIO", "MediaMTX", "Docker"],
+    languages: ["Dart", "Python"],
+    categories: ["mobile", "backend"],
+    badges: ["Top 4 · NaSCon '26", "Team project"],
+    repo: "https://github.com/f243077-cell/nasconhackathon",
+    video: demo("nascon", "assets/projects/playgrid.webp"),
+    screens: [shot("playgrid", "PlayGrid fixtures screen showing a live match score and upcoming matches"),
+      frame("playgrid", 2, "Match page with a live score, lineups and pinned club merch"), frame("playgrid", 3, "Organizer score entry with a goal recorded"), frame("playgrid", 4, "Club store with jerseys, gear and digital items"), frame("playgrid", 5, "Scanning a match QR code"), frame("playgrid", 6, "Sync queue holding a roster change made offline"), frame("playgrid", 7, "Co-stream with up to 4 hosts and one composite stream")],
+  },
   {
     slug: "bioguard",
     name: "BioGuard",
