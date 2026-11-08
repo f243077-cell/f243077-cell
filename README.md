@@ -8,18 +8,18 @@
 <a href="mailto:tanzeelhussain346@gmail.com"><img alt="Status: open to Flutter and AI roles" src="https://img.shields.io/badge/status-open_to_Flutter_%26_AI_roles-4aa6f5?style=flat-square&labelColor=1b1a17"></a>
 </p>
 
-[Portfolio](https://portfolio-tanzeelhussain.vercel.app/) · [Résumé (PDF)](https://portfolio-tanzeelhussain.vercel.app/assets/Tanzeel_Hussain_Resume.pdf) · [LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Email](mailto:tanzeelhussain346@gmail.com)
+[Portfolio](https://portfolio-tanzeelhussain.vercel.app/) · [Résumé (PDF)](https://portfolio-tanzeelhussain.vercel.app/assets/Tanzeel_Hussain_Resume.pdf) · [LinkedIn](https://linkedin.com/in/tanzeel-hussain-176a93327/) · [Upwork](https://www.upwork.com/freelancers/~010abcc56cc81a152c) · [Email](mailto:tanzeelhussain346@gmail.com)
 
 ## About me
 
-I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter apps end to end: Riverpod state, Clean Architecture layers, and a real backend behind the UI, whether that's Firebase, Supabase, or a FastAPI service I wrote myself. In August 2026 I finished an eight-week remote Flutter internship at FlutterCraft.app, and I take freelance Flutter work on Fiverr alongside my degree. My last three builds each put something smarter than a CRUD API behind the screen: an LLM study companion, an LLM resume generator whose API key never leaves a Supabase Edge Function, and an MQTT-fed cold-chain monitor. I've now followed that direction into GenAI engineering with CiteRAG, a RAG system whose citations are checked by code, built with LlamaIndex, LangGraph and CrewAI on top of a solid mobile foundation. I'm open to Flutter and AI-engineering roles, remote or on-site, in Pakistan, Dubai, and Germany.
+I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter apps end to end: Riverpod state, Clean Architecture layers, and a real backend behind the UI, whether that's Firebase, Supabase, or a FastAPI service I wrote myself. In August 2026 I finished an eight-week remote Flutter internship at FlutterCraft.app, and I take freelance Flutter work on [Upwork](https://www.upwork.com/freelancers/~010abcc56cc81a152c) alongside my degree. My last three builds each put something smarter than a CRUD API behind the screen: an LLM study companion, an LLM resume generator whose API key never leaves a Supabase Edge Function, and an MQTT-fed cold-chain monitor. I've now followed that direction into GenAI engineering with CiteRAG, a RAG system whose citations are checked by code, built with LlamaIndex, LangGraph and CrewAI on top of a solid mobile foundation. I'm open to Flutter and AI-engineering roles, remote or on-site, in Pakistan, Dubai, and Germany.
 
 ### Career snapshot
 
 | Role                        | Organization               | When                      |
 | :-------------------------- | :------------------------- | :------------------------ |
 | Flutter Developer Intern    | FlutterCraft.app (remote)  | Jul – Aug 2026, completed |
-| Freelance Flutter Developer | Fiverr                     | Ongoing                   |
+| Freelance Flutter Developer | [Upwork](https://www.upwork.com/freelancers/~010abcc56cc81a152c) | Ongoing                   |
 | BS Software Engineering     | FAST-NUCES Faisalabad      | 2024 – 2028               |
 
 ## Featured projects
