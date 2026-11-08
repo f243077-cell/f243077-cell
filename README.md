@@ -12,7 +12,7 @@
 
 ## About me
 
-I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter apps end to end: Riverpod state, Clean Architecture layers, and a real backend behind the UI, whether that's Firebase, Supabase, or a FastAPI service I wrote myself. In August 2026 I finished an eight-week remote Flutter internship at FlutterCraft.app, and I take freelance Flutter work on Fiverr alongside my degree. My last three builds each put something smarter than a CRUD API behind the screen: an LLM study companion, an LLM resume generator whose API key never leaves a Supabase Edge Function, and an MQTT-fed cold-chain monitor. That's the direction I'm heading, GenAI engineering (RAG, LangChain, agent orchestration) on top of a solid mobile foundation. I'm open to Flutter and AI-engineering roles, remote or on-site, in Pakistan, Dubai, and Germany.
+I'm a Software Engineering student at FAST-NUCES Faisalabad who builds Flutter apps end to end: Riverpod state, Clean Architecture layers, and a real backend behind the UI, whether that's Firebase, Supabase, or a FastAPI service I wrote myself. In August 2026 I finished an eight-week remote Flutter internship at FlutterCraft.app, and I take freelance Flutter work on Fiverr alongside my degree. My last three builds each put something smarter than a CRUD API behind the screen: an LLM study companion, an LLM resume generator whose API key never leaves a Supabase Edge Function, and an MQTT-fed cold-chain monitor. I've now followed that direction into GenAI engineering with CiteRAG, a RAG system whose citations are checked by code, built with LlamaIndex, LangGraph and CrewAI on top of a solid mobile foundation. I'm open to Flutter and AI-engineering roles, remote or on-site, in Pakistan, Dubai, and Germany.
 
 ### Career snapshot
 
@@ -47,6 +47,12 @@ Subject-aware AI chat, MCQ quizzes that are generated and scored on the spot, an
 Describe your background in plain language and it drafts a full ATS-optimized resume (summary, experience, education, skills, projects), optionally tailored to a pasted job description, then renders it through a custom template engine on the `pdf` package into five layouts: Classic, Modern, Minimal, Executive and Executive 2. Generation runs server-side in a Supabase Edge Function that calls OpenRouter (Llama 3.3 70B), so the API key never ships inside the app, and each generation draws on a per-user credit balance stored in Postgres behind free and premium plans. Supabase stays behind domain interfaces (`IResumeRepository`, `IAuthRepository`), with a Riverpod notifier per feature module and a go_router shell route for persistent bottom navigation.
 
 <sub>Flutter · Riverpod · Supabase (Auth, Postgres, Storage, Edge Functions) · OpenRouter · go_router</sub>
+
+### [CiteRAG](https://github.com/f243077-cell/Cited-RAG-Project): a RAG chatbot whose citations are checked by code
+
+My first GenAI project: ask questions about your own PDFs, Markdown and images and get answers where every quoted passage is fuzzy-matched against its source page by code, with one corrective retry and a visible warning on any remaining doubt. Retrieval is LlamaIndex hybrid search over Chroma and a BM25 docstore, document text is escaped as untrusted data (five injection canaries, none leaked), and a semantic cache on NumPy and SQLite serves a repeated question in about 0.1 s instead of about 10 s. It answers in three modes: Standard, Deep (a three-agent CrewAI crew) and Agent (a LangGraph agent that plans, searches with tools and reflects), and a read-only MCP server exposes the same tools to any MCP client. An evaluation harness measured hit@5 at 92% (96% with re-ranking) on an AI-reviewed golden set, so those numbers are provisional, and 681 offline tests pass.
+
+<sub>Python · FastAPI · Streamlit · LlamaIndex · Chroma · LangChain · LangGraph · CrewAI · MCP · OpenRouter · Docker Compose</sub>
 
 ### [Console Chess Engine](https://github.com/f243077-cell/oop-chess-game): two-player chess in the terminal
 
@@ -87,7 +93,8 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 - **Mobile:** Flutter, Dart, Riverpod, Provider, Hive, Drift (SQLite), Platform Channels, iOS Live Activities, Android Foreground Services, flutter_local_notifications, Material Design, Animations
 - **Architecture & design:** Clean Architecture, Layered Architecture, MVC, MVP, Repository Pattern, Feature-First Architecture, SOLID, GoF Design Patterns, OOP, UML
 - **Backend & cloud:** Firebase Auth, Firestore, Firebase Realtime Database, Firestore Security Rules, REST APIs, Cloudflare Workers, Google Cloud Run, PostgreSQL, FastAPI
-- **AI:** Antigravity, Cursor, Claude Code, Google Stitch, OpenRouter, Postman, LLMs, prompt engineering
+- **GenAI engineering:** RAG pipelines, context engineering, vector databases (Chroma), hybrid search and re-ranking, semantic caching, LlamaIndex, LangChain, LangGraph, CrewAI, AI agents and tool calling, MCP, structured output (Pydantic), prompt-injection defense, RAG evaluation, multimodal AI
+- **AI tools & models:** Antigravity, Cursor, Claude Code, Google Stitch, OpenRouter, Postman, LLMs, prompt engineering
 - **Languages:** SQL, Dart, C++, Java, Python
 - **Tools:** Git, GitHub, VS Code, Android Studio, Docker
 
@@ -97,15 +104,16 @@ A DSA course project with one hard rule: no STL containers, so every structure i
 - [x] Docker
 - [x] MCP (Model Context Protocol) & prompt engineering
 - [x] Software Design & Architecture (SDA)
-- [ ] LLM orchestration & RAG (LangChain)
+- [x] LLM orchestration & RAG (LangChain)
 - [ ] Software Construction & Development (SCD)
-- [ ] Vector databases
+- [x] Vector databases
 - [ ] MLOps
-- [ ] Agentic AI systems
+- [x] Agentic AI systems
 
 ## Achievements
 
 - Top 4 team at the NaSCon '26 App Dev Competition: built [PlayGrid](https://github.com/f243077-cell/nasconhackathon), a multi-sport league and club platform
+- Covered every topic of a GenAI engineering roadmap (Python and FastAPI, LLM fundamentals, RAG, agents and MCP, production engineering); first project built from it: [CiteRAG](https://github.com/f243077-cell/Cited-RAG-Project)
 - GDG "Build with AI" hackathon participant: built [FounderAI](https://github.com/f243077-cell/Founder_AI), an AI startup assistant
 
 ## GitHub stats

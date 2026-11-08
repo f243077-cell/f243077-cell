@@ -74,14 +74,18 @@
   const phoneHTML = (p) => `<div class="p3d"><div class="phone" data-tilt>${p.screens.map((s, j) => `<img${j ? "" : ` class="on"`} src="${s.src}" alt="${esc(s.alt)}" loading="lazy" decoding="async">`).join("")}</div></div>
     ${p.screens.length > 1 ? `<div class="dots" aria-hidden="true">${p.screens.map((_, j) => `<i${j ? "" : ` class="on"`}></i>`).join("")}</div>` : ""}`;
   const mediaHTML = (p) => p.screens ? phoneHTML(p) : (p.image || p.art) ? winHTML(p) : "";
-  safely(() => {
-    const grid = $("#apps");
-    grid.innerHTML = PROJECTS.map((p, i) => `
-      <article class="app" data-tags="${p.categories.join(" ")}" data-i="${i}">
+  // the three project sections, in page order; each project names its section with `group`
+  const GROUPS = [
+    { id: "genai", title: "GenAI projects", lede: "LLM systems built to be checked, measured and shipped, not just demoed." },
+    { id: "flutter", title: "Flutter apps", lede: "Cross-platform apps with Riverpod state, Clean Architecture and a real backend behind the screens." },
+    { id: "other", title: "Other projects", lede: "Systems-level C++ and discrete-mathematics work from my degree." },
+  ];
+  const cardHTML = (p, i) => `
+      <article class="app" data-i="${i}">
         <div class="app-media${p.screens ? "" : " is-win"}">${mediaHTML(p)}</div>
         <div class="app-body">
           ${p.featured || p.badges ? `<div class="app-badges">${(p.badges || ["Featured"]).map((b) => `<span>${esc(b)}</span>`).join("")}</div>` : ""}
-          <h3 class="app-name">${esc(p.name)}</h3>
+          <h4 class="app-name">${esc(p.name)}</h4>
           <p class="app-tag">${esc(p.tagline)}</p>
           <p class="app-desc">${esc(p.description)}</p>
           ${p.highlights ? `<ul class="app-hl">${p.highlights.map(([b, t]) => `<li><b>${esc(b)}</b>${esc(t)}</li>`).join("")}</ul>` : ""}
@@ -92,7 +96,21 @@
           </div>
         </div>
         <button class="app-hit" type="button" aria-label="Open ${esc(p.name)}"></button>
-      </article>`).join("");
+      </article>`;
+  safely(() => {
+    const grid = $("#apps");
+    grid.innerHTML = GROUPS.map((g) => {
+      const cards = PROJECTS.map((p, i) => (p.group === g.id ? cardHTML(p, i) : "")).join("");
+      const n = PROJECTS.filter((p) => p.group === g.id).length;
+      return n ? `
+      <section class="proj-group" data-group="${g.id}" aria-labelledby="pg-${g.id}">
+        <header class="proj-head">
+          <h3 class="proj-title" id="pg-${g.id}">${esc(g.title)}<span class="proj-n">${n}</span></h3>
+          <p class="proj-lede">${esc(g.lede)}</p>
+        </header>
+        <div class="apps">${cards}</div>
+      </section>` : "";
+    }).join("");
 
     // each card's phone changes screen on its own while the card is on screen
     const STEP = 2600;
@@ -126,7 +144,7 @@
     tabs.forEach((t) => t.addEventListener("click", () => {
       const f = t.dataset.filter;
       tabs.forEach((b) => b.setAttribute("aria-selected", String(b === t)));
-      $$(".app", grid).forEach((card) => { card.hidden = f !== "all" && !card.dataset.tags.split(" ").includes(f); });
+      $$(".proj-group", grid).forEach((g) => { g.hidden = f !== "all" && g.dataset.group !== f; });
     }));
 
     grid.addEventListener("click", (e) => {
@@ -237,6 +255,12 @@
       else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
     }
   });
+
+  // any button marked data-open="<slug>" opens that project
+  $$("[data-open]").forEach((b) => b.addEventListener("click", () => {
+    const i = PROJECTS.findIndex((p) => p.slug === b.dataset.open);
+    if (i >= 0) openProject(i);
+  }));
 
   /* ---------- app spotlight: each app's screen in turn, every few seconds ---------- */
   safely(() => {

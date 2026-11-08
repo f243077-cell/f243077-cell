@@ -5,7 +5,8 @@
    video     = a portrait demo that plays inside a phone frame.
    image     = a wide picture (console apps) shown in a code window instead of a phone.
    art       = inline SVG drawn for projects that have no screenshot.
-   The first project gets the wide card at the top of the grid.
+   group     = which section the project sits in: "flutter", "genai" or "other" (see GROUPS in script.js).
+               Keep the list in group order, so the project drawer steps through projects in page order.
    Add repo: "https://github.com/..." to show a source link; projects without one link to the GitHub profile.
    ============================================================ */
 // wide = a landscape promo video, shown in a 16:9 player instead of a phone
@@ -16,7 +17,25 @@ const frame = (file, n, alt) => ({ src: `assets/projects/screens/${file}-${n}.we
 
 window.PROJECTS = [
   {
+    slug: "citerag",
+    group: "genai",
+    name: "CiteRAG",
+    featured: true,
+    tagline: "Ask your documents. Code checks every citation.",
+    description: "A RAG chatbot over your own PDFs, Markdown and images, where every citation is checked by code instead of trusted from the model. Each quoted passage is fuzzy-matched against its source page, a failed check triggers one corrective retry, and text hidden inside documents is treated as data, never as instructions. It answers in three modes: Standard, Deep (a three-agent CrewAI crew) and Agent (a LangGraph agent that plans, searches with tools and reflects), serves repeat questions from a semantic cache, and exposes the same read-only tools to any MCP client.",
+    architecture: "FastAPI backend with a Streamlit UI · LlamaIndex hybrid search over Chroma and a BM25 docstore · citation verifier with a corrective retry · LangChain LLM gateway on OpenRouter free models · semantic cache on NumPy and SQLite · CrewAI Deep mode and LangGraph Agent mode · MCP server over stdio with three read-only tools · evaluation harness with a golden set · Docker Compose",
+    highlights: [["92%", "Retrieval hit@5 on an AI-reviewed set"], ["0.1 s", "Repeat question served from the cache"], ["0 of 5", "Injection canary leaks"], ["681", "Tests passing, no network needed"]],
+    stack: ["Python", "FastAPI", "LlamaIndex", "Chroma", "LangChain", "LangGraph", "CrewAI", "MCP", "Streamlit", "Docker"],
+    languages: ["Python"],
+    categories: ["ai", "backend"],
+    badges: ["First GenAI project", "RAG"],
+    repo: "https://github.com/f243077-cell/Cited-RAG-Project",
+    video: demo("citerag", "assets/projects/citerag.webp", true),
+    image: { src: "assets/projects/citerag.webp", alt: "CiteRAG title card: a chatbot over your own documents where code checks every citation", window: "citerag" },
+  },
+  {
     slug: "playgrid",
+    group: "flutter",
     name: "PlayGrid",
     featured: true,
     tagline: "Multi-sport league and club platform, top 4 at NaSCon '26",
@@ -34,6 +53,7 @@ window.PROJECTS = [
   },
   {
     slug: "bioguard",
+    group: "flutter",
     name: "BioGuard",
     featured: true,
     tagline: "Real-time cold-chain monitoring, from sensor to alert",
@@ -50,6 +70,7 @@ window.PROJECTS = [
   },
   {
     slug: "acadai-buddy",
+    group: "flutter",
     name: "AcadAI Buddy",
     featured: true,
     tagline: "An AI tutor that actually knows the FAST-NUCES syllabus",
@@ -65,6 +86,7 @@ window.PROJECTS = [
   },
   {
     slug: "createresume-ai",
+    group: "flutter",
     name: "CreateResume AI",
     featured: true,
     tagline: "Turns a few sentences into an ATS-ready resume",
@@ -79,40 +101,8 @@ window.PROJECTS = [
       frame("createresume", 2, "Choosing a career stage"), frame("createresume", 3, "Describing yourself in plain language"), frame("createresume", 4, "Choosing a resume template"), frame("createresume", 5, "Editing the generated resume sections"), frame("createresume", 6, "Finished resume exported as a PDF")],
   },
   {
-    slug: "weather-app",
-    name: "Flutter Weather App",
-    tagline: "Weather forecasting · Flutter + REST API",
-    description: "Real-time weather app fetching live temperature, humidity, wind speed and multi-day forecast data, with a responsive Material UI, location-based lookup and graceful error handling.",
-    architecture: "Live REST API · location-based lookup · graceful error handling",
-    stack: ["Flutter", "Dart", "REST API"],
-    languages: ["Dart"],
-    categories: ["mobile"],
-    screens: [shot("weather-app", "Flutter Weather App showing live conditions for London")],
-  },
-  {
-    slug: "console-chess",
-    name: "Console Chess Game",
-    tagline: "Terminal chess engine · C++ + OOP",
-    description: "Fully functional chess engine with each piece as a separate class carrying its own movement logic. Complete rule enforcement, with check, checkmate and stalemate detection, and ANSI-coloured terminal rendering.",
-    architecture: "One class per piece · full rule enforcement · ANSI terminal rendering",
-    stack: ["C++", "OOP"],
-    languages: ["C++"],
-    categories: ["systems"],
-    image: { src: "assets/projects/console-chess.webp", alt: "Console Chess Game board rendered in the terminal", window: "console-chess" },
-  },
-  {
-    slug: "social-console",
-    name: "Console Social Media Platform",
-    tagline: "Data Structures project · C++",
-    description: "Integrated console-based social system combining linked lists, stacks, queues, trees and graphs: user connections, post feeds, notifications and search, each mapped to the data structure suited for it.",
-    architecture: "Linked lists · stacks · queues · trees · graphs",
-    stack: ["C++", "Data Structures"],
-    languages: ["C++"],
-    categories: ["systems"],
-    image: { src: "assets/projects/social-media-console.webp", alt: "Console Social Media Platform splash screen", window: "social-platform", pixel: true },
-  },
-  {
     slug: "unidisc",
+    group: "other",
     name: "UniDisc",
     tagline: "Where discrete math meets course scheduling",
     description: "University management system that models course scheduling, prerequisite validation, faculty assignment and enrollment using propositional and predicate logic, set and relation analysis, and dynamic programming for conflict detection.",
