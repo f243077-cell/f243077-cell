@@ -295,6 +295,30 @@
     spot.addEventListener("click", () => openProject(apps[k].i));
   });
 
+  /* ---------- hero stack: drag to turn it ---------- */
+  safely(() => {
+    const stage = $(".stack-stage"), stack = stage && $(".stack", stage), spot = $("#spot");
+    if (!stack || !spot) return;
+    let rz = -34, rx = 58, dragging = false, moved = 0, lx = 0, ly = 0;
+    stage.addEventListener("pointerdown", (e) => { dragging = true; moved = 0; lx = e.clientX; ly = e.clientY; });
+    addEventListener("pointermove", (e) => {
+      if (!dragging) return;
+      const dx = e.clientX - lx, dy = e.clientY - ly;
+      lx = e.clientX; ly = e.clientY;
+      moved += Math.abs(dx) + Math.abs(dy);
+      if (moved > 6) stage.classList.add("dragging");
+      rz -= dx * .4;
+      rx = Math.max(38, Math.min(72, rx - dy * .25));
+      stack.style.setProperty("--rz", `${rz.toFixed(1)}deg`);
+      stack.style.setProperty("--rx", `${rx.toFixed(1)}deg`);
+    }, { passive: true });
+    const end = () => { dragging = false; stage.classList.remove("dragging"); };
+    addEventListener("pointerup", end);
+    addEventListener("pointercancel", end);
+    // a drag is not a tap: swallow the click that follows it so the project doesn't open
+    spot.addEventListener("click", (e) => { if (moved > 6) { e.stopImmediatePropagation(); moved = 0; } }, true);
+  });
+
   /* ---------- 3D: phones and the photo turn toward the pointer, with light moving across the glass ---------- */
   safely(() => {
     if (reduceMotion || !matchMedia("(hover: hover) and (pointer: fine)").matches) return;

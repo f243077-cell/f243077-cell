@@ -1,0 +1,106 @@
+/* ============================================================
+   TANZEEL HUSSAIN · PORTFOLIO · design tokens
+   Palette "charcoal & sand", dark only.
+
+   Two tiers:
+   1. Primitives: the raw values. Components never read these.
+   2. Semantic: named roles that point at primitives. Components read only these.
+   To re-theme the site, change tier 2. To retune a shade, change tier 1.
+   ============================================================ */
+
+/* ---------- tier 1: primitives ---------- */
+:root {
+  /* colour ramps */
+  --charcoal-950: #121314;
+  --charcoal-900: #18191b;
+  --charcoal-800: #202124;
+  --charcoal-700: #2a2b2f;
+  --charcoal-600: #3a3b40;
+  --sand-50: #f6f0e2;
+  --sand-100: #ece2cc;
+  --sand-300: #d8c6a0;
+  --sand-400: #c4ae82;
+  --sand-500: #ac9970;
+  --sand-600: #8c7a55;
+  --sage-400: #8fb89c;
+  --clay-400: #d39a80;
+  --stone-400: #a3a8ae;
+
+  /* the same colours as channels, for translucent fills: rgb(var(--rgb-sand) / .12) */
+  --rgb-charcoal: 18 19 20;
+  --rgb-bg: 24 25 27;
+  --rgb-sand: 216 198 160;
+  --rgb-sage: 143 184 156;
+  --rgb-clay: 211 154 128;
+
+  /* spacing, on a 4px base */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  /* corner radii */
+  --radius-1: 6px;   /* controls, chips, small tiles */
+  --radius-2: 10px;  /* cards inside cards */
+  --radius-3: 16px;  /* page-level cards */
+}
+
+/* ---------- tier 2: semantic ---------- */
+:root {
+  color-scheme: dark;
+
+  /* surfaces, from the page up */
+  --color-bg: var(--charcoal-900);
+  --color-surface: var(--charcoal-800);
+  --color-surface-raised: var(--charcoal-700);
+  --color-surface-high: var(--charcoal-600);
+  --color-inset: var(--charcoal-950);        /* wells: the hero stage, code windows */
+  --color-bezel: #0b0b0c;                    /* phone frames */
+
+  /* lines */
+  --color-border: rgb(var(--rgb-sand) / .14);
+  --color-border-strong: rgb(var(--rgb-sand) / .32);
+
+  /* text: each one is 4.5:1 or better on the surfaces it sits on */
+  --color-text: var(--sand-50);
+  --color-text-muted: var(--sand-400);
+  --color-text-subtle: var(--sand-500);
+
+  /* accent */
+  --color-accent: var(--sand-300);
+  --color-accent-hover: var(--sand-100);
+  --color-on-accent: var(--charcoal-950);
+  --color-accent-wash: rgb(var(--rgb-sand) / .1);
+
+  /* states */
+  --color-status: var(--sage-400);
+  --color-danger: var(--clay-400);
+
+  /* skill globe categories */
+  --color-cat-mobile: var(--sand-300);
+  --color-cat-arch: var(--sand-50);
+  --color-cat-backend: var(--sage-400);
+  --color-cat-ai: var(--clay-400);
+  --color-cat-lang: var(--sand-500);
+  --color-cat-tools: var(--stone-400);
+
+  /* type: one family, set wide for headings and normal for text */
+  --font-display: "Archivo", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-body: "Archivo", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-stretch-display: 114%;
+  --font-stretch-hero: 122%;
+
+  /* layout */
+  --layout-side: 320px;
+  --layout-gap: 20px;
+
+  /* motion and depth */
+  --ease-out: cubic-bezier(.2, .8, .2, 1);
+  --shadow-lift: 0 24px 60px -30px rgba(0, 0, 0, .7);
+
+  /* hero stack: how far the phone floats above the bottom layer */
+  --stack-rise: 262px;
+}
