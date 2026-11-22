@@ -19,15 +19,17 @@ BUILD = {"Makefile", "CMake", "Dockerfile", "Shell", "Batchfile", "PowerShell", 
 # Code `flutter create` generates for the platform runners — not written by hand.
 FLUTTER_RUNNERS = {"C++", "C", "Swift", "Kotlin", "Java", "Objective-C", "HTML"}
 
-# Same tokens as the banner and the portfolio site: one accent, ink/bone neutrals.
+# Same tokens as the banner and the portfolio site (tokens.css): charcoal & sand,
+# with sage, clay and stone as the extra hues.
 THEMES = {
-    "dark": dict(bg="#12110f", border="#eee8dd", border_op=0.09, text0="#eee8dd",
-                 text2="#a39b8e", accent="#4aa6f5", track="#eee8dd", track_op=0.08),
-    "light": dict(bg="#f5f1ea", border="#12110f", border_op=0.10, text0="#12110f",
-                  text2="#6b645a", accent="#1f78c8", track="#12110f", track_op=0.08),
+    "dark": dict(bg="#18191b", border="#d8c6a0", border_op=0.16, text0="#f6f0e2",
+                 text2="#c4ae82", accent="#d8c6a0", track="#f6f0e2", track_op=0.08,
+                 # sand, sage, clay, stone, sand-500, sand-100
+                 langs=["#d8c6a0", "#8fb89c", "#d39a80", "#a3a8ae", "#ac9970", "#ece2cc"]),
+    "light": dict(bg="#f6f0e2", border="#18191b", border_op=0.12, text0="#18191b",
+                  text2="#5e5340", accent="#7a6845", track="#18191b", track_op=0.08,
+                  langs=["#a88d57", "#5a8a69", "#b2694a", "#6f767d", "#c4ae82", "#3a3b40"]),
 }
-# Tints of the single accent, strongest first, for the language bar.
-TINTS = [1.0, 0.72, 0.52, 0.38, 0.27, 0.18]
 
 SANS = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif"
 SERIF = "Georgia, 'Times New Roman', serif"
@@ -106,13 +108,13 @@ def build(stats, theme):
     seg, x = [], bx
     for i, (lang, share) in enumerate(stats["top"]):
         w = share * bw
-        seg.append(f'<rect x="{x:.1f}" y="112" width="{w:.1f}" height="12" fill="{t["accent"]}" fill-opacity="{TINTS[i]}"/>')
+        seg.append(f'<rect x="{x:.1f}" y="112" width="{w:.1f}" height="12" fill="{t["langs"][i]}"/>')
         x += w
     parts.append(f'<g clip-path="url(#bar)">{"".join(seg)}</g>')
     for i, (lang, share) in enumerate(stats["top"]):
         col, row = i % 3, i // 3
         lx, ly = bx + col * 192, 162 + row * 30
-        parts.append(f'<rect x="{lx}" y="{ly - 10}" width="10" height="10" rx="2" fill="{t["accent"]}" fill-opacity="{TINTS[i]}"/>')
+        parts.append(f'<rect x="{lx}" y="{ly - 10}" width="10" height="10" rx="2" fill="{t["langs"][i]}"/>')
         label(lx + 18, ly, lang, 15, t["text0"], 500)
         label(lx + 176, ly, f"{share * 100:.1f}%", 14, anchor="end")
 
